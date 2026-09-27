@@ -18,25 +18,34 @@ screen, and the picker never repeats a sound inside one video.
 
 ```bash
 cd sfx-palette
-python3 build_palette.py --previews
+python3 build_palette.py \
+  --library "/Library/Audio/Apple Loops/Apple/Final Cut Pro Sound Effects" \
+  --library ~/SFX/packs \
+  --previews
 ```
 
-Defaults: library `/Library/Audio/Apple Loops/Apple/Final Cut Pro Sound Effects`,
-spec `palette_spec.json`, output `out/`. Needs `ffmpeg` on PATH and `numpy`.
-The first run measures every file (a few minutes). Later runs reuse
-`out/measure_cache.json` and only measure new or changed files.
+With no `--library`, it uses the Apple library only. Put downloaded packs
+(the Drive packs, Epidemic Sound, Ocular Sounds, CinePacks) as unzipped folders
+under `~/SFX/packs/`; every audio file below that folder is picked up. The
+sources and their licenses are tracked in Notion: Dr. Omavi Bailey →
+SleepMD — Music, SFX & Asset Library → 🔊 SFX Sources.
+
+Needs `ffmpeg` on PATH and `numpy`. The first run measures every file (a few
+minutes). Later runs reuse `out/measure_cache.json` and only measure new or
+changed files.
+
+Files that hold a row of separate hits (a pack's `Clicks.wav` with 20 clicks)
+are split into one sound per hit, each with its own in and out point. Single
+designed sounds are left whole. Use `--no-split` to turn this off.
 
 Outputs in `out/`:
 
 | File | What it is |
 |---|---|
-| `palette.json` | role → keys, and key → absolute path, sync point (s), peak/RMS dB, attack, tail, centroid, suggested gain |
+| `palette.json` | role → keys, and key → absolute path, in/out points (`start_s`, `end_s`), sync point (`sync_s`, seconds into the file), peak/RMS dB, attack, tail, centroid, suggested gain |
 | `palette_report.md` | keys per role vs target, which roles came up short, and Epidemic Sound search terms to fill them |
 | `previews/<role>.wav` | one audition file per role: every sound in that role, peak-matched, 0.5 s apart |
 | `measure_cache.json` | per-file measurements |
-
-To add Epidemic Sound downloads, put them in a folder and run again with
-`--library` pointing at that folder and `--out` at a second output dir.
 
 ## How files are sorted
 
@@ -64,8 +73,11 @@ key = pal.pick("glide_soft", video="N21")          # never repeats inside N21
 key = pal.pick_for_device("checkmark", video="N21") # uses the spec's device map
 key = pal.pick("glide_soft", video="TV", tv=True)   # only TV-calm roles
 
-info = pal.keys[key]   # info["path"], info["sync_s"], info["gain_db"]
+info = pal.keys[key]   # path, start_s, end_s, sync_s, gain_db
 ```
+
+To place a key so its peak lands on a motion at time `T` in the edit: use the
+file from `start_s` to `end_s`, starting it at `T - (sync_s - start_s)`.
 
 `gain_db` puts the file's peak at -12 dBFS, and never above the -10 dBFS
 ceiling for placed SFX. Still ebur128-check the finished preview before
