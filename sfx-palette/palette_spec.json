@@ -1,0 +1,1701 @@
+{
+ "roles": [
+  {
+   "role": "room_bed",
+   "use_for": "Continuous low bed under the SleepMD TV cut, and a soft tail under CTA end cards and outdoor or morning shots: room tone, gentle rain, distant birds, night crickets, light wind.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Ambience",
+    "Nature",
+    "Animals"
+   ],
+   "name_hints": [
+    "room tone",
+    "roomtone",
+    "ambience",
+    "ambient",
+    "atmosphere",
+    "birds",
+    "birdsong",
+    "rain",
+    "drizzle",
+    "wind",
+    "breeze",
+    "stream",
+    "brook",
+    "creek",
+    "lake",
+    "night",
+    "crickets",
+    "insects",
+    "forest",
+    "countryside",
+    "meadow",
+    "garden",
+    "bedroom",
+    "quiet"
+   ],
+   "exclude_hints": [
+    "train",
+    "drain",
+    "brain",
+    "storm",
+    "thunder",
+    "hurricane",
+    "tornado",
+    "blizzard",
+    "howl",
+    "strong",
+    "heavy",
+    "downpour",
+    "torrential",
+    "hail",
+    "tin roof",
+    "turbine",
+    "traffic",
+    "street",
+    "city",
+    "highway",
+    "freeway",
+    "subway",
+    "crowd",
+    "restaurant",
+    "cafe",
+    "pub",
+    "kitchen",
+    "office",
+    "hospital",
+    "waiting room",
+    "reception",
+    "lobby",
+    "classroom",
+    "construction",
+    "siren",
+    "dog",
+    "horn",
+    "airport",
+    "station",
+    "harbor",
+    "marina",
+    "boat",
+    "stadium",
+    "party",
+    "applause",
+    "audience",
+    "school",
+    "playground",
+    "market",
+    "shopping mall",
+    "casino",
+    "arcade",
+    "gym",
+    "carnival",
+    "zoo",
+    "factory",
+    "engine",
+    "machine",
+    "war zone",
+    "warfare",
+    "battle",
+    "club",
+    "crow",
+    "seagull",
+    "gull",
+    "parrot",
+    "hawk",
+    "rooster",
+    "chicken",
+    "goose",
+    "geese",
+    "duck",
+    "peacock",
+    "magpie",
+    "cockatoo",
+    "woodpecker",
+    "cicada",
+    "frog",
+    "toad",
+    "swarm",
+    "mosquito",
+    "wasp",
+    "buzz",
+    "farm",
+    "tractor",
+    "cow",
+    "sheep",
+    "goat",
+    "barn",
+    "jungle",
+    "monkey",
+    "tropical"
+   ],
+   "duration_s": [
+    8,
+    600
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 18,
+   "target_count": 14,
+   "epidemic_search": [
+    "room tone quiet",
+    "bedroom night ambience",
+    "soft rain on window",
+    "gentle wind outside",
+    "distant birds morning",
+    "night crickets soft"
+   ]
+  },
+  {
+   "role": "rise_swell",
+   "use_for": "Reverse-air pre-swell whose loudest point is at its end and lands exactly on a reveal: before the payoff line, a rising line graph, the dictionary card, or the CTA end card. Replaces air_rev / whoosh_rise overuse. At most 2 per video.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Motions & Transitions"
+   ],
+   "name_hints": [
+    "reverse",
+    "reversed",
+    "backward",
+    "riser",
+    "rising",
+    "rise",
+    "swell",
+    "upward"
+   ],
+   "exclude_hints": [
+    "hit",
+    "impact",
+    "laser",
+    "zap",
+    "gun",
+    "electronic",
+    "synth",
+    "digital",
+    "glitch",
+    "cartoon",
+    "siren",
+    "alarm",
+    "beep",
+    "scream",
+    "engine",
+    "truck",
+    "vehicle",
+    "vacuum",
+    "construction",
+    "horror",
+    "scary",
+    "creepy",
+    "tension",
+    "suspense",
+    "sci",
+    "ocean",
+    "wave",
+    "surf",
+    "water",
+    "sunrise",
+    "surprise",
+    "bass",
+    "sub drop"
+   ],
+   "duration_s": [
+    0.8,
+    4
+   ],
+   "attack_ms_min": 300,
+   "centroid_hz_max": 3500,
+   "crest_db_max": 22,
+   "target_count": 14,
+   "epidemic_search": [
+    "reverse whoosh soft",
+    "reverse air swell",
+    "reverse wind swell",
+    "reverse breath",
+    "reverse whoosh slow"
+   ],
+   "folder_only_ok": true,
+   "sync_frac": [
+    0.7,
+    1.0
+   ]
+  },
+  {
+   "role": "shimmer_reveal",
+   "use_for": "Glass or dictionary card appearing, a focus pull landing on a key object, CTA end-card sparkle, and the TV cut's payoff. Airy crystalline sweep or rubbed glass with a soft onset, never a struck bell. At most 2 per video.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Motions & Transitions",
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "crystal",
+    "shimmer",
+    "sparkle",
+    "twinkle",
+    "glisten",
+    "glimmer",
+    "wind chime",
+    "chimes",
+    "mark tree",
+    "bell tree",
+    "glass rub",
+    "glass harp",
+    "glass",
+    "harp",
+    "glockenspiel",
+    "celesta"
+   ],
+   "exclude_hints": [
+    "break",
+    "shatter",
+    "smash",
+    "crash",
+    "hit",
+    "impact",
+    "electronic",
+    "synth",
+    "digital",
+    "laser",
+    "zap",
+    "cartoon",
+    "alarm",
+    "clink",
+    "toast",
+    "magic",
+    "fairy",
+    "game",
+    "coin",
+    "reward",
+    "notification",
+    "door",
+    "window",
+    "bottle",
+    "jar",
+    "ice cube",
+    "sci"
+   ],
+   "duration_s": [
+    0.6,
+    6
+   ],
+   "attack_ms_min": 60,
+   "centroid_hz_max": 5500,
+   "crest_db_max": 20,
+   "target_count": 12,
+   "epidemic_search": [
+    "glass rim rub",
+    "mark tree soft",
+    "wind chimes gentle",
+    "harp glissando soft",
+    "crystal glass shimmer"
+   ]
+  },
+  {
+   "role": "low_dolly",
+   "use_for": "Camera dolly or pull-back, slow push-ins, zooms into a body or brain diagram, large objects settling into frame, and weighty handoffs. Deep, dark air with its loudest point mid-file and no hit on the end.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Motions & Transitions",
+    "Ambience"
+   ],
+   "name_hints": [
+    "whoosh",
+    "woosh",
+    "swoosh",
+    "sweep",
+    "rumble",
+    "drone",
+    "wind gust",
+    "wind"
+   ],
+   "exclude_hints": [
+    "hit",
+    "impact",
+    "explosion",
+    "thunder",
+    "earthquake",
+    "crash",
+    "boom",
+    "engine",
+    "truck",
+    "train",
+    "subway",
+    "plane",
+    "jet",
+    "helicopter",
+    "quadcopter",
+    "propeller",
+    "car",
+    "motor",
+    "machine",
+    "ship",
+    "boat",
+    "horn",
+    "gun",
+    "electronic",
+    "synth",
+    "sub drop",
+    "bass drop",
+    "alarm",
+    "horror",
+    "sci",
+    "reverse",
+    "pillow",
+    "breath",
+    "stomach",
+    "window",
+    "rewind",
+    "winding",
+    "windshield",
+    "wiper",
+    "chime",
+    "flute",
+    "bee"
+   ],
+   "duration_s": [
+    1,
+    6
+   ],
+   "attack_ms_min": 200,
+   "centroid_hz_max": 1600,
+   "crest_db_max": 18,
+   "target_count": 14,
+   "epidemic_search": [
+    "low whoosh",
+    "deep whoosh slow",
+    "low wind whoosh",
+    "low air rumble pass",
+    "deep air pass slow"
+   ],
+   "folder_only_ok": true,
+   "sync_frac": [
+    0.2,
+    0.8
+   ]
+  },
+  {
+   "role": "glide_soft",
+   "use_for": "Main gentle transition air: scene-to-scene handoffs, card or object drifting in, focus-pull racks, slow camera moves, and TV stand-in for in-scene whips. Replaces the overused whoosh_air on handoffs. Long, eased, no transient, loudest point near the middle.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Motions & Transitions"
+   ],
+   "name_hints": [
+    "whoosh",
+    "woosh",
+    "swoosh",
+    "swish",
+    "sweep",
+    "swirl",
+    "swipe",
+    "wind gust",
+    "breeze",
+    "airy"
+   ],
+   "exclude_hints": [
+    "hit",
+    "impact",
+    "laser",
+    "zap",
+    "gun",
+    "sword",
+    "blade",
+    "arrow",
+    "bullet",
+    "punch",
+    "kick",
+    "crash",
+    "explosion",
+    "electronic",
+    "synth",
+    "digital",
+    "glitch",
+    "cartoon",
+    "boing",
+    "spring",
+    "jet",
+    "plane",
+    "rocket",
+    "helicopter",
+    "vehicle",
+    "truck",
+    "motorcycle",
+    "train",
+    "racing",
+    "engine",
+    "motor",
+    "fire",
+    "flame",
+    "torch",
+    "broom",
+    "floor",
+    "card",
+    "reverse",
+    "whip",
+    "crack",
+    "rope",
+    "stick",
+    "bat",
+    "swing",
+    "golf",
+    "racket",
+    "water",
+    "toilet",
+    "crystal",
+    "shimmer",
+    "sparkle",
+    "twinkle",
+    "chime",
+    "glass",
+    "magic",
+    "scream",
+    "horror",
+    "sci"
+   ],
+   "duration_s": [
+    0.8,
+    3.5
+   ],
+   "attack_ms_min": 150,
+   "centroid_hz_max": 3500,
+   "crest_db_max": 20,
+   "target_count": 30,
+   "epidemic_search": [
+    "soft whoosh",
+    "slow air whoosh",
+    "gentle swoosh",
+    "smooth whoosh pass by",
+    "wind whoosh soft",
+    "cloth whoosh slow"
+   ],
+   "folder_only_ok": true,
+   "sync_frac": [
+    0.2,
+    0.8
+   ]
+  },
+  {
+   "role": "whip_motion",
+   "use_for": "Reels only: one short air whoosh placed at the peak velocity of an on-screen object whip inside a scene (the 'perfect scene' whoosh_air use). Never used on scene handoffs. The TV cut uses glide_soft instead.",
+   "calm_ok_for_tv": false,
+   "apple_categories": [
+    "Motions & Transitions"
+   ],
+   "name_hints": [
+    "whoosh",
+    "woosh",
+    "swoosh",
+    "swish",
+    "whip",
+    "swipe"
+   ],
+   "exclude_hints": [
+    "hit",
+    "impact",
+    "laser",
+    "zap",
+    "gun",
+    "sword",
+    "blade",
+    "arrow",
+    "bullet",
+    "punch",
+    "kick",
+    "crash",
+    "crack",
+    "bullwhip",
+    "cream",
+    "explosion",
+    "electronic",
+    "synth",
+    "digital",
+    "glitch",
+    "cartoon",
+    "boing",
+    "spring",
+    "jet",
+    "rocket",
+    "vehicle",
+    "truck",
+    "engine",
+    "motor",
+    "flame",
+    "torch",
+    "water",
+    "rope",
+    "crystal",
+    "chime",
+    "scream",
+    "sci"
+   ],
+   "duration_s": [
+    0.25,
+    1.5
+   ],
+   "attack_ms_min": 30,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 22,
+   "target_count": 20,
+   "epidemic_search": [
+    "quick air whoosh",
+    "short swish",
+    "air whip whoosh",
+    "fast whoosh soft",
+    "cloth swish whoosh"
+   ],
+   "folder_only_ok": true
+  },
+  {
+   "role": "clock_tick",
+   "use_for": "Clock hand moving, time passing, a counter ticking up, bedtime or wake time on screen. Single ticks or short tick runs from a real clock or watch, never an alarm or a striking clock. TV cut: single ticks or runs of 2 s or less.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Mech:Tech"
+   ],
+   "name_hints": [
+    "clock",
+    "ticking",
+    "tick tock",
+    "tock",
+    "wristwatch",
+    "watch",
+    "stopwatch",
+    "pendulum",
+    "metronome",
+    "clockwork",
+    "gears",
+    "winding"
+   ],
+   "exclude_hints": [
+    "alarm",
+    "bell",
+    "chime",
+    "cuckoo",
+    "strike",
+    "striking",
+    "gong",
+    "hour",
+    "buzzer",
+    "beep",
+    "electronic",
+    "digital",
+    "bomb",
+    "toy",
+    "gun",
+    "stick",
+    "ticket",
+    "timer",
+    "grind",
+    "machine",
+    "motor"
+   ],
+   "duration_s": [
+    0.1,
+    10
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 5000,
+   "crest_db_max": 26,
+   "target_count": 10,
+   "epidemic_search": [
+    "wall clock ticking",
+    "wristwatch tick close",
+    "clock mechanism",
+    "grandfather clock tick"
+   ]
+  },
+  {
+   "role": "pill_rattle",
+   "use_for": "Pill bottle rattling, pills poured into a hand, supplement or medication shots. Short real plastic-bottle rattles.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "pill",
+    "pills",
+    "pill bottle",
+    "capsule",
+    "vitamin",
+    "medicine",
+    "medication",
+    "prescription",
+    "tablets",
+    "rattle"
+   ],
+   "exclude_hints": [
+    "pillow",
+    "pillar",
+    "caterpillar",
+    "spill",
+    "beer",
+    "wine",
+    "cork",
+    "break",
+    "smash",
+    "spray",
+    "snake",
+    "chain",
+    "door",
+    "window",
+    "cage",
+    "gun",
+    "baby",
+    "toy",
+    "metal",
+    "tin can",
+    "engine",
+    "time capsule",
+    "space",
+    "computer",
+    "ipad",
+    "water",
+    "liquid"
+   ],
+   "duration_s": [
+    0.2,
+    3.5
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 6000,
+   "crest_db_max": 22,
+   "target_count": 8,
+   "epidemic_search": [
+    "pill bottle rattle",
+    "pills shake bottle",
+    "pill bottle open",
+    "pills pour into hand",
+    "plastic bottle cap twist"
+   ]
+  },
+  {
+   "role": "pen_draw",
+   "use_for": "Timeline strip drawing on, line graph drawing, checkmark stroke, word struck through, handwritten underline. Real pencil, pen or marker on paper.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "pencil",
+    "writing",
+    "write",
+    "ballpoint",
+    "marker",
+    "scribble",
+    "chalk",
+    "signature",
+    "sketch",
+    "drawing",
+    "draw",
+    "eraser",
+    "erase",
+    "highlighter",
+    "felt tip",
+    "crayon",
+    "quill"
+   ],
+   "exclude_hints": [
+    "drawer",
+    "drawbridge",
+    "withdraw",
+    "drawstring",
+    "typewriter",
+    "signal",
+    "squeak",
+    "sharpen",
+    "snap",
+    "break",
+    "click",
+    "chalkboard scratch",
+    "case",
+    "box",
+    "drop",
+    "tap",
+    "roll",
+    "ruler"
+   ],
+   "duration_s": [
+    0.2,
+    6
+   ],
+   "attack_ms_min": 5,
+   "centroid_hz_max": 6000,
+   "crest_db_max": 22,
+   "target_count": 16,
+   "epidemic_search": [
+    "pencil writing on paper",
+    "pen stroke on paper",
+    "marker writing",
+    "pencil tick mark",
+    "pencil line draw"
+   ]
+  },
+  {
+   "role": "paper_slide",
+   "use_for": "Card slides in, page turn, a document or notebook appearing, info cards shuffling, list items building. Real paper, card or book handling.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "paper",
+    "page",
+    "book",
+    "card",
+    "cardboard",
+    "envelope",
+    "folder",
+    "notebook",
+    "magazine",
+    "newspaper",
+    "document",
+    "flip",
+    "shuffle",
+    "slide"
+   ],
+   "exclude_hints": [
+    "tear",
+    "ripping",
+    "crumple",
+    "shred",
+    "staple",
+    "stapler",
+    "scissors",
+    "punch",
+    "whistle",
+    "landslide",
+    "playground",
+    "guitar",
+    "rock",
+    "gun",
+    "pager",
+    "slide projector",
+    "door",
+    "flop",
+    "coin",
+    "phone",
+    "foot",
+    "feet",
+    "shoe",
+    "slam",
+    "thud"
+   ],
+   "duration_s": [
+    0.25,
+    2.5
+   ],
+   "attack_ms_min": 10,
+   "centroid_hz_max": 6000,
+   "crest_db_max": 22,
+   "target_count": 16,
+   "epidemic_search": [
+    "paper slide on table",
+    "card slide",
+    "page turn soft",
+    "book page flip",
+    "envelope slide",
+    "notebook page flip"
+   ]
+  },
+  {
+   "role": "settle_soft",
+   "use_for": "Pillow or bed settling, blanket pulled up, someone lying down, a soft exhale. The calmest foley in the set and the best fit for SleepMD TV. Breath, sigh and exhale files go only in VO gaps and never in the TV cut.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Foley",
+    "Work:Home",
+    "People"
+   ],
+   "name_hints": [
+    "cloth",
+    "fabric",
+    "blanket",
+    "sheet",
+    "pillow",
+    "bed",
+    "cushion",
+    "sofa",
+    "couch",
+    "mattress",
+    "towel",
+    "clothes",
+    "linen",
+    "duvet",
+    "comforter",
+    "quilt",
+    "rustle",
+    "sleeping bag",
+    "lie down",
+    "lying down",
+    "breath",
+    "exhale",
+    "sigh"
+   ],
+   "exclude_hints": [
+    "heavy",
+    "panting",
+    "gasp",
+    "cough",
+    "sneeze",
+    "snore",
+    "yawn",
+    "scream",
+    "grunt",
+    "laugh",
+    "struggle",
+    "fight",
+    "wheeze",
+    "spring",
+    "creak",
+    "squeak",
+    "bounce",
+    "zipper",
+    "velcro",
+    "bedroom",
+    "bedrock",
+    "wind",
+    "paper",
+    "plastic bag",
+    "paper bag",
+    "shopping bag",
+    "foil",
+    "wrapper",
+    "cellophane",
+    "leaves",
+    "grass",
+    "bush",
+    "river",
+    "seabed",
+    "ocean",
+    "flower",
+    "metal",
+    "tear",
+    "rip",
+    "hanger",
+    "clothesline",
+    "dryer",
+    "washer",
+    "washing",
+    "snap",
+    "whip",
+    "flick",
+    "horror",
+    "scary",
+    "monster",
+    "creature",
+    "underwater",
+    "scuba",
+    "diver",
+    "mask"
+   ],
+   "duration_s": [
+    0.4,
+    5
+   ],
+   "attack_ms_min": 40,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 20,
+   "target_count": 14,
+   "epidemic_search": [
+    "pillow fluff soft",
+    "bed sheets rustle",
+    "blanket pull up",
+    "lying down on bed",
+    "fabric rustle soft",
+    "soft exhale sigh"
+   ]
+  },
+  {
+   "role": "cup_set",
+   "use_for": "Coffee cup set down, spoon stir, pour into a mug, caffeine and evening-routine scenes.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "cup",
+    "mug",
+    "coffee",
+    "teacup",
+    "tea cup",
+    "teapot",
+    "ceramic",
+    "saucer",
+    "plate",
+    "spoon",
+    "stir",
+    "pour",
+    "pouring",
+    "dish",
+    "espresso"
+   ],
+   "exclude_hints": [
+    "cupboard",
+    "hiccup",
+    "suction",
+    "cupping",
+    "break",
+    "shatter",
+    "smash",
+    "crash",
+    "grinder",
+    "machine",
+    "dishwasher",
+    "satellite",
+    "rain",
+    "downpour",
+    "toilet",
+    "sink",
+    "washing",
+    "drop",
+    "armor",
+    "license",
+    "plateau",
+    "template",
+    "steel",
+    "sand",
+    "gravel",
+    "cement",
+    "concrete"
+   ],
+   "duration_s": [
+    0.1,
+    3
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 24,
+   "target_count": 10,
+   "epidemic_search": [
+    "coffee cup set down on table",
+    "ceramic mug placed",
+    "spoon stir coffee",
+    "pour coffee into mug",
+    "saucer cup soft"
+   ]
+  },
+  {
+   "role": "latch_close",
+   "use_for": "Nightstand drawer, cabinet, box lid or pill bottle cap opening or closing; a quiet closing gesture on an end card. Soft latch, no slam, no house doors.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Foley",
+    "Mech:Tech"
+   ],
+   "name_hints": [
+    "latch",
+    "drawer",
+    "nightstand",
+    "cabinet",
+    "cupboard",
+    "lid",
+    "box lid",
+    "wooden box",
+    "jewelry box",
+    "jewellery box",
+    "suitcase",
+    "briefcase",
+    "laptop close",
+    "clasp",
+    "hinge"
+   ],
+   "exclude_hints": [
+    "slam",
+    "knock",
+    "bang",
+    "kick",
+    "creak",
+    "squeak",
+    "doorbell",
+    "garage",
+    "car",
+    "truck",
+    "gate",
+    "jail",
+    "prison",
+    "vault",
+    "clock",
+    "block",
+    "slide",
+    "glide",
+    "collide",
+    "solid",
+    "eyelid",
+    "boxing",
+    "music box",
+    "gun",
+    "cell",
+    "shutter",
+    "window",
+    "umbrella",
+    "trash",
+    "garbage",
+    "toilet",
+    "pot lid",
+    "saucepan",
+    "book",
+    "zipper",
+    "velcro"
+   ],
+   "duration_s": [
+    0.1,
+    2.5
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4000,
+   "crest_db_max": 26,
+   "target_count": 8,
+   "epidemic_search": [
+    "drawer close soft",
+    "cabinet latch click",
+    "wooden box lid close",
+    "nightstand drawer open",
+    "soft door latch"
+   ]
+  },
+  {
+   "role": "chime_payoff",
+   "use_for": "Reels only: at most one per video, on the payoff moment only (the 'right' chime). Warm bell, bowl, glass or kalimba tone with a long, soft tail. Kept out of the TV cut because clinics use chimes to call patients; the TV payoff uses a soft-onset shimmer_reveal or nothing.",
+   "calm_ok_for_tv": false,
+   "apple_categories": [
+    "Motions & Transitions",
+    "Work:Home",
+    "Foley"
+   ],
+   "name_hints": [
+    "chime",
+    "bell",
+    "bowl",
+    "singing bowl",
+    "tibetan",
+    "tingsha",
+    "handbell",
+    "hand bell",
+    "glockenspiel",
+    "vibraphone",
+    "celesta",
+    "kalimba",
+    "wine glass",
+    "glass ding"
+   ],
+   "exclude_hints": [
+    "doorbell",
+    "door",
+    "desk bell",
+    "service bell",
+    "reception",
+    "counter",
+    "hotel",
+    "alarm",
+    "fire",
+    "school",
+    "church",
+    "tower",
+    "clock",
+    "bicycle",
+    "bike",
+    "cow",
+    "ship",
+    "buoy",
+    "truck",
+    "tram",
+    "train",
+    "crossing",
+    "buzzer",
+    "boxing",
+    "bowling",
+    "toilet",
+    "dog",
+    "dumbbell",
+    "barbell",
+    "belly",
+    "bellow",
+    "phone",
+    "ringtone",
+    "ringing",
+    "notification",
+    "alert",
+    "message",
+    "game",
+    "coin",
+    "level",
+    "success",
+    "elevator",
+    "microwave",
+    "timer",
+    "error",
+    "wrong",
+    "fail",
+    "cartoon",
+    "sleigh",
+    "jingle",
+    "wind",
+    "electronic",
+    "synth",
+    "digital"
+   ],
+   "duration_s": [
+    0.8,
+    15
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 3500,
+   "crest_db_max": 22,
+   "target_count": 10,
+   "epidemic_search": [
+    "singing bowl strike soft",
+    "wine glass ding",
+    "hand bell single soft",
+    "kalimba single note",
+    "glockenspiel single note soft"
+   ],
+   "tail_ms_min": 1000
+  },
+  {
+   "role": "switch_light",
+   "use_for": "Light switch or lamp turning on or off, lightbox flicking on (the 'perfect scene' light_on use), fluorescent panel starting. Real switches, no electrical zaps or hums.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Mech:Tech"
+   ],
+   "name_hints": [
+    "light switch",
+    "switch",
+    "lamp",
+    "toggle",
+    "pull chain",
+    "pull cord",
+    "power button",
+    "fluorescent",
+    "light on",
+    "lights on"
+   ],
+   "exclude_hints": [
+    "shock",
+    "spark",
+    "zap",
+    "electronic",
+    "synth",
+    "power up",
+    "power down",
+    "laser",
+    "sci",
+    "lightning",
+    "relay",
+    "breaker",
+    "railroad",
+    "clamp",
+    "blade",
+    "hum",
+    "buzz"
+   ],
+   "duration_s": [
+    0.05,
+    2
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 26,
+   "target_count": 10,
+   "epidemic_search": [
+    "light switch on",
+    "lamp switch click",
+    "pull chain light",
+    "fluorescent light turn on",
+    "wall switch flip"
+   ]
+  },
+  {
+   "role": "phone_wake",
+   "use_for": "Reels only: phone screen waking, phone vibrating on a nightstand, screen tap or unlock. Real phone handling, not electronic tones.",
+   "calm_ok_for_tv": false,
+   "apple_categories": [
+    "Mech:Tech",
+    "Work:Home"
+   ],
+   "name_hints": [
+    "cell phone",
+    "cellphone",
+    "smartphone",
+    "mobile phone",
+    "phone",
+    "vibrate",
+    "vibrating",
+    "vibration",
+    "touch screen",
+    "touchscreen",
+    "screen tap"
+   ],
+   "exclude_hints": [
+    "ringing",
+    "ringtone",
+    "ring",
+    "dial",
+    "busy",
+    "alarm",
+    "beep",
+    "static",
+    "microphone",
+    "xylophone",
+    "saxophone",
+    "headphone",
+    "telephone",
+    "payphone",
+    "rotary",
+    "hang up",
+    "slam",
+    "notification",
+    "tone",
+    "synth",
+    "machine",
+    "engine",
+    "motor",
+    "washing",
+    "massage",
+    "toothbrush",
+    "razor",
+    "shaver",
+    "drill",
+    "door"
+   ],
+   "duration_s": [
+    0.15,
+    2.5
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4000,
+   "crest_db_max": 24,
+   "target_count": 8,
+   "epidemic_search": [
+    "phone vibrate on table",
+    "smartphone screen tap",
+    "phone pick up from table",
+    "phone unlock click"
+   ]
+  },
+  {
+   "role": "drop_land",
+   "use_for": "Map pin drops, a small object landing, a data point dropping into place. Droplet, pebble, marble or wood tap. Never a thud with low-end punch (centroid floor 800 Hz).",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Foley",
+    "Nature",
+    "Work:Home"
+   ],
+   "name_hints": [
+    "drop",
+    "drops",
+    "drip",
+    "droplet",
+    "plop",
+    "pebble",
+    "marble",
+    "bead",
+    "pin drop",
+    "wood block",
+    "woodblock",
+    "wood tap"
+   ],
+   "exclude_hints": [
+    "body",
+    "bomb",
+    "splash",
+    "crash",
+    "shatter",
+    "break",
+    "glass",
+    "bucket",
+    "toilet",
+    "sink",
+    "faucet",
+    "knock",
+    "door",
+    "coin",
+    "keys",
+    "phone",
+    "book",
+    "metal",
+    "gun",
+    "shell",
+    "casing",
+    "bounce",
+    "basketball",
+    "bass drop",
+    "sub drop",
+    "mic drop",
+    "raindrop",
+    "thud",
+    "thump",
+    "heavy",
+    "fall",
+    "floor",
+    "footstep",
+    "synth"
+   ],
+   "duration_s": [
+    0.1,
+    1.5
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 3500,
+   "crest_db_max": 24,
+   "target_count": 12,
+   "epidemic_search": [
+    "water droplet single",
+    "wood tap soft",
+    "pebble drop on table",
+    "marble drop soft",
+    "sewing pin drop on table"
+   ],
+   "centroid_hz_min": 800
+  },
+  {
+   "role": "tick_soft",
+   "use_for": "Small confirmations made of real mechanics: checkmark land, button press, mouse or trackpad click, pen click, key press, camera shutter (reels only), secondary accent for pin drops, list builds and counters.",
+   "calm_ok_for_tv": true,
+   "apple_categories": [
+    "Work:Home",
+    "Mech:Tech",
+    "Foley"
+   ],
+   "name_hints": [
+    "click",
+    "clicker",
+    "button",
+    "mouse click",
+    "mouse",
+    "pen click",
+    "shutter",
+    "camera",
+    "keyboard",
+    "key press",
+    "keypress",
+    "typing",
+    "toggle",
+    "tap",
+    "trackpad",
+    "touchpad"
+   ],
+   "exclude_hints": [
+    "clock",
+    "stick",
+    "gun",
+    "trigger",
+    "hammer",
+    "monkey",
+    "turkey",
+    "jingle",
+    "faucet",
+    "water",
+    "electronic",
+    "synth",
+    "beep",
+    "game",
+    "arcade",
+    "typewriter",
+    "tongue",
+    "knuckle",
+    "tape",
+    "squeak",
+    "squeal",
+    "rodent",
+    "dance",
+    "window",
+    "roller",
+    "flash",
+    "zoom",
+    "motor",
+    "elevator",
+    "lighter",
+    "seatbelt",
+    "heel",
+    "shoe"
+   ],
+   "duration_s": [
+    0.03,
+    1
+   ],
+   "attack_ms_min": 0,
+   "centroid_hz_max": 4500,
+   "crest_db_max": 24,
+   "target_count": 20,
+   "epidemic_search": [
+    "soft click",
+    "button click plastic",
+    "mouse click",
+    "pen click",
+    "trackpad click",
+    "camera shutter soft"
+   ]
+  }
+ ],
+ "placement_rules": [
+  "SOURCE RULE: every key must be a real recorded library file, either Apple Final Cut Pro Sound Effects (/Library/Audio/Apple Loops/Apple/Final Cut Pro Sound Effects) or a licensed Epidemic Sound download. No synthesis, tone or noise generators, AI generation, AI extension or resynthesis. Allowed processing is limited to trim, fades, clip gain, static EQ (HPF, LPF, shelf), pan or width, and a light shared room-reverb send. Never create extra keys by pitch-shifting or time-stretching. Among library sounds, prefer acoustic foley over synth-sourced electronic FX (the 'synth', 'digital' and 'electronic' excludes enforce this by name).",
+  "MEASUREMENT (defined to match build_palette.py, so a threshold means the same thing every run): decode to mono at 22.05 kHz, then trim head and tail more than 50 dB below the loudest 10 ms frame (the builder must add this trim; today it measures the whole file). Envelope = 10 ms RMS windows on a 5 ms hop. duration_s = trimmed length, or the split-hit length. attack_ms = time from the first frame within 20 dB of the envelope peak to the first frame within 3 dB of it (the old 'first -30 dB frame to the single loudest frame' reading jumps around on flat, noisy sounds). centroid_hz = magnitude-spectrum centroid of each 1024-point Hann frame (0-11 kHz), averaged with frame-energy weights. crest_db = sample-peak dBFS minus the RMS of envelope frames within 40 dB of the envelope peak. Calibration on this scale: steady white noise reads about 5.5 kHz, pink noise 3.5 kHz, pink low-passed at 3 kHz 1.8 kHz and at 1.5 kHz 1.0 kHz. Crest: a smooth symmetric whoosh reads 14-17 dB, a fast-rise long-tail whoosh 16-20, a reverse swell 17-22, a bell strike 17-22, a click or tap 17-24. Attack: a 0.8 s symmetric whoosh reads about 170-210 ms, 1.5 s about 260-470 ms, a 1 s reverse swell 420-500 ms; steady beds give random attack values, so room_bed does not gate on attack. A file passes a role only if it meets all four gates and the shape gates, and matches no exclude_hint. Hints and excludes are case-insensitive substrings of '<library folder>/<path inside it>'.",
+  "SHAPE GATES (sync = loudest envelope frame as a fraction of trimmed length): glide_soft and low_dolly need sync between 0.2 and 0.8, so front-loaded hits and chopped swells stay out. rise_swell needs sync at 0.7 or later, so it lands instead of decaying. drop_land needs a centroid of at least 800 Hz (no low thuds). chime_payoff needs tail_ms (peak to -30 dB) of at least 1000 ms. Shape gates never relax.",
+  "CANDIDATE POOL: glide_soft, whip_motion and low_dolly may take any file in 'Motions & Transitions' that passes the excludes and gates without a name hint, because Apple names are often just 'Whoosh 07'. rise_swell may too, but only through its late-peak shape gate. shimmer_reveal always needs a name hint, so it can't take plain whooshes. Every other role needs a name-hint match. Match apple_categories as a case-insensitive substring of the folder name ('Work:Home' is how macOS stores the Finder folder 'Work/Home') and ignore folders that don't exist. If a role finds fewer than half its target in the listed folders, search its name_hints across the whole library, but never in the Cartoon, Weapons, Explosions, Sci-Fi or Impacts folders.",
+  "ROLE CLAIM ORDER (each file belongs to one role only; roles claim in this order, not by best global score): room_bed, rise_swell, shimmer_reveal, low_dolly, glide_soft, whip_motion, clock_tick, pill_rattle, pen_draw, paper_slide, settle_soft, cup_set, latch_close, chime_payoff, switch_light, phone_wake, drop_land, tick_soft. shimmer_reveal goes before glide_soft so crystal and chime sweeps aren't used up as plain transitions. glide_soft goes before whip_motion so the softer whooshes go to handoffs and the sharper ones are left for in-scene whips. pen_draw goes before paper_slide so 'pencil on paper' stays with the pen.",
+  "FILL AND RELAX: (1) take strict Apple matches, ranked by lowest crest then lowest centroid; (2) if a role is still under target, relax one step (crest +2 dB, centroid +15%, attack_ms_min -30%; durations and shape gates never relax) and tag those keys 'relaxed, reels-only'; nothing goes past one step; (3) turn any remaining gap into an Epidemic shopping list from epidemic_search, then measure the downloads against the same strict gates before they get a key. Stop at the target and don't pad: reject a candidate from the same source family (same base name, different number) whose duration and centroid are both within 5% of a key already picked.",
+  "SLICING: long real recordings (clock ticking, pills shaking, paper handling, fabric, keyboard, rain) and multi-hit files the builder splits into single hits give at most 3 keys per source file, from non-overlapping regions at least 1 s apart, each passing the gates. Slices from one file are a family: never in the same scene or in back-to-back scenes.",
+  "KEYS AND MANIFEST: name keys <role>_a<nn> for Apple and <role>_e<nn> for Epidemic (e.g. glide_soft_a07, settle_soft_e03). The manifest keeps one row per key: source path or Epidemic track ID, original filename, slice in/out, sync point, the four measured values, role, calm_ok_for_tv, relaxed flag and license note. Export each key normalized to -12 dBFS sample peak (true peak -11 dBTP or lower), so a clip at 0 dB gain can't break the ceiling. Licensing: Apple's Final Cut Pro sounds can be used inside finished videos but not handed out as standalone files, so the shared Notion or Drive copy holds the manifest (keys, paths, measurements), not the Apple audio. Before any _e key goes into the TV cut, confirm that the Epidemic plan covers client work for SleepMD and playback on a clinic waiting-room TV.",
+  "LEGACY KEYS keep their names and get a role column: whoosh_air, whoosh_hi, swish, a_swish1/2 and a_whoosh04/06/09/11/13/14/17/18 go to whip_motion or glide_soft by measurement; swish_soft and sweep to glide_soft; whoosh_low and whoosh_deep to low_dolly; whoosh_rise, air_rev, air_rev2 and a_rev_air to rise_swell; a_crystal to shimmer_reveal; light_on, switch and power to switch_light; click, a_button, a_mouse and a_camera to tick_soft; right to chime_payoff; a_pencil to pen_draw; a_drops to drop_land; a_pills to pill_rattle; a_latch to latch_close. Every legacy key is measured against the same gates, and one that fails is tagged 'legacy, reels-only' and kept out of the TV cut. Keys without the a_ prefix stay out of renders until the manifest shows the real library file each one came from; any that was generated or synthesized is retired. a_lowhit, a_metal and a_dit form a separate hard-accent pool: reels only, at most one per video, never in the TV cut, and they don't count toward any role target.",
+  "HARD CEILING: no placed SFX clip may peak above -10 dBFS in the SFX stem, measured as true peak after fades, EQ and clip gain. Where events overlap, the summed stem must stay under the same ceiling (drop the later of two overlapping whoosh-family clips by 3 dB). Reels defaults: whoosh family -14 to -12 dBFS peak, rise_swell and shimmer_reveal -16 to -14, foley transients (attack under 10 ms) -20 to -16, chime about -14, room_bed at -38 dBFS RMS. SFX sit at least 8 dB under the VO. If a clip goes over, lower its clip gain. Don't add a limiter to fix it.",
+  "VARIETY (fixes the 13x whoosh_air machine-gun problem and follows 'no repeats across scenes'): every key, in every role, belongs to the first scene that uses it and is locked for the rest of that video. Inside that scene it may repeat only for a repeated identical motion, at most 3 times and at least 0.7 s apart. For 4 or more identical beats (a bullet list, a row of pins), alternate 2-3 keys from the role. No key is used on two back-to-back events. The picker chooses the least-recently-used key in the role across the last 10 rendered videos, using a usage log. In the TV loop, each topic segment counts as one video for these locks, and no key comes back within 3 minutes of loop time.",
+  "TRANSITIONS ARE GENTLE AND LONG: handoffs run 0.8-1.6 s in reels and 1.2-2.5 s in TV, with eased-in-and-out motion and no fast whips or hard pops. Use a glide_soft or low_dolly key whose trimmed length is at least the handoff length, start it 3-6 frames before the motion, and put its sync point (loudest frame) on the transition midpoint. If the key's head is shorter than half the handoff, let the sound start after the motion does instead; never time-stretch to fit. Fade in for at least 150 ms (300 ms in TV). Fade out for at least 300 ms, ending within 0.5 s after the motion stops. whip_motion is only for on-screen object whips inside a scene, never on a handoff.",
+  "SYNC: whip_motion peaks on the frame of peak on-screen velocity, not on motion start. rise_swell's loudest point lands exactly on the reveal frame, followed by a fade-out of at least 80 ms (150 ms in TV) so it never stops dead. tick_soft, switch_light, drop_land, cup_set and latch_close land within 1 frame of the contact. pen_draw is trimmed to the draw duration with a 30-80 ms tail fade. Every clip gets at least a 2-5 ms fade-in (transients) or 10 ms or more (everything else), and at least 50 ms of fade-out, to avoid clicks. Breath, sigh and exhale keys from settle_soft go only in VO gaps of 400 ms or more, never under the VO.",
+  "PAYOFF AND CTA: at most one chime_payoff per video (none if the video has no clear payoff line), on the payoff moment only, with at least 150 ms of clear air before it (no whoosh tail underneath). The CTA end card gets rise_swell or shimmer_reveal plus a room_bed tail, never a second chime. Per video: rise_swell at most 2 times, shimmer_reveal at most 2 times.",
+  "DENSITY: reels get 2-5 SFX events per scene, counting the handoff, with at most 2 sounding at once (beds don't count). Model it on Mojes's 'perfect' scene: whip_motion on each whip at peak motion, switch_light on the lightbox, low_dolly on the pull-back, one chime on the payoff. Keep that density but use different keys in every scene.",
+  "SLEEPMD TV CUT (clinic waiting room, nothing that makes someone look up from their chair): use only calm_ok_for_tv roles, so no whip_motion, no phone_wake and no chime_payoff (clinics use chimes to call patients). Also leave out legacy hard accents, relaxed keys and any legacy key that failed its gates. Skip any file whose name suggests a real room event people react to: doorbell, door knock, door open, door close, door latch, knock, elevator, pager, alarm, phone, ringing, ringtone, buzzer, beep, bell, chime, footstep, keys, cough, sneeze, breath, sigh, exhale, voice, whisper, camera, shutter. The payoff gets one soft-onset shimmer_reveal or nothing. A phone screen waking gets tick_soft or shimmer_reveal, and an object whip gets glide_soft. Every SFX peaks at or below -18 dBFS, transients at or below -24 dBFS, and rise_swell and shimmer_reveal at or below -22. Bright roles (paper_slide, pen_draw, pill_rattle, shimmer_reveal and anything with a centroid above 4 kHz) get a -4 dB high-shelf at 7-8 kHz. clock_tick uses single ticks or runs of 2 s or less. At most 2 events per scene, at least 3 s apart. At most every other handoff gets a glide_soft or low_dolly (prefer keys with an attack of 250 ms or more), and the rest ride the room_bed crossfade. A continuous room_bed runs at -40 dBFS RMS with 2-3 s crossfades between scenes.",
+  "QC before export: render the SFX stem alone and check that (a) no clip and no overlap peaks above -10 dBTP (-18 in the TV cut), (b) no key appears in two scenes of one video, (c) there is at most one chime_payoff and none in the TV cut, (d) no key is used more than 3 times, (e) every key in the TV cut has calm_ok_for_tv, is not relaxed and passes the room-event name filter, and (f) no breath or sigh key sits under the VO. Log any failure to the manifest and re-pick from the same role."
+ ],
+ "device_map": [
+  {
+   "device": "object racks in with a focus pull",
+   "roles": [
+    "glide_soft",
+    "shimmer_reveal",
+    "low_dolly"
+   ]
+  },
+  {
+   "device": "card slides in",
+   "roles": [
+    "paper_slide",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "title or caption card eases in",
+   "roles": [
+    "glide_soft",
+    "paper_slide"
+   ]
+  },
+  {
+   "device": "timeline strip draws",
+   "roles": [
+    "pen_draw",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "line graph draws",
+   "roles": [
+    "pen_draw",
+    "rise_swell",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "number or stat counts up",
+   "roles": [
+    "clock_tick",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "bullet list or labels build one by one (alternate 2-3 keys)",
+   "roles": [
+    "tick_soft",
+    "paper_slide",
+    "pen_draw"
+   ]
+  },
+  {
+   "device": "map pin drops",
+   "roles": [
+    "drop_land",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "dictionary / glass card appears",
+   "roles": [
+    "shimmer_reveal",
+    "paper_slide",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "checkmark ticks",
+   "roles": [
+    "pen_draw",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "word gets struck through",
+   "roles": [
+    "pen_draw"
+   ]
+  },
+  {
+   "device": "light switches on / lightbox flicks on",
+   "roles": [
+    "switch_light",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "lamp switches off / lights dim for bedtime",
+   "roles": [
+    "switch_light",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "phone screen wakes (TV cut: tick_soft or shimmer_reveal only)",
+   "roles": [
+    "phone_wake",
+    "tick_soft",
+    "shimmer_reveal"
+   ]
+  },
+  {
+   "device": "clock hand moves",
+   "roles": [
+    "clock_tick",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "alarm clock or wake time on screen (never an alarm ring)",
+   "roles": [
+    "clock_tick",
+    "tick_soft"
+   ]
+  },
+  {
+   "device": "pill bottle rattles / opens",
+   "roles": [
+    "pill_rattle",
+    "latch_close"
+   ]
+  },
+  {
+   "device": "coffee cup set down",
+   "roles": [
+    "cup_set"
+   ]
+  },
+  {
+   "device": "pillow / bed settle",
+   "roles": [
+    "settle_soft"
+   ]
+  },
+  {
+   "device": "page turn",
+   "roles": [
+    "paper_slide"
+   ]
+  },
+  {
+   "device": "camera dolly / pull-back",
+   "roles": [
+    "low_dolly",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "zoom into a body or brain diagram",
+   "roles": [
+    "low_dolly",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "scene-to-scene handoff (TV: every other handoff rides the bed crossfade only)",
+   "roles": [
+    "glide_soft",
+    "low_dolly",
+    "rise_swell"
+   ]
+  },
+  {
+   "device": "CTA end card",
+   "roles": [
+    "rise_swell",
+    "shimmer_reveal",
+    "room_bed"
+   ]
+  },
+  {
+   "device": "payoff moment (at most one per video; TV cut: soft shimmer_reveal, no chime)",
+   "roles": [
+    "chime_payoff",
+    "shimmer_reveal"
+   ]
+  },
+  {
+   "device": "object whip / fast on-screen motion inside a scene (reels only; TV cut: glide_soft)",
+   "roles": [
+    "whip_motion",
+    "glide_soft"
+   ]
+  },
+  {
+   "device": "drawer / nightstand / box opens or closes",
+   "roles": [
+    "latch_close"
+   ]
+  },
+  {
+   "device": "continuous bed under SleepMD TV scenes",
+   "roles": [
+    "room_bed"
+   ]
+  },
+  {
+   "device": "outdoor, window or morning establishing shot",
+   "roles": [
+    "room_bed"
+   ]
+  }
+ ],
+ "claim_order": "roles are claimed in the order listed",
+ "tv_exclude_names": [
+  "doorbell",
+  "door knock",
+  "door open",
+  "door close",
+  "door latch",
+  "knock",
+  "elevator",
+  "pager",
+  "alarm",
+  "phone",
+  "ringing",
+  "ringtone",
+  "buzzer",
+  "beep",
+  "bell",
+  "chime",
+  "footstep",
+  "keys",
+  "cough",
+  "sneeze",
+  "breath",
+  "sigh",
+  "exhale",
+  "voice",
+  "whisper",
+  "camera",
+  "shutter"
+ ],
+ "fallback_banned_folders": [
+  "Cartoon",
+  "Weapons",
+  "Explosions",
+  "Sci-Fi",
+  "Impacts"
+ ]
+}
