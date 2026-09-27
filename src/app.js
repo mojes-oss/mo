@@ -42,7 +42,7 @@
   const time12 = t => {
     if (!t) return '';
     const [h, m] = t.split(':').map(Number);
-    return `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`;
+    return `${((h + 11) % 12) + 1}${m ? ':' + String(m).padStart(2, '0') : ''} ${h < 12 ? 'am' : 'pm'}`;
   };
   // Pick a round tick step so the axis never shows labels like 6.3K.
   const niceTicks = (max, maxTicks = 5) => {
@@ -588,11 +588,12 @@
   const stageOf = s => STAGE[String(s || '').toLowerCase()] || 0;
   const stageChip = s => { const n = stageOf(s); return `<span class="stage-chip"><i class="s-${n}"></i>${esc(s || 'unknown')}</span>`; };
   function evCard(it) {
-    return `<div class="ev ${esc(it.kind)}"><div class="k">${KIND_ICON[it.kind] || ''}${esc(KIND_LABEL[it.kind] || it.kind)}${it.time ? ' · ' + esc(time12(it.time)) : ''}</div>
+    return `<div class="ev ${esc(it.kind)}"><div class="k">${KIND_ICON[it.kind] || ''}${esc(KIND_LABEL[it.kind] || it.kind)}${it.time ? `<span class="tm">${esc(time12(it.time))}</span>` : ''}</div>
       <div class="ti">${esc(it.title)}${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}</div>
       ${it.accounts?.length ? `<div class="ac">${it.accounts.map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}</div>` : ''}
       ${it.gated ? '<div class="ac"><span class="sub">Only if it earns 10 MOVEMENT comments in 48h</span></div>' : ''}
       ${it.format && it.format !== 'Reel' ? `<div class="ac"><span class="sub">${esc(it.format)}</span></div>` : ''}
+      ${it.note ? `<div class="nt">${esc(it.note)}</div>` : ''}
     </div>`;
   }
   function renderNext(i) {
@@ -608,7 +609,7 @@
       const its = inWeek.filter(x => x.date === d);
       const dt = parseDay(d);
       const wk = dt.getUTCDay() === 0 || dt.getUTCDay() === 6;
-      return `<div class="day ${wk ? 'weekend' : ''} ${its.length ? '' : 'empty'}"><div class="day-h"><span>${DAYS[dt.getUTCDay()]}</span><b>${dt.getUTCDate()}</b></div>${its.map(evCard).join('') || '<span class="sub" style="padding:2px 4px">Open</span>'}</div>`;
+      return `<div class="day ${wk ? 'weekend' : ''} ${its.length ? '' : 'no-items'}"><div class="day-h"><span>${DAYS[dt.getUTCDay()]}</span><b>${dt.getUTCDate()}</b></div>${its.map(evCard).join('') || '<span class="sub" style="padding:2px 4px">Open</span>'}</div>`;
     }).join('')}</div>`;
 
     const later = items.filter(it => it.date > days[6] && it.kind !== 'shoot');
@@ -620,7 +621,7 @@
     }
     const agenda = [...byWeek].map(([ws, its]) => `
       <div class="ag-week"><div><h4>${esc(rangeLabel(ws, addDays(ws, 6)))}</h4><div class="c">${its.filter(x => x.kind === 'post').length} posts · ${its.filter(x => x.kind === 'boost').length} boosts</div></div>
-        <div class="ag-items">${its.map(it => `<div class="ag-item"><time>${esc(dayLabel(it.date).slice(0, 3))} ${esc(shortDate(it.date))}</time>${KIND_ICON[it.kind] || ''}<div><b style="font-weight:650">${esc(it.title)}</b>${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}<span class="meta">${(it.accounts || []).map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}${it.gated ? '<span class="chip warn">If it clears the gate</span>' : ''}${it.organicOnly ? '<span class="chip ghost">Never boosted</span>' : ''}</span></div></div>`).join('')}</div>
+        <div class="ag-items">${its.map(it => `<div class="ag-item"><time>${esc(dayLabel(it.date).slice(0, 3))} ${esc(shortDate(it.date))}</time>${KIND_ICON[it.kind] || ''}<div><b style="font-weight:650">${esc(it.title)}</b>${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}${it.note ? `<span class="nt">${esc(it.note)}</span>` : ''}<span class="meta">${(it.accounts || []).map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}${it.gated ? '<span class="chip warn">If it clears the gate</span>' : ''}${it.organicOnly ? '<span class="chip ghost">Never boosted</span>' : ''}</span></div></div>`).join('')}</div>
       </div>`).join('');
 
     const series = (D.pipeline?.series || []).filter(s => state.account === 'all' || !s.account || s.account.includes(accName(state.account)) || (state.account === 'meto' && /METO/i.test(s.account)));
@@ -661,8 +662,10 @@
     const weekAds = scopedAds.filter(a => a.week === curWeek()?.start);
     // Sample ads only illustrate the weekly table; the monthly plan compares real spend.
     const spentIn = m => (hasReal ? scopedAds : []).filter(a => (a.from || a.week).slice(0, 7) === m).reduce((s, a) => s + (a.spend || 0), 0);
-    const weekSpend = weekAds.reduce((s, a) => s + (a.spend || 0), 0);
-    const weekResults = weekAds.reduce((s, a) => s + (a.results || 0), 0);
+    // Sample ads only fill the per-ad table; the headline, stats and board stay real.
+    const liveAds = hasReal ? weekAds : [];
+    const weekSpend = liveAds.reduce((s, a) => s + (a.spend || 0), 0);
+    const weekResults = liveAds.reduce((s, a) => s + (a.results || 0), 0);
     const curMonth = addDays(per.end, 1).slice(0, 7);
     const plannedNext = ledger.filter(r => r.month === curMonth && !r.optional).reduce((s, r) => s + r.planned, 0);
 
@@ -673,8 +676,8 @@
 
     const statCards = [
       { l: `Planned for ${monthLabel(curMonth)}`, v: money(plannedNext), s: 'from the boost plan' },
-      { l: 'Spent this week', v: weekAds.length ? money(weekSpend) : '$0', s: weekAds.length ? `${weekAds.length} ad${weekAds.length > 1 ? 's' : ''}` : 'nothing live' },
-      { l: 'Results this week', v: weekAds.length ? fmt(weekResults) : '–', s: weekAds[0]?.resultType || 'clicks, sign-ups or follows' },
+      { l: 'Spent this week', v: liveAds.length ? money(weekSpend) : '$0', s: liveAds.length ? `${liveAds.length} ad${liveAds.length > 1 ? 's' : ''}` : 'nothing live' },
+      { l: 'Results this week', v: liveAds.length ? fmt(weekResults) : '–', s: liveAds[0]?.resultType || 'clicks, sign-ups or follows' },
       { l: 'Cost per result', v: weekResults ? money(Math.round((weekSpend / weekResults) * 100) / 100) : '–', s: 'lower is better' },
     ].map(c => `<div class="stat"><div class="label">${esc(c.l)}</div><div class="value">${c.v}</div><div class="foot">${esc(c.s)}</div></div>`).join('');
 
@@ -701,26 +704,39 @@
     const flight = a => a.flightStart ? `${shortDate(a.flightStart)}${a.flightEnd ? ' to ' + shortDate(a.flightEnd) : ''}` : '';
     const runningCards = [
       ...photo.filter(a => a.status === 'running').map(a => adCard(a.id, a.name, [a.format, flight(a)].filter(Boolean).join(' · '))),
-      ...video.filter(a => a.status === 'running').map(a => adCard(a.id, a.name, a.audience)),
-      ...weekAds.map(a => adCard(a.unit || 'Ad', a.name, `${money(a.spend)} · ${fmt(a.results)} ${a.resultType || 'results'}`)),
+      ...video.filter(a => a.status === 'running').map(a => adCard(a.id, a.name, a.group)),
+      ...liveAds.map(a => adCard(a.unit || 'Ad', a.name, `${money(a.spend)} · ${fmt(a.results)} ${a.resultType || 'results'}`)),
     ];
     const readyCards = [
-      ...photo.filter(a => ['ready', 'needs approval'].includes(a.status)).map(a => adCard(a.id, a.name, [a.format, flight(a)].filter(Boolean).join(' · '), a.status === 'needs approval' ? '<span class="chip warn">Needs approval</span>' : '')),
-      ...video.filter(a => ['ready', 'filmed', 'in edit', 'needs approval'].includes(a.status)).map(a => adCard(a.id, a.name, a.group, `<span class="chip">${esc(a.status)}</span>`)),
+      ...photo.filter(a => a.status === 'ready').map(a => adCard(a.id, a.name, [a.format, flight(a)].filter(Boolean).join(' · '))),
+      ...video.filter(a => ['ready', 'filmed'].includes(a.status)).map(a => adCard(a.id, a.name, a.group)),
       ...filmed.filter(a => a.verdict === 'ready for paid').map(a => adCard(a.clip, a.title, a.length)),
     ];
-    const fixCards = filmed.filter(a => a.verdict === 're-cut for paid' || a.verdict === 're-shoot').map(a => adCard(a.clip, a.title, a.note || a.length, `<span class="chip ${a.verdict === 're-shoot' ? 'crit' : 'warn'}">${esc(a.verdict)}</span>`));
-    const filmCards = [
-      ...toFilm.map(a => adCard(a.when ? shortDateSafe(a.when) : 'To film', a.name, a.why)),
-      ...video.filter(a => a.status === 'scripted').map(a => adCard(a.id, a.name, a.group)),
-      ...photo.filter(a => ['in design', 'planned'].includes(a.status)).map(a => adCard(a.id, a.name, 'Photo ad, ' + a.status)),
-    ];
+    const fixCards = filmed.filter(a => a.verdict === 're-cut for paid' || a.verdict === 're-shoot')
+      .map(a => adCard(`${a.clip} · ${a.length || ''}`, a.title, a.short, `<span class="chip ${a.verdict === 're-shoot' ? 'crit' : 'warn'}">${a.verdict === 're-shoot' ? 'Re-shoot' : 'Re-cut for paid'}</span>`));
+    // Re-cuts and re-shoots already sit in their own lane.
+    const filmCards = toFilm.filter(a => !/^(Paid re-cuts|C0676 re-shoot)/.test(a.name))
+      .map(a => adCard(a.when && a.when.length < 48 ? a.when : 'To film', a.name, firstSentence(a.why)));
     const organic = filmed.filter(a => a.verdict === 'organic only');
 
-    const convRows = weekAds.length ? `<div class="table-wrap"><table><thead><tr><th scope="col">Ad</th><th scope="col">Spend</th><th scope="col">Impressions</th><th scope="col">Results</th><th scope="col">Cost per result</th><th scope="col">Link clicks</th></tr></thead><tbody>${weekAds.map(a => `<tr><td><b>${esc(a.name)}</b><div class="sub">${a.account ? accDot(a.account) + ' ' + esc(accShort(a.account)) : ''} ${esc(a.resultType || '')}</div></td><td>${money(a.spend)}</td><td>${fmt(a.impressions)}</td><td>${fmt(a.results)}</td><td>${a.results ? money(Math.round((a.spend / a.results) * 100) / 100) : '–'}</td><td>${fmt(a.linkClicks)}</td></tr>`).join('')}</tbody></table></div>`
+    const groups = [...new Set(video.map(v => v.group))];
+    const statusChip = st => st === 'needs approval' ? '<span class="chip warn">Needs sign-off</span>' : st === 'scripted' ? '<span class="chip ghost">Script ready</span>' : `<span class="chip">${esc(st)}</span>`;
+    const library = `
+      <div class="grid cols-2" style="margin-top:16px;align-items:start">
+        <details class="series-card"><summary><div class="top"><h3>${video.length} video ad scripts</h3><span class="sub">${video.filter(v => v.status === 'needs approval').length} need sign-off · none filmed <span class="caret">${I.chev}</span></span></div>
+          <p class="desc">${groups.map(g => `${esc(g)} (${video.filter(v => v.group === g).length})`).join(', ')}.</p></summary>
+          <div class="items">${video.map(v => `<div class="item"><span class="code">${esc(v.id)}</span><div>${esc(v.name)}<span class="nt">${esc(v.group)}. ${esc(v.short || '')}</span></div>${statusChip(v.status)}</div>`).join('')}</div>
+        </details>
+        <details class="series-card"><summary><div class="top"><h3>${photo.length} photo ads</h3><span class="sub">In design, on placeholder images <span class="caret">${I.chev}</span></span></div>
+          <p class="desc">Real photos have to replace the placeholders before any of these can run.</p></summary>
+          <div class="items">${photo.map(a => `<div class="item"><span class="code">${esc(a.id)}</span><div>${esc(a.name)}<span class="nt">${esc([a.format, flight(a) && 'planned ' + flight(a)].filter(Boolean).join(', '))}. ${esc(a.short || '')}</span></div><span class="chip ghost">${esc(a.status)}</span></div>`).join('')}</div>
+        </details>
+      </div>`;
+
+    const convRows = weekAds.length ? `<div class="table-wrap"><table><thead><tr><th scope="col">Ad</th><th scope="col">Spend</th><th scope="col">Results</th><th scope="col">Per result</th></tr></thead><tbody>${weekAds.map(a => `<tr><td><b>${esc(a.name)}</b><div class="sub">${a.account ? accDot(a.account) + ' ' + esc(accShort(a.account)) + ' · ' : ''}${esc(a.resultType || 'results')} · ${fmt(a.impressions)} impressions</div></td><td>${money(a.spend)}</td><td>${fmt(a.results)}</td><td>${a.results ? money(Math.round((a.spend / a.results) * 100) / 100) : '–'}</td></tr>`).join('')}</tbody></table></div>`
       : `<div class="empty"><b>No paid results yet</b><span>Spend and conversions show here, per ad, once the first boost runs. Load them with the Ads Manager export.</span></div>`;
 
-    return `${slideHead(i, 'Ads', head, 'What is live, what is ready, what still needs filming, and where the money goes.', usingSample() && weekAds.length ? samplePill() : '')}
+    return `${slideHead(i, 'Ads', head, 'What is live, what is ready, what still needs filming, and where the money goes.')}
       <div class="callout info">${I.info}<div><p><b>Right now:</b> ${esc(A.liveStatus || 'No live ads confirmed.')}</p><p>${esc(R.boost.approved ? 'Monthly caps are approved.' : 'The monthly boost caps are waiting on Dr. Omavi\'s approval at the Sep 28 meeting. Nothing is spent before that.')}</p></div></div>
       <div class="stat-bubbles" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));margin-top:16px">${statCards}</div>
       <h3 style="margin:26px 0 12px;font-size:20px">The ad board</h3>
@@ -730,16 +746,25 @@
         ${lane('Needs a re-cut or re-shoot', fixCards, 'Nothing to fix.')}
         ${lane('To film or make', filmCards, 'Nothing left to film.')}
       </div>
-      ${organic.length ? `<p class="slide-foot">Also filmed, organic only (never paid): ${organic.map(a => esc(a.title)).join(', ')}.</p>` : ''}
+      ${organic.length ? `<p class="slide-foot">Also filmed Aug 22, organic only (never paid): ${organic.map(a => esc(a.title)).join(', ')}.</p>` : ''}
+      ${library}
       <div class="grid cols-2" style="margin-top:24px;align-items:start">
         <div class="card card-plain"><h3>Spend plan, by month</h3><p class="sub" style="margin-bottom:14px">${esc(R.boost.run)}</p><div class="meters">${monthMeters}</div>
           <div class="caps">${caps}</div></div>
-        <div class="card card-plain"><h3>Spend and conversions this week</h3><p class="sub" style="margin-bottom:14px">One row per ad from the Ads Manager export.</p>${convRows}</div>
+        <div class="card card-plain"><h3>Spend and conversions this week ${!hasReal && weekAds.length ? samplePill() : ''}</h3><p class="sub" style="margin-bottom:14px">${!hasReal && weekAds.length ? 'A made-up row, to show how results will read. ' : ''}One row per ad from the Ads Manager export.</p>${convRows}</div>
       </div>
       <div class="grid cols-2" style="margin-top:16px;align-items:start">
-        <div class="card"><h3>The rules we buy by</h3><ul class="rules" style="margin-top:10px">${[R.boost.gate, ...(A.rules || [])].slice(0, 8).map(r => `<li>${I.ban}<span>${esc(r)}</span></li>`).join('')}</ul></div>
-        <div class="card"><h3>Who sees the ads</h3><ul class="plain-list" style="margin-top:10px">${(A.audiences || []).map(a => `<li><b>${esc(a.id)}:</b> ${esc(a.definition)}</li>`).join('') || '<li>Audiences are set in Ads Manager.</li>'}</ul></div>
+        <div class="card"><h3>The rules we buy by</h3><ul class="rules" style="margin-top:10px">${(A.rules && A.rules.length ? A.rules : [R.boost.gate]).map(r => `<li>${I.ban}<span>${esc(r)}</span></li>`).join('')}</ul></div>
+        <div class="card"><h3>Who sees the ads</h3>${moreList((A.audiences || []).map(a => `<li><b>${esc(a.id)}:</b> ${esc(a.definition)}</li>`), 4, 'audiences') || '<p class="sub">Audiences are set in Ads Manager.</p>'}</div>
       </div>`;
+  }
+  const firstSentence = t => String(t || '').split(/(?<=\.)\s/)[0];
+  // A list that shows the first few items and tucks the rest behind "Show more".
+  function moreList(lis, n, what) {
+    if (!lis.length) return '';
+    const head = `<ul class="plain-list" style="margin-top:10px">${lis.slice(0, n).join('')}</ul>`;
+    const rest = lis.slice(n);
+    return head + (rest.length ? `<details class="more"><summary>Show ${rest.length} more ${esc(what)}</summary><ul class="plain-list">${rest.join('')}</ul></details>` : '');
   }
   function shortDateSafe(s) { return /^\d{4}-\d{2}-\d{2}/.test(s) ? shortDate(s) : s; }
 
@@ -758,32 +783,35 @@
       return `<div class="phone-col">
         <div class="phone ${s.status === 'planned' ? 'planned' : ''}" role="img" aria-label="${esc(s.name)} screen: ${esc(blocks.join(', '))}">
           <div class="url">${esc(s.route || '/')}</div>
-          ${shown.map((b, k) => `<div class="blk ${k === 0 ? 'hero' : ''}">${esc(b)}</div>`).join('')}
+          ${shown.map((b, k) => `<div class="blk ${k === 0 ? 'hero' : ''}"><span>${esc(b)}</span></div>`).join('')}
           ${blocks.length > shown.length ? `<div class="more-blk">+${blocks.length - shown.length} more sections</div>` : ''}
         </div>
         <div class="phone-cap"><b>${esc(s.name)}</b><p>${esc(s.job)}</p>
           <span class="chip ${s.status === 'live' ? 'good' : s.status === 'partial' ? 'warn' : 'ghost'}">${s.status === 'live' ? I.check + ' Live' : s.status === 'partial' ? 'Partly built' : 'Planned'}</span>
-          ${s.note ? `<p class="sub" style="margin-top:4px">${esc(s.note)}</p>` : ''}</div>
+          ${s.note ? `<details class="more"><summary>Details</summary><p class="sub">${esc(s.note)}</p></details>` : ''}</div>
       </div>`;
     };
     const areas = P.areas.map(a => `<section class="area" aria-label="${esc(a.name)}"><div class="area-h"><h3>${esc(a.name)}</h3><p>${esc(a.blurb)}</p><span class="chip">${a.screens.length} screen${a.screens.length > 1 ? 's' : ''}</span></div><div class="phones">${a.screens.map(phone).join('')}</div></section>`).join('');
     return `${slideHead(i, 'The app', head, `${esc(P.app.oneLiner)} ${P.app.url ? `<a href="${esc(P.app.url)}" target="_blank" rel="noopener">Open the live app</a>.` : ''}`)}
-      <div class="app-facts">${facts}</div>
+      <div class="app-facts app-facts-grid">${facts}</div>
+      ${P.app.status ? `<p class="slide-foot" style="margin-top:12px">${esc(P.app.status)} ${esc(P.app.builtWith || '')}</p>` : ''}
       <h3 style="margin:24px 0 10px;font-size:19px">How someone finds and uses it</h3>
       <div class="journey">${journey}</div>
       <div style="display:grid;gap:22px;margin-top:26px">${areas}</div>
       <div class="twocol-list" style="margin-top:26px">
-        <div class="card"><h3>Asked for, not built yet</h3><ul class="plain-list" style="margin-top:10px">${(P.requested || []).map(r => `<li><b>${esc(r.name)}.</b> ${esc(r.detail)}</li>`).join('')}</ul></div>
-        <div class="card"><h3>Open questions</h3><ul class="plain-list" style="margin-top:10px">${(P.openQuestions || []).map(q => `<li>${esc(q)}</li>`).join('')}</ul></div>
+        <div class="card"><h3>Asked for, not built yet</h3>${moreList((P.requested || []).map(r => `<li><b>${esc(r.name)}.</b> ${esc(r.detail)}</li>`), 6, 'requests')}</div>
+        <div class="card"><h3>Open questions</h3>${moreList((P.openQuestions || []).map(q => `<li>${esc(q)}</li>`), 6, 'questions')}</div>
       </div>`;
   }
 
   // ---------- slide: asks ----------
   function renderAsks(i) {
-    const asks = D.asks?.items || [];
+    const groups = D.asks?.groups || [{ title: '', items: D.asks?.items || [] }];
+    const total = groups.reduce((n, g) => n + g.items.length, 0);
     const ICONS = { access: I.key, decision: I.ask, budget: I.money, data: I.chart };
-    return `${slideHead(i, 'What we need', `${asks.length} things we need to keep this moving.`, 'Each one unlocks a number on this report or a post on the calendar.')}
-      <div class="asks">${asks.map(a => `<div class="ask"><span class="ic">${ICONS[a.kind] || I.ask}</span><div><b>${esc(a.title)}</b><p>${esc(a.detail)}</p><div class="meta">${a.owner ? `<span class="chip">${esc(a.owner)}</span>` : ''}${a.due ? `<span class="chip warn">By ${esc(shortDateSafe(a.due))}</span>` : ''}${a.unlocks ? `<span class="chip ghost">Unlocks: ${esc(a.unlocks)}</span>` : ''}</div></div></div>`).join('')}</div>`;
+    const ask = a => `<div class="ask"><span class="ic">${ICONS[a.kind] || I.ask}</span><div><b>${esc(a.title)}</b><p>${esc(a.detail)}</p><div class="meta">${a.owner ? `<span class="chip">${esc(a.owner)}</span>` : ''}${a.due ? `<span class="chip warn">By ${esc(shortDateSafe(a.due))}</span>` : ''}${a.unlocks ? `<span class="chip ghost">Unlocks: ${esc(a.unlocks)}</span>` : ''}</div></div></div>`;
+    return `${slideHead(i, 'What we need', `${total} things we need to keep this moving.`, 'Each one unlocks a number on this report, a post on the calendar, or the first ad dollar.')}
+      <div class="ask-groups">${groups.map(g => `<section class="ask-group">${g.title ? `<h3>${esc(g.title)} <span class="chip">${g.items.length}</span></h3>` : ''}<div class="asks">${g.items.map(ask).join('')}</div></section>`).join('')}</div>`;
   }
 
   // ---------- deck ----------

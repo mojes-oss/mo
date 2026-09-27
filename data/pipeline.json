@@ -1,151 +1,611 @@
 {
-  "source": "Q4 Playbook (Sep 24) and Google Drive scripts",
+  "source": "Q4 Playbook (Sep 24), the Omavi project board (Sep 26-27), Google Drive script docs and Notion edit logs. Statuses use the newest source.",
   "series": [
+    {
+      "id": "omavi-15-shorts-v2",
+      "name": "Omavi 15 Shorts v2",
+      "account": "@dromavi, with 01 as a PROMETRA collab",
+      "summary": "Fifteen 45-50 second shorts: five on Kingship, five on Healing, five on Africa. Listed in posting order. 01 to 06 are filmed.",
+      "cta": "Comment MOVEMENT on 01, 02, 03, 05, 11 and 13. 06, 10, 12 and 15 close on Follow. 07 and 09 close on Save. 04, 08 and 14 have no spoken call to action. Adding one to 08 and 14 is still open (Decision 2).",
+      "source": "Google Drive: Omavi 15 Shorts v2 (Sep 23) and '06 First Pharmacy B freestyle v1' file (Sep 26); Notion: omavi king shorts (Sep 26-27) and agency edit log (Sep 25); Omavi Project Board (Sep 26-27)",
+      "items": [
+        {
+          "code": "01",
+          "title": "A Crown Is Not Power",
+          "pillar": "KING",
+          "order": 1,
+          "status": "needs approval",
+          "note": "Shot Sep 23. v3 cut done. Next step: send to Dr. Omavi and Nehanda for a yes to post. The MOVEMENT reply should be live before it posts."
+        },
+        {
+          "code": "02",
+          "title": "The King Has a Boss",
+          "pillar": "KING",
+          "order": 10,
+          "status": "in edit",
+          "note": "Shot Sep 23. v1 cut exported and praised by Nehanda and Dr. Omavi Sep 25. A new edit was in progress Sep 25. No post approval recorded."
+        },
+        {
+          "code": "03",
+          "title": "What a King Protects",
+          "pillar": "KING",
+          "order": 14,
+          "status": "in edit",
+          "note": "Shot Sep 23. v1 cut exported and praised Sep 25. A new edit was in progress Sep 25. No post approval recorded."
+        },
+        {
+          "code": "04",
+          "title": "Why a Physician Sits With Healers",
+          "pillar": "KING",
+          "order": 5,
+          "status": "in edit",
+          "note": "Shot Sep 25. v2 cut built from his freestyle, delivered Sep 26 for finishing. About 88 seconds, longer than the 45-50 second target. Open: is 'Respect the evidence. Respect the elder. Protect the patient.' a formal tagline (Decision 6)?"
+        },
+        {
+          "code": "05",
+          "title": "The King's Invitation",
+          "pillar": "KING",
+          "order": 8,
+          "status": "in edit",
+          "note": "Shot Sep 25. v1 cut delivered Sep 26 for finishing. Open: the on-screen spelling of Agbanakin (Decision 7)."
+        },
+        {
+          "code": "06",
+          "title": "The First Pharmacy",
+          "pillar": "HEALING",
+          "order": 13,
+          "status": "in edit",
+          "note": "Shot Sep 25. Two cuts delivered Sep 26: A scripted (48 s) and B with his freestyle (75 s). Open: which account the follow card names."
+        },
+        {
+          "code": "07",
+          "title": "Food Is Not a Prescription",
+          "pillar": "HEALING",
+          "order": 3,
+          "status": "scripted",
+          "note": "Not filmed. v2 says plants 'may' affect blood pressure, sugar and clotting."
+        },
+        {
+          "code": "08",
+          "title": "The Same Plant Can Pull in Opposite Directions",
+          "pillar": "HEALING",
+          "order": 7,
+          "status": "scripted",
+          "note": "Not filmed. Open: keep or restore the closing line (Decision 2)."
+        },
+        {
+          "code": "09",
+          "title": "Two Healthy Things Can Fight",
+          "pillar": "HEALING",
+          "order": 11,
+          "status": "scripted",
+          "note": "Not filmed. Open: keep hibiscus as the example or switch to black tea (Decision 4)."
+        },
+        {
+          "code": "10",
+          "title": "The Recipe Is the Medicine",
+          "pillar": "HEALING",
+          "order": 15,
+          "status": "scripted",
+          "note": "Not filmed. Open: approve the recording cut or the longer runtime (Decision 1)."
+        },
+        {
+          "code": "11",
+          "title": "Africa Is 54 Countries",
+          "pillar": "AFRICA",
+          "order": 4,
+          "status": "scripted",
+          "note": "Not filmed. Unchanged from v1."
+        },
+        {
+          "code": "12",
+          "title": "The Map Shrank Africa",
+          "pillar": "AFRICA",
+          "order": 9,
+          "status": "scripted",
+          "note": "Not filmed. Unchanged from v1; source note added."
+        },
+        {
+          "code": "13",
+          "title": "The Treasures Came Home",
+          "pillar": "AFRICA",
+          "order": 2,
+          "status": "scripted",
+          "note": "Not filmed, but posts second. Open: OK to drop one v1 line from the opening (Decision 3)."
+        },
+        {
+          "code": "14",
+          "title": "Your Name Is a Sentence",
+          "pillar": "AFRICA",
+          "order": 12,
+          "status": "scripted",
+          "note": "Not filmed. Open: recording cut and closing CTA (Decisions 1 and 2)."
+        },
+        {
+          "code": "15",
+          "title": "The Drum Was a Network",
+          "pillar": "AFRICA",
+          "order": 6,
+          "status": "scripted",
+          "note": "Not filmed. Unchanged from v1."
+        }
+      ]
+    },
     {
       "id": "meto-curriculum-anchor",
       "name": "METO: the curriculum is the anchor",
-      "summary": "Every movement post ends at the free course. Posts go out on the METO Movement account, @prometrausa and @dromavi.",
       "account": "METO Movement, @prometrausa, @dromavi",
-      "cta": "Comment MOVEMENT",
-      "source": "Q4 Playbook campaigns (Sep 24)",
+      "summary": "Every movement post ends at the free curriculum. The pilgrimage is the next step.",
+      "cta": "Go to metomovement.com today and sign up for the free curriculum. A pinned 'Comment MOVEMENT' is added only once the automatic MOVEMENT reply is tested.",
+      "source": "Q4 Playbook data.js campaigns: meto-curriculum-anchor (Sep 24); Omavi Project Board (Sep 26-27)",
       "items": [
+        {
+          "code": "mto-03",
+          "title": "The Oldest Kingdom / The Capital That Came Home: three-account post",
+          "order": 1,
+          "status": "in edit",
+          "note": "Posts Wed Sep 30 on METO. Finished v3 cuts exist. A still needs the METO end card and curriculum line; Dr. Omavi still picks the B cut. No paid boost."
+        },
         {
           "code": "mto-01",
           "title": "Restore Your Humanity (CTA video A)",
-          "status": "to film",
-          "order": 1,
-          "note": "First post Oct 2"
+          "order": 2,
+          "status": "scripted",
+          "note": "Not shot on Sep 23 or in the Sep 25 backup slot. Next set day is Wed Sep 30, so the Fri Oct 2 post date will slip. No paid boost."
+        },
+        {
+          "code": "mto-07",
+          "title": "Movement Voice: natural medicine and current events, weekly",
+          "order": 3,
+          "status": "idea",
+          "note": "Weekly format written. No prompter: he gets a one-line topic brief the night before. Episode 1 films Mon Oct 5 at his house and posts Mon Oct 12. That week the METO feed is full, so it runs as METO Stories, with the feed post on @prometrausa Wed Oct 14."
+        },
+        {
+          "code": "mto-04",
+          "title": "Healing the African Way: five plant videos into the curriculum",
+          "order": 4,
+          "status": "in edit",
+          "note": "Five finished plant reels (22 Onion, 25 Cassava, 28 Turnip, 30 Garden Egg, 31 Netetu) still end on 'comment METO'. They need the new curriculum end card; board target Mon Oct 12. The Sep 25 meeting moved plant posts to collabs on @dromavi and @prometrausa. Plant reels 22-35 have never posted. 13 natural-solutions episodes are scripted, about 97 minutes, none shot. Episodes 1-4 shoot Fri Oct 30 and Fri Nov 6, then post on YouTube Nov 12 and Nov 19."
         },
         {
           "code": "mto-02",
           "title": "Back to the Source (CTA video B)",
-          "status": "to film",
-          "order": 2,
-          "note": "First post Oct 14"
-        },
-        {
-          "code": "mto-03",
-          "title": "The Oldest Kingdom and The Capital That Came Home",
-          "status": "in edit",
-          "order": 3,
-          "note": "First post Sep 30"
-        },
-        {
-          "code": "mto-04",
-          "title": "Healing the African Way: five plant videos",
-          "status": "ready",
-          "order": 4,
-          "note": "First post Oct 13"
+          "order": 5,
+          "status": "scripted",
+          "note": "Not shot yet. Next set day Wed Sep 30. $50 boost only if it gets 10 MOVEMENT comments in its first 48 hours."
         },
         {
           "code": "mto-05",
-          "title": "How to Breathe",
-          "status": "to film",
-          "order": 5,
-          "note": "First post Oct 14"
+          "title": "How to Breathe: the practice from the curriculum",
+          "order": 6,
+          "status": "scripted",
+          "note": "Set for the Sep 25 overlook shoot; no footage found. Next set day Wed Sep 30."
+        },
+        {
+          "code": "mto-08",
+          "title": "Post This, Tag Us: the campus ambassador kit",
+          "order": 7,
+          "status": "scripted",
+          "note": "60-second talk written. Sep 25 slot was blocked; no footage. Kit post planned Fri Oct 16."
+        },
+        {
+          "code": "mto-10",
+          "title": "Made on the Continent: wearing it before selling it",
+          "order": 8,
+          "status": "idea",
+          "note": "Draft lines written. Shoots at the Oct 24-25 pre-party and gala. No paid boost."
         },
         {
           "code": "mto-06",
           "title": "How to Draw the Star",
+          "order": 9,
           "status": "needs approval",
-          "order": 6,
-          "note": "First post Nov 10"
-        },
-        {
-          "code": "mto-07",
-          "title": "Movement Voice, weekly",
-          "status": "to film",
-          "order": 7,
-          "note": "First post Oct 12"
-        },
-        {
-          "code": "mto-08",
-          "title": "Post This, Tag Us: campus ambassador kit",
-          "status": "to film",
-          "order": 8,
-          "note": "First post Oct 16"
+          "note": "Client decision: he confirms what 'the star' means before filming. Sacred material, never boosted. A draft 'make the star' activity is already live in app Module 5."
         },
         {
           "code": "mto-09",
-          "title": "Where I'm From: the DNA piece",
-          "status": "needs approval",
-          "order": 9,
-          "note": "First post Dec 7"
-        },
-        {
-          "code": "mto-10",
-          "title": "Made on the Continent",
-          "status": "to film",
+          "title": "Where I'm From: Dr. Omavi's DNA pilot and the ancestry video",
           "order": 10,
-          "note": "First post Oct 28"
+          "status": "needs approval",
+          "note": "Client decision: whether he does his own DNA test on camera. Swab planned Mon Oct 5. No paid boost."
         }
       ]
     },
     {
       "id": "afr-africa-2027",
       "name": "Dr. Omavi goes to Africa",
+      "account": "@dromavi, with METO collabs",
       "summary": "Set the stage before January, film the trip, and bring it back fast.",
-      "account": "METO Movement, @prometrausa, @dromavi",
-      "cta": "Comment MOVEMENT",
-      "source": "Q4 Playbook campaigns (Sep 24)",
+      "cta": "Go to metomovement.com today. Sign up for the free curriculum. Series tag: 'Follow along. Dr. Omavi goes to Africa.'",
+      "source": "Q4 Playbook data.js campaigns: afr-africa-2027 (Sep 24); Omavi Project Board (Sep 26-27)",
       "items": [
         {
-          "code": "afr-01",
-          "title": "'Dr. Omavi goes to Africa', 6 episodes",
-          "status": "to film",
-          "order": 1,
-          "note": "First post Oct 19"
-        },
-        {
           "code": "afr-02",
-          "title": "Series trailer 'I'm going back'",
+          "title": "Series trailer: 'I'm going back' (cut from the library)",
+          "order": 1,
           "status": "in edit",
+          "note": "Cut from existing library footage. 3 voiceover lines to record Wed Sep 30; edit Tue Oct 6. $50 boost only if it gets 10 MOVEMENT comments in 48 hours."
+        },
+        {
+          "code": "afr-01",
+          "title": "'Dr. Omavi goes to Africa': the pre-trip series (6 episodes)",
           "order": 2,
-          "note": "First post Oct 12"
-        },
-        {
-          "code": "afr-03",
-          "title": "The story interview",
-          "status": "needs approval",
-          "order": 3,
-          "note": "First post Nov 9"
-        },
-        {
-          "code": "afr-04",
-          "title": "The people I come from, and the DNA reveal",
-          "status": "needs approval",
-          "order": 4,
-          "note": "First post Nov 30"
+          "status": "scripted",
+          "note": "Storyboard done. Needs shoot. Episodes on Mondays: Oct 19, Nov 2, Nov 16, Nov 30, Dec 7, Dec 21."
         },
         {
           "code": "afr-05",
           "title": "'I'm taking fifty people home'",
-          "status": "to film",
+          "order": 3,
+          "status": "scripted",
+          "note": "Needs a shoot, planned Fri Oct 2. Dr. Omavi decides Mon Sep 28 on the 'fifty people' framing. It would name the group size only, never seats left."
+        },
+        {
+          "code": "afr-03",
+          "title": "The story interview: his story, told to someone else",
+          "order": 4,
+          "status": "needs approval",
+          "note": "Client decision. Long-form YouTube interview at his house, plus 5 clips."
+        },
+        {
+          "code": "afr-04",
+          "title": "The people I come from: episode 4 journey cut and episode 5 DNA reveal",
           "order": 5,
-          "note": "First post Oct 21"
+          "status": "needs approval",
+          "note": "Client decision. Episode 4 comes from the Nov 23-25 journey film shoot in Palestine, Texas."
         },
         {
           "code": "afr-06",
-          "title": "December: getting ready",
-          "status": "to film",
+          "title": "December: getting ready (Stories, 3 reels, participant content kit)",
           "order": 6,
-          "note": "First post Dec 28"
+          "status": "idea",
+          "note": "Planned. Kit goes out at the Fri Dec 18 orientation."
         },
         {
           "code": "afr-07",
-          "title": "Daily 'Day N' reels from the trip",
-          "status": "to film",
+          "title": "Field pipeline: the trip shot, cut and posted within 24 hours",
           "order": 7,
-          "note": "First post Jan 5 2027"
+          "status": "idea",
+          "note": "Planned for Jan 4-14 on the ground. One 'Day N' reel a day."
         },
         {
           "code": "afr-08",
-          "title": "The trip film 'The Way Home'",
-          "status": "to film",
+          "title": "The trip film: 'The Way Home'",
           "order": 8,
-          "note": "First post Feb 8 2027"
+          "status": "idea",
+          "note": "Planned. Trailer Mon Feb 8, film Mon Feb 15."
+        }
+      ]
+    },
+    {
+      "id": "prometra-scripts-v1",
+      "name": "PROMETRA Scripts v1",
+      "account": "@prometrausa (account to confirm)",
+      "summary": "Eight short scripts in Dr. Omavi's voice on PROMETRA's story and methods, written Sep 27. Each ends on 'Comment MOVEMENT'.",
+      "cta": "Comment MOVEMENT (all 8 scripts). P04 also says it costs nothing to apply at metomovement.com.",
+      "source": "Google Drive: PROMETRA Scripts v1, created Sep 27",
+      "items": [
+        {
+          "code": "P01",
+          "title": "A healer is a library",
+          "order": 0,
+          "status": "scripted",
+          "note": "3 hook options. 'When a healer dies, a library burns.' Ties to PROMETRA's founding by Dr. Gbodossou."
+        },
+        {
+          "code": "P02",
+          "title": "The children's test",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. How PROMETRA found true healers in Senegal: 168 of 264 villages in Fatick."
+        },
+        {
+          "code": "P03",
+          "title": "The knowledge is open now",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. PROMETRA has helped train about 18,000 healers and community leaders in over 14 countries."
+        },
+        {
+          "code": "P04",
+          "title": "Come home in 11 days",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. Three steps: go as a pilgrim, learn before you land, apply free at metomovement.com."
+        },
+        {
+          "code": "P05",
+          "title": "The birds were his teachers",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. The founder's childhood story of learning from birds in the forest."
+        },
+        {
+          "code": "P06",
+          "title": "Learn in both rooms",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. Dr. Omavi's path: healers in Uganda at 19, medical training in Cuba."
+        },
+        {
+          "code": "P07",
+          "title": "The healing came to South Carolina",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. Coumba Lamba at the Penn Center, St. Helena Island, August 1996."
+        },
+        {
+          "code": "P08",
+          "title": "The doctor diagnoses, the healer treats",
+          "order": 0,
+          "status": "scripted",
+          "note": "2 hook options. CEMETRA in Fatick, Senegal, since 1989."
+        }
+      ]
+    },
+    {
+      "id": "curriculum-record-list",
+      "name": "Curriculum films still to record",
+      "account": "Inside the METO app modules",
+      "summary": "The films still missing from the 13 modules, from the Sep 25 meeting. Each also gets two short cuts for Reels.",
+      "cta": "Short versions end on the metomovement.com CTA.",
+      "source": "Omavi Project Board, curriculum tasks (Sep 26); Sep 25 Meeting Checklist page (Sep 26); Notion: prometra sep25 meeting",
+      "items": [
+        {
+          "code": "F1",
+          "title": "Trauma",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera. From the Sep 25 meeting gap list."
+        },
+        {
+          "code": "F2",
+          "title": "Trauma: guest session",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera with the trauma co-presenter. Their consent to be recorded is still needed."
+        },
+        {
+          "code": "F3",
+          "title": "The World of Symbols",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera."
+        },
+        {
+          "code": "F4",
+          "title": "The Symbolism of Sacrifice",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera. Credit line to confirm with Dr. Omavi."
+        },
+        {
+          "code": "F5",
+          "title": "Health Through Plants",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera. Script 04 of the 10 on his record list."
+        },
+        {
+          "code": "F6",
+          "title": "Fa (1 of 2)",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera. The 16 Fa study cards are already live on the app's Fa page and in Module 10."
+        },
+        {
+          "code": "F7",
+          "title": "Fa (2 of 2)",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera."
+        },
+        {
+          "code": "F8",
+          "title": "Transcendence",
+          "order": 0,
+          "status": "scripted",
+          "note": "On camera. Needs his transcendence slides."
+        },
+        {
+          "code": "F9",
+          "title": "History film: Ezameh Tado",
+          "order": 0,
+          "status": "scripted",
+          "note": "Voice-only. Visuals decision still open."
+        },
+        {
+          "code": "F10",
+          "title": "History film: Togbui-Anyi",
+          "order": 0,
+          "status": "scripted",
+          "note": "Voice-only. Name and pronunciation to confirm with Dr. Omavi. Visuals decision still open."
+        }
+      ]
+    },
+    {
+      "id": "meto-50-africa-shorts",
+      "name": "METO 50 Africa Shorts",
+      "account": "@dromavi, then PROMETRA channels",
+      "summary": "Fifty one-minute shorts in eight series. The first batch of ten, plus the Places shorts already filmed.",
+      "cta": "Comment MOVEMENT (teleprompter scripts 06-50 with MOVEMENT endings, Sep 16)",
+      "source": "Google Drive: METO TOF Engine (Aug 28), 50 Africa Shorts v4 (Sep 15) and v5 (Sep 16), METO 06-50 Teleprompter Scripts (MOVEMENT endings, Sep 16); Notion: meto tof engine (Sep 16), Content Tracker (Sep 13)",
+      "items": [
+        {
+          "code": "C1",
+          "title": "The Biggest Lie",
+          "pillar": "C We Were Never Primitive",
+          "order": 1,
+          "status": "scripted",
+          "note": "Series anchor; the release plan opens with it. First batch. Not filmed."
+        },
+        {
+          "code": "A1",
+          "title": "The City on Stilts",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "in edit",
+          "note": "First batch. Filmed Sep 14 and cut. Not posted."
+        },
+        {
+          "code": "A4",
+          "title": "The Door on the Beach",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "in edit",
+          "note": "First batch. Filmed Sep 14 and cut. Not posted."
+        },
+        {
+          "code": "B1",
+          "title": "The Women Who Went to War",
+          "pillar": "B Kingdoms",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "C3",
+          "title": "Africa Is Not a Country",
+          "pillar": "C We Were Never Primitive",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "E1",
+          "title": "Gumbo Is a Word From Home",
+          "pillar": "E The Food Remembers",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "D2",
+          "title": "Vodun Is Not What Hollywood Told You",
+          "pillar": "D Language of the Ancestors",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "F5",
+          "title": "The Door Has Two Names",
+          "pillar": "F The Crossing",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed. Crossing series: never two in one week."
+        },
+        {
+          "code": "G2",
+          "title": "A Country Offered Us Citizenship",
+          "pillar": "G Coming Home",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "A10",
+          "title": "Eleven Days, One Coast",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "scripted",
+          "note": "First batch. Not filmed."
+        },
+        {
+          "code": "A2",
+          "title": "The Mother City",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "in edit",
+          "note": "Filmed Sep 14 and cut. Not in the first batch of 10. Not posted."
+        },
+        {
+          "code": "A3",
+          "title": "Two Countries, One Family",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "in edit",
+          "note": "Filmed Sep 14 and cut. Not in the first batch of 10. Not posted."
+        },
+        {
+          "code": "A5",
+          "title": "Where the River Meets the Ocean",
+          "pillar": "A Places",
+          "order": 0,
+          "status": "in edit",
+          "note": "Filmed Sep 14 and cut. Not in the first batch of 10. Not posted."
+        }
+      ]
+    },
+    {
+      "id": "omv-07-restart",
+      "name": "Dr. Omavi's feed restart posts",
+      "account": "@dromavi",
+      "summary": "His feed restart, using videos that already exist.",
+      "cta": "Follow Dr. Omavi. Post 3, the movement talk, adds: go to metomovement.com today and sign up for the free curriculum. A pinned 'Comment MOVEMENT' goes up only if the automatic reply passed its test.",
+      "source": "Q4 Playbook data.js (omv-07, calendar Sep 25 and Sep 29, todo list); Omavi Project Board, Africa map card (Sep 26-27)",
+      "items": [
+        {
+          "code": "Post 1",
+          "title": "Africa map: 'How big is Africa, really'",
+          "order": 1,
+          "status": "in edit",
+          "note": "Was set for Fri Sep 25, 4:00 PM. The board still shows it waiting on Dr. Omavi's music pick; the final cut and his yes are open. Not posted."
+        },
+        {
+          "code": "Post 2",
+          "title": "The clip he calls 'African Indian'",
+          "order": 2,
+          "status": "needs approval",
+          "note": "Planned Tue Sep 29. Dr. Omavi still has to name which clip it is."
+        }
+      ]
+    },
+    {
+      "id": "meto-prometra-support-videos",
+      "name": "Other videos from the Sep 25 meeting",
+      "account": "To be set",
+      "summary": "Three smaller videos asked for on Sep 25. Each waits on one item from the PROMETRA side.",
+      "cta": "Not set in the sources.",
+      "source": "Omavi Project Board: logistics, senegal and archive projects (Sep 26-27); Notion: prometra sep25 meeting (Sep 26)",
+      "items": [
+        {
+          "code": "LOG-1",
+          "title": "Pilgrim logistics video: visas, supplies and the medical form",
+          "order": 0,
+          "status": "scripted",
+          "note": "About 2:20 script and a one-page participant checklist written Sep 26. Waiting on Nehanda's medical form link and visa steps. Then Dr. Omavi or Nehanda records it, and Nehanda gives a yes. Board target Tue Sep 29."
+        },
+        {
+          "code": "SEN-1",
+          "title": "Senegal partner invitation video (AI)",
+          "order": 0,
+          "status": "idea",
+          "note": "Built from the partner's story and images that Dr. Omavi forwarded. They were not found on file, so he needs to resend them before the storyboard is written."
+        },
+        {
+          "code": "ARC-1",
+          "title": "First montage from the PROMETRA archive",
+          "order": 0,
+          "status": "idea",
+          "note": "Nehanda uploaded 700+ labeled clips and photos. The sorting plan is done. Tagging and the first montage wait on access to that Drive folder."
         }
       ]
     }
+  ],
+  "notes": [
+    "postedThisWeek is empty. No source records any post from Sep 21-27 on @prometrausa, METO Movement, or @dromavi movement or Africa content. The Notion Content Pipeline has no Posted dates for METO or PROMETRA videos. The project board says no METO or @prometrausa post is confirmed.",
+    "The Africa map ('How big is Africa, really') was set to post on @dromavi Fri Sep 25 at 4:00 PM. The Sep 26-27 project board still shows it waiting on Dr. Omavi's music pick. The final cut and his yes are still open, so it is left out. No result is recorded for the Sep 27 48-hour comment check.",
+    "Omavi 15 Shorts statuses come from the newest sources: the Sep 26-27 board and edit logs. 01-03 were shot Sep 23. The edit log calls Sep 25 '3 more King-style videos' and names only 04-06. One board note says the Sep 25 shoot covered 04-15. The edit log is used, so 07-15 count as not filmed until Mojes confirms.",
+    "Shoot conflict: the Playbook (Sep 24) planned CTA videos A and B as pickups on Sep 23, with Sep 25 as the fallback. The Sep 23 cards hold only King shorts 01-03. The Sep 25 shoot recorded King shorts 04-06. No footage of CTA A or B, How to Breathe or the ambassador talk is recorded. All four are still to shoot. The next set day is Wed Sep 30, and CTA A's Fri Oct 2 date will slip.",
+    "Sep 16 Africa films A and B: the Notion Q4 Plan page (Sep 23) lists them as ready to post. The newer board says A still needs its METO end card and B still needs Dr. Omavi's pick. The board status is used.",
+    "50 Africa shorts CTA: v5 (Sep 16) proposed a rotation of new CTAs. Later on Sep 16, at Mojes's ask, the v4 text for 06-50 went into a teleprompter doc with MOVEMENT endings. That doc is the filming text. The v4 site-ending doc is marked superseded.",
+    "Four titles appear in both the 15 Shorts and the 50 Africa Shorts. They are The First Pharmacy (C2), The Treasures Came Home (B5), The Drum Was a Network (C4) and Your Name Is a Sentence (D4). 15 Shorts 11 'Africa Is 54 Countries' is also close to C3 'Africa Is Not a Country'.",
+    "The Playbook builds CTA A, How to Breathe and the Star from an older 'METO 15 v1' script set. Its titles include Five Bodies, I Am Because, Breathe and The Star. Those titles are not in Omavi 15 Shorts v2. They are tracked inside those three METO pieces, not as a separate series.",
+    "Curriculum films: the older Sep 6 course-site plan listed 11 teaching films to shoot. The Sep 7 shoot recorded the 13 module films now on the app. The current list is the 10 scripts for the gaps named at the Sep 25 meeting. Sending Dr. Omavi the record list and booking a day is due Tue Sep 29. Telling Nehanda the curriculum is ready, so participants get access, is due Thu Oct 1.",
+    "CTA route: a Sep 26 link check found the metomovement.com sign-up still hands off to the old Teachable course. The new METO app is public but not linked from the site. Every CTA points to metomovement.com, so this needs a decision before the first CTA post Wed Sep 30.",
+    "Posting accounts are not settled. The Sep 25 meeting said PROMETRA-only posts run on @prometrausa as targeted ads and boosts, and broader posts go out as @dromavi collabs. The Sep 22 boost cap for @prometrausa is $0, and that conflict is on the Mon Sep 28 agenda. Posting access to METO and @prometrausa is still being confirmed, and the METO Movement handle is not recorded.",
+    "The automatic MOVEMENT reply (ManyChat) is off, per the board. MOVEMENT comments are answered by hand for now. Several scripts end on 'Comment MOVEMENT'.",
+    "Status mapping: a Playbook 'needs shoot' piece with written lines or a storyboard counts as scripted. Format-only, event and trip pieces count as idea. 'Client decision' counts as needs approval. 'Needs edit' or existing footage waiting on an edit counts as in edit. Filmed-and-cut shorts that are waiting on end cards also count as in edit."
   ]
 }

@@ -1,0 +1,842 @@
+{
+  "app": {
+    "name": "METO Movement app",
+    "url": "https://meto-movement.higgsfield.app",
+    "oneLiner": "The free home of the Way of Remembering, on the web or as a phone app. People watch 13 module films, do the activities, join the Circle and apply for the January 2027 pilgrimage.",
+    "status": "Live. The redesign went up Sep 14-15. The four-part curriculum, the Fa study cards, the facilitator dashboard and the Remembrance Map were added Sep 26-27. All 50 public pages loaded without errors on Sep 27.",
+    "builtWith": "Built and hosted on Higgsfield, with its own database for accounts, progress and applications. It installs as a phone app straight from the browser. There is no App Store or Google Play listing yet.",
+    "facts": [
+      {
+        "value": "50",
+        "label": "public pages, all loading",
+        "source": "Live site check, Sep 27"
+      },
+      {
+        "value": "13",
+        "label": "modules, four parts each",
+        "source": "App code, Sep 27"
+      },
+      {
+        "value": "11",
+        "label": "documents to read on the site, plus 12 PDFs in English and French",
+        "source": "App code, Sep 27"
+      },
+      {
+        "value": "32",
+        "label": "sites in 23 states on the Remembrance Map",
+        "source": "App code, Sep 27"
+      },
+      {
+        "value": "8",
+        "label": "places, with their films still to come",
+        "source": "App code, Sep 27"
+      },
+      {
+        "value": "0",
+        "label": "real sign-ups or applications yet (one team test account)",
+        "source": "App database counts, Sep 27"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "label": "Sees a movement post",
+      "detail": "A METO or @dromavi collab post ends with the call to action: sign up for the free curriculum.",
+      "screen": ""
+    },
+    {
+      "label": "Lands on the home page",
+      "detail": "Enroll Free and Apply for Pilgrimage sit at the top. Which web address posts should name is still open.",
+      "screen": "home"
+    },
+    {
+      "label": "Enrolls free",
+      "detail": "Name, email and password. Phone, city and how they heard are optional. A source tag shows where they came from.",
+      "screen": "enroll"
+    },
+    {
+      "label": "Starts Module 1",
+      "detail": "Watches the film, does the activity, writes a private reflection and takes a five-question quiz.",
+      "screen": "module"
+    },
+    {
+      "label": "Keeps the habit",
+      "detail": "Daily check-in and streak, the journal, the Circle feed, live prayer circles, Fa cards and the Remembrance Map.",
+      "screen": "circle"
+    },
+    {
+      "label": "Puts the app on the phone",
+      "detail": "An install invitation appears after nine seconds. Installed, it gets a bottom tab bar.",
+      "screen": "get-app"
+    },
+    {
+      "label": "Applies for the pilgrimage",
+      "detail": "A free application with a saved reference number. Scholarship and ambassador forms sit alongside it.",
+      "screen": "pilgrimage"
+    },
+    {
+      "label": "Team follows up",
+      "detail": "The admin reviews each application. Facilitators see every participant's progress. Online sessions start mid-October.",
+      "screen": "facilitator"
+    }
+  ],
+  "areas": [
+    {
+      "id": "front-door",
+      "name": "Front door",
+      "blurb": "The public pages that explain the movement and point people to the free curriculum.",
+      "screens": [
+        {
+          "id": "home",
+          "name": "Home",
+          "route": "/",
+          "job": "Welcomes a new visitor and sends them to Enroll Free or Apply for Pilgrimage.",
+          "sections": [
+            "Akwaaba welcome, rotating headline",
+            "Enroll Free and Apply buttons",
+            "Scrolling band of place names",
+            "Places strip, swipe cards",
+            "Mission: A return long overdue",
+            "Who we serve, where we walk",
+            "Today on the Way cards",
+            "The King's call quote band",
+            "Join the Million: 13-module index",
+            "Pilgrimage dates: 4 to 14 January 2027",
+            "Festival photo plate",
+            "His Majesty's word, circle quote",
+            "Four goals with counting numbers",
+            "Circle of Union and ambassador cards",
+            "Who signs this call: leaders",
+            "The collection: I AM XWLA",
+            "Get the app, QR code",
+            "Closing: Return Home. Heal. Remember."
+          ],
+          "status": "live",
+          "source": "App code (Home page), Sep 27; live check Sep 27",
+          "note": "The module index now shows 13 modules. The Sep 15 notes said 12."
+        },
+        {
+          "id": "mission",
+          "name": "The mission",
+          "route": "/mission",
+          "job": "Explains why the movement exists and what it is building.",
+          "sections": [
+            "Charter: A return long overdue",
+            "Who we serve, where we walk",
+            "Four goals with concept renders",
+            "The King's call quote band",
+            "Circle quote, His Majesty's word",
+            "The two leaders, with a note on PROMETRA",
+            "The five steps, shown without numbers"
+          ],
+          "status": "live",
+          "source": "App code (Mission page), Sep 27; live check Sep 27"
+        },
+        {
+          "id": "about",
+          "name": "About us",
+          "route": "/about",
+          "job": "Introduces the King, PROMETRA's lineage and the people the work serves.",
+          "sections": [
+            "The King of Tado",
+            "The lineage: PROMETRA International",
+            "PROMETRA chapters around the world",
+            "Who we serve",
+            "Link to prometra.org"
+          ],
+          "status": "live",
+          "source": "App code (About page), Sep 27; live check Sep 27"
+        },
+        {
+          "id": "places",
+          "name": "Places",
+          "route": "/places",
+          "job": "Shows the sites on the Way of Remembering and what happens at each one.",
+          "sections": [
+            "Intro: Where the story happened",
+            "Eight place entries",
+            "Photo or labeled rendered view",
+            "Story and On the journey list",
+            "Film link or not yet released",
+            "Come home band with Enroll"
+          ],
+          "status": "partial",
+          "source": "App code (Places page and places data), Sep 27; Notion: meto higgsfield site, Sep 15",
+          "note": "Xwla, Tado, Agbanakin, Doutou, Grand-Popo, Heve, Atchamey and Ganvie. All eight film slots read 'Film not yet released.' This is the first version of Dr. Bailey's idea of videos tied to historical sites."
+        },
+        {
+          "id": "projects",
+          "name": "Projects",
+          "route": "/projects",
+          "job": "Shows what the movement is building and what gifts pay for.",
+          "sections": [
+            "Intro: What we are building",
+            "Four goals and concept renders",
+            "Agbanakin portfolio project cards",
+            "Door of Return, Sankofa Museum, more"
+          ],
+          "status": "live",
+          "source": "App code (Projects page), Sep 27; live check Sep 27"
+        },
+        {
+          "id": "strategy",
+          "name": "The strategy",
+          "route": "/strategy",
+          "job": "Explains how people take part, with the free curriculum first.",
+          "sections": [
+            "Free curriculum comes first",
+            "Learning",
+            "Pilgrimage",
+            "The collection",
+            "Participation support"
+          ],
+          "status": "live",
+          "source": "App code (Strategy page), Sep 27; live check Sep 27"
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "Learning",
+      "blurb": "The free Way of Remembering curriculum and the practices that go with it.",
+      "screens": [
+        {
+          "id": "curriculum",
+          "name": "Curriculum overview",
+          "route": "/curriculum",
+          "job": "Lists all 13 modules and shows each person how far they have come.",
+          "sections": [
+            "Intro: 13 modules, four parts",
+            "Progress bar and Continue button",
+            "Module list grouped by 12 chapters",
+            "Each module: picture, summary, parts done, minutes",
+            "How it works, four lines",
+            "Five steps tracker, four seasons",
+            "Source documents and Fa cards"
+          ],
+          "status": "live",
+          "source": "App code (Curriculum page), Sep 27; live check Sep 27",
+          "note": "Signed in, the page shows modules complete and parts complete out of 52. Signed out, it shows 'Sign in to keep your place.' No order is enforced."
+        },
+        {
+          "id": "module",
+          "name": "Module page",
+          "route": "/curriculum/<module>",
+          "job": "Teaches one module in four parts: learning, activity, reflection and assessment.",
+          "sections": [
+            "Header: module, chapter, minutes",
+            "Four-part navigator",
+            "Learning: film with built-in captions",
+            "Mark done and Share to Circle",
+            "The film's full script as text",
+            "Key points and readings",
+            "Activity: safety, materials, steps",
+            "Reflection: private journal, circle questions",
+            "Assessment: five-question quiz, practical task",
+            "Review cards",
+            "Go deeper source documents",
+            "Previous and Next module"
+          ],
+          "status": "live",
+          "source": "App code (module pages and the four parts), Sep 27; live check Sep 27; Notion: Sep 25 meeting notes",
+          "note": "All 13 modules have all four parts as of Sep 27. This is the four-part structure asked for on Sep 25. Modules 7 and 8 link to the Remembrance Map. Module 10 holds the Fa deck. The older 'Talk about it' block is now part of Reflection."
+        },
+        {
+          "id": "fa-cards",
+          "name": "Fa study cards",
+          "route": "/fa",
+          "job": "Helps people learn the sixteen major signs of Fa.",
+          "sections": [
+            "Intro: Fa study cards",
+            "Sixteen signs drawn from marks",
+            "Browse mode, tap to turn",
+            "Practice mode: which sign is this?",
+            "From the book section"
+          ],
+          "status": "live",
+          "source": "App code (Fa study cards), Sep 27; Notion: prometra sep25 meeting",
+          "note": "This answers the Sep 25 flashcard request, which turned out to mean Fa, not the Five Steps. Signs are drawn from their marks, never shown as images. The page is labeled study only."
+        },
+        {
+          "id": "remembrance-map",
+          "name": "Remembrance Map",
+          "route": "/remember",
+          "job": "Maps documented sites of violence against Black and Native people in the U.S. so people can find one near their family and honor it.",
+          "sections": [
+            "Intro: Who is honoring the dead?",
+            "Filters: African American, Native American, family places, with counts",
+            "Filter by state",
+            "Interactive map of 32 sites",
+            "Side panel: story, visiting, source",
+            "I honored this place counter",
+            "Add your family's place",
+            "Activity steps and reflection journal",
+            "List of every place"
+          ],
+          "status": "live",
+          "source": "App code (Remembrance Map and its data), Sep 27; Notion: Sep 25 meeting notes",
+          "note": "First version for PROMETRA to review. Every site is checked against two or more public sources. Family places show only after a facilitator approves them, and only first names appear."
+        },
+        {
+          "id": "practice",
+          "name": "Daily practice",
+          "route": "/practice",
+          "job": "Gives short daily practices and a check-in to build a habit.",
+          "sections": [
+            "Intro: Nourishing body and spirit",
+            "Six daily practices with minutes",
+            "Daily check-in and streak",
+            "Today on the Way cards"
+          ],
+          "status": "live",
+          "source": "App code (Daily practice), Sep 15 update; live check Sep 27",
+          "note": "Six practices: Ancestral Meditation, 4-7-8 Breathwork, Heart Coherence, Sacred Journal Check-In, Ancestor Altar Ritual and Earth Walk. The old /wellness link redirects here."
+        }
+      ]
+    },
+    {
+      "id": "library",
+      "name": "Library and resources",
+      "blurb": "PROMETRA's own documents, readable on the site in English and French.",
+      "screens": [
+        {
+          "id": "guide",
+          "name": "Guide for Pilgrims",
+          "route": "/guide",
+          "job": "Presents the guide's introduction and the King's call in PROMETRA's own words.",
+          "sections": [
+            "Intro: Why we remember",
+            "Guide text, PROMETRA's own words",
+            "PDF links, English and French",
+            "L'appel du Roi in French",
+            "Enroll Free button"
+          ],
+          "status": "live",
+          "source": "App code (Guide page), Sep 27; Notion: meto higgsfield site, Sep 15"
+        },
+        {
+          "id": "five-steps",
+          "name": "The Five Steps",
+          "route": "/five-steps",
+          "job": "Explains the five steps of healing, without numbering them.",
+          "sections": [
+            "Intro: Healing the wounds",
+            "Healing text from the guide",
+            "The five steps, shown without numbers",
+            "PDF links and module link"
+          ],
+          "status": "live",
+          "source": "App code (Five Steps page), Sep 27; Notion: meto higgsfield site, Sep 15"
+        },
+        {
+          "id": "resources",
+          "name": "Resources",
+          "route": "/resources",
+          "job": "Lists every source document with ways to read or download it.",
+          "sections": [
+            "Intro: documents behind the course",
+            "12 documents, English and French",
+            "Read on site, PDF, Original",
+            "Links to Guide and Five Steps"
+          ],
+          "status": "live",
+          "source": "App code (Resources page), Sep 27; Notion: meto higgsfield site, Sep 15"
+        },
+        {
+          "id": "library-index",
+          "name": "Library",
+          "route": "/library",
+          "job": "Shows the documents that can be read right on the site.",
+          "sections": [
+            "11 documents with cover thumbnails",
+            "English and French editions"
+          ],
+          "status": "live",
+          "source": "App code (Library and its data), Sep 27; live check Sep 27"
+        },
+        {
+          "id": "library-reader",
+          "name": "Library reader",
+          "route": "/library/<document>",
+          "job": "Lets people read a full document on the site, with its original figures.",
+          "sections": [
+            "Series label and title",
+            "Sections with original figures",
+            "Download PDF and Original",
+            "Previous and Next document"
+          ],
+          "status": "live",
+          "source": "App code (Library reader), Sep 27; Notion: meto higgsfield site, Sep 15"
+        },
+        {
+          "id": "archive",
+          "name": "Archive",
+          "route": "/archive",
+          "job": "Collects the films, readings, outside links and a map of the Tado lands in one place.",
+          "sections": [
+            "Intro: Reels, reads, resources, map",
+            "Reels tab: module films",
+            "Reads tab: library documents",
+            "Resources tab: outside links",
+            "Sacred map of eight places",
+            "Share to Circle on each item"
+          ],
+          "status": "live",
+          "source": "App code (Archive page), Sep 15 update; live check Sep 27"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "name": "Community",
+      "blurb": "Where members pray, post and serve together.",
+      "screens": [
+        {
+          "id": "circle",
+          "name": "Circle of Union",
+          "route": "/circle",
+          "job": "The in-app community: live prayer circles and a shared feed.",
+          "sections": [
+            "Intro and sign-up button",
+            "Three pillars of the Circle",
+            "Live circles list",
+            "Open a circle form",
+            "The sacred feed: posts, shares",
+            "Filter feed by cohort",
+            "Reels in the Circle"
+          ],
+          "status": "live",
+          "source": "App code (Circle page), Sep 27; Research brief (Gmail recap, Sep 25)",
+          "note": "Anyone can read the feed. Members sign in to post. Each post shows the member's group, and facilitators can hide posts. Films, places and documents can be shared into the feed, but reposting another member's post is not built."
+        },
+        {
+          "id": "consult",
+          "name": "Consult a Metologist",
+          "route": "/consult",
+          "job": "Lets people ask for a session or send a message to an initiated practitioner.",
+          "sections": [
+            "Intro: Consult with a Metologist",
+            "Four practitioner profiles",
+            "Schedule or Message buttons",
+            "Request form: day, time, topic",
+            "Good to know notes"
+          ],
+          "status": "live",
+          "source": "App code (Consult page), Sep 15 update; live check Sep 27",
+          "note": "These are requests only. Nothing is booked until the team replies by email. The page says a consultation is spiritual guidance, not medical care."
+        },
+        {
+          "id": "ambassadors",
+          "name": "Become an ambassador",
+          "route": "/ambassadors",
+          "job": "Recruits people to carry the Way to campuses and communities.",
+          "sections": [
+            "Intro: Become an ambassador",
+            "Three paths of service",
+            "Application form",
+            "Reply within seven days"
+          ],
+          "status": "live",
+          "source": "App code (Ambassadors page), Sep 15 update; live check Sep 27",
+          "note": "The three paths are Guardian of the Way, Campus Ambassador and Community Ambassador. Scholarship recipients serve as Campus or Community Ambassadors."
+        }
+      ]
+    },
+    {
+      "id": "pilgrimage",
+      "name": "Pilgrimage and giving",
+      "blurb": "Everything about the January 2027 journey, plus the ways to support it.",
+      "screens": [
+        {
+          "id": "pilgrimage",
+          "name": "The pilgrimage",
+          "route": "/pilgrimage",
+          "job": "Describes the January 2027 journey and takes applications.",
+          "sections": [
+            "Opener: Benin and Togo",
+            "Dates and three key facts",
+            "Who it is for",
+            "The eleven days, day by day",
+            "Application form with saved reference",
+            "Scholarships row",
+            "Help build the Door",
+            "Before you apply FAQ"
+          ],
+          "status": "live",
+          "source": "App code (Pilgrimage page and forms), Sep 27; live check Sep 27",
+          "note": "The form asks for name, email, country of residence and the person's intention, plus a consent box. There is no age field. Phone, city and how they heard are optional at sign-up. The FAQ never names a cost. An application is not a booking. People save an on-screen reference because no confirmation email is sent. The page says 'A cohort of fifty' (see open questions)."
+        },
+        {
+          "id": "scholarship",
+          "name": "Scholarship application",
+          "route": "/scholarship",
+          "job": "Takes scholarship applications for young people joining the pilgrimage.",
+          "sections": [
+            "Intro: partial or full scholarships",
+            "What to include",
+            "Scholarship application form"
+          ],
+          "status": "live",
+          "source": "App code (Scholarship page and form), Sep 27; live check Sep 27"
+        },
+        {
+          "id": "handbook",
+          "name": "Pilgrim's handbook",
+          "route": "/handbook",
+          "job": "Shares what is confirmed about the trip so far.",
+          "sections": [
+            "Status: full guide not ready",
+            "What is known",
+            "Shared after you apply"
+          ],
+          "status": "partial",
+          "source": "App code (Handbook page), Sep 27; live check Sep 27",
+          "note": "The page says the complete January 2027 guide is not yet available."
+        },
+        {
+          "id": "donate",
+          "name": "Fund a Journey",
+          "route": "/donate",
+          "job": "Collects giving enquiries for youth pilgrimages and host communities.",
+          "sections": [
+            "Intro: Fund a Journey",
+            "Request the giving details",
+            "Provider button when configured",
+            "Donation enquiry form"
+          ],
+          "status": "partial",
+          "source": "App code (Donate page), Sep 27; Notion: meto higgsfield site, Sep 15",
+          "note": "Online giving appears only when a donation link is set up. Without it, the form records an enquiry, not a gift."
+        },
+        {
+          "id": "shop",
+          "name": "Shop Collection",
+          "route": "/shop",
+          "job": "Shows the HARMONE / METO collection and takes order requests.",
+          "sections": [
+            "Intro: The HARMONE collection",
+            "Category tabs and search",
+            "Product cards and detail view",
+            "Basket and checkout request",
+            "Shop proceeds and the pilgrimage"
+          ],
+          "status": "partial",
+          "source": "App code (Shop page), Sep 15 update; live check Sep 27",
+          "note": "No card is taken on the site. The order is recorded and an invoice follows by email."
+        }
+      ]
+    },
+    {
+      "id": "account",
+      "name": "Account and install",
+      "blurb": "Sign-up, each person's own learning space, and how to put the app on a phone.",
+      "screens": [
+        {
+          "id": "enroll",
+          "name": "Enroll free (signed out)",
+          "route": "/account",
+          "job": "Creates a free account so progress, journal and requests are saved.",
+          "sections": [
+            "Intro: Enroll free",
+            "Start watching without an account",
+            "Sign in or Create account",
+            "Name, email, password",
+            "Optional phone, city, group, source",
+            "Recovery code shown once",
+            "Use a recovery code"
+          ],
+          "status": "live",
+          "source": "App code (Account page and sign-up details), Sep 27; Notion: Sep 25 meeting notes",
+          "note": "The Sep 25 ask to capture contact details at sign-up is built. The group choices are 2026 cohort, earlier pilgrim, future pilgrim and learning online. Sign-up does not confirm the email address, so only the admin can make someone a facilitator."
+        },
+        {
+          "id": "my-learning",
+          "name": "My learning (signed in)",
+          "route": "/account",
+          "job": "Each member's personal dashboard for progress, practice and requests.",
+          "sections": [
+            "Welcome back and sign out",
+            "Your details and account ID",
+            "Daily check-in and today's cards",
+            "Five steps tracker",
+            "Four seasons of the Way",
+            "Trip fund tracker",
+            "Your journal",
+            "Your reading progress",
+            "Your requests with status"
+          ],
+          "status": "live",
+          "source": "App code (Account page and seasons), Sep 27; live check Sep 27",
+          "note": "The four seasons are Online curriculum (open now), Pre-pilgrimage (opens once all 13 films are marked done), During (opens when the person's seat is confirmed, which the app reads as the team marking their application responded) and After (opens after the journey). The later three are status cards with no content behind them yet. The trip fund lets a pilgrim set a personal goal and log gifts. Until they set one, a preset goal shows."
+        },
+        {
+          "id": "get-app",
+          "name": "Get the app",
+          "route": "/app",
+          "job": "Shows people how to install METO on an iPhone or Android phone.",
+          "sections": [
+            "Intro: METO on your phone",
+            "App card with Install button",
+            "iPhone and iPad steps",
+            "Android steps",
+            "What the app does"
+          ],
+          "status": "live",
+          "source": "App code (Get the app page), Sep 27; Notion: meto higgsfield site, Sep 15",
+          "note": "Free, with no store account needed. Pages people have opened work offline, and progress in the 13 films is saved when signed in."
+        },
+        {
+          "id": "legal",
+          "name": "Privacy and Terms",
+          "route": "/privacy, /terms",
+          "job": "States how information is handled and the terms for learning, applications and enquiries.",
+          "sections": [
+            "Information you provide",
+            "Browser storage and access",
+            "Learning content and applications",
+            "Products, donations, agreements"
+          ],
+          "status": "live",
+          "source": "App code (Privacy and Terms pages), Sep 27; live check Sep 27"
+        }
+      ]
+    },
+    {
+      "id": "team-tools",
+      "name": "Team tools",
+      "blurb": "Private screens for the admin and facilitators.",
+      "screens": [
+        {
+          "id": "facilitator",
+          "name": "Facilitator dashboard",
+          "route": "/facilitator",
+          "job": "Lets facilitators see every participant, their group and their progress through the 13 modules.",
+          "sections": [
+            "Sign-in, facilitators only",
+            "Tiles: signed up, active, started, completed",
+            "Counts by group",
+            "Map places to review",
+            "Search, group filter, sort",
+            "Download as a spreadsheet",
+            "Each participant's progress, all 13 modules and 4 parts",
+            "Admin: make or remove facilitators"
+          ],
+          "status": "live",
+          "source": "App code (Facilitator dashboard), Sep 27; app database counts, Sep 27; Notion: Sep 25 meeting notes",
+          "note": "New Sep 26-27. It answers the Sep 25 ask for participant tracking. Journals stay private, so facilitators only see that a reflection exists. The page is hidden from search engines. As of Sep 27 no facilitator has been named yet."
+        },
+        {
+          "id": "admin-review",
+          "name": "Application review",
+          "route": "/account (admin only)",
+          "job": "Lets the admin read applications and requests and set their status.",
+          "sections": [
+            "Visible to the admin only",
+            "Each application opens in place",
+            "Status: received, reviewing, responded, closed"
+          ],
+          "status": "live",
+          "source": "App code (Account page, admin view), Sep 27; Notion: meto higgsfield site, Sep 15",
+          "note": "This works only once an admin account is named in the site settings."
+        }
+      ]
+    },
+    {
+      "id": "app-shell",
+      "name": "Phone app shell",
+      "blurb": "The frame around every page: header, menus, bottom tabs, install and offline behavior.",
+      "screens": [
+        {
+          "id": "header",
+          "name": "Header and menu",
+          "route": "All pages",
+          "job": "Gets people to the main pages from anywhere.",
+          "sections": [
+            "METO emblem and name",
+            "Nav: eight main pages",
+            "Light and dark mode toggle",
+            "Sign in or My learning",
+            "Enroll Free button",
+            "Phone menu with extra links"
+          ],
+          "status": "live",
+          "source": "App code (header and menu), Sep 27; live check Sep 27",
+          "note": "The nav links are Mission, Curriculum, Pilgrimage, Places, Circle, Archive, Consult and Shop. Dark mode (indigo and gold) is the default. Light mode is a warm, earth-toned look for reading."
+        },
+        {
+          "id": "tab-bar",
+          "name": "Bottom tab bar",
+          "route": "All pages, app mode only",
+          "job": "Gives the installed app a phone-style tab bar.",
+          "sections": [
+            "Home: the front page",
+            "Curriculum: modules and progress",
+            "Circle: feed and live circles",
+            "Archive: reels, reads, map",
+            "Me: account and journal"
+          ],
+          "status": "live",
+          "source": "App code (app mode), Sep 15 update; Notion: meto higgsfield site, Sep 15",
+          "note": "Shows only when the app is installed or opened from the app's own link. Conflict: the Sep 15 notes list Home, Curriculum, Places, Library, Me. The newer code (Sep 15 evening) uses Circle and Archive in place of Places and Library."
+        },
+        {
+          "id": "install-prompt",
+          "name": "Install invitation",
+          "route": "All pages",
+          "job": "Invites visitors to put the app on their phone.",
+          "sections": [
+            "Shows after nine seconds",
+            "At most once a week",
+            "Phone: bottom sheet, install steps",
+            "Desktop: QR code corner card",
+            "Hidden inside app and /app"
+          ],
+          "status": "live",
+          "source": "App code (install invitation), Sep 15 update; Notion: meto higgsfield site, Sep 15",
+          "note": "This replaced the slim install banner for phones listed in the Sep 15 notes."
+        },
+        {
+          "id": "offline",
+          "name": "Home-screen app and offline",
+          "route": "Built into every page",
+          "job": "Makes the site behave like an app with its own icon, even without a connection.",
+          "sections": [
+            "Home-screen icon, full screen",
+            "Opens in app mode",
+            "Icon shortcuts: Curriculum, Places, Library, My learning",
+            "Opened pages work offline",
+            "Offline page when disconnected"
+          ],
+          "status": "live",
+          "source": "Live app manifest, Sep 27; Notion: meto higgsfield site, Sep 15"
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "route": "All pages",
+          "job": "Lists every page and every way to take part.",
+          "sections": [
+            "Mission line and emblem",
+            "Explore: 15 page links",
+            "Take part: 8 actions",
+            "Contact and handbook",
+            "Privacy and Terms"
+          ],
+          "status": "live",
+          "source": "App code (footer), Sep 27"
+        },
+        {
+          "id": "store-apps",
+          "name": "App Store and Google Play",
+          "route": "",
+          "job": "Would list METO in the phone app stores.",
+          "sections": [
+            "App Store listing",
+            "Google Play listing"
+          ],
+          "status": "planned",
+          "source": "Notion: meto higgsfield site, Sep 15",
+          "note": "This would need an extra app build plus Apple and Google developer accounts. Not started. For now, people install the web app from the browser."
+        }
+      ]
+    }
+  ],
+  "requested": [
+    {
+      "name": "News section",
+      "detail": "The Sep 25 notes list a news section as part of the web app. The live app has no news page.",
+      "source": "Notion: Sep 25 meeting notes; live check Sep 27"
+    },
+    {
+      "name": "Automatic emails",
+      "detail": "Automated email replies, proposed Sep 25. Today the app shows an on-screen reference number and says no confirmation email is sent.",
+      "source": "Notion: Sep 25 meeting notes; app code (forms), Sep 27"
+    },
+    {
+      "name": "Repost in the Circle",
+      "detail": "Members can post and can share films, places and documents into the feed. Reposting another member's post is not built.",
+      "source": "Research brief (Gmail recap, Sep 25); app code (Circle), Sep 27"
+    },
+    {
+      "name": "Films for each place",
+      "detail": "Dr. Bailey's idea of videos tied to historical sites. All eight film slots on the Places page are still empty.",
+      "source": "Notion: meto higgsfield site, Sep 15; app code (places data), Sep 27"
+    },
+    {
+      "name": "Missing module videos",
+      "detail": "Trauma videos (with May), World of Symbols, Symbolism of Sacrifice, health through plants, transcendence, and AI history videos such as Ezameh Tado.",
+      "source": "Notion: Sep 25 meeting notes"
+    },
+    {
+      "name": "Natural medicine section and how-to videos",
+      "detail": "The five plant videos go inside the curriculum. Add how-to videos for making the star and for the breathing techniques.",
+      "source": "Q4 Playbook data.js asks (Sep 22)"
+    },
+    {
+      "name": "Pre-pilgrimage stage",
+      "detail": "The Pre-pilgrimage season in the app is only a status card. It opens once all 13 films are done, but nothing sits behind it yet. It needs the itinerary, the handbook and a logistics video on visas, supplies and the health form.",
+      "source": "Notion: Sep 25 meeting notes and prometra sep25 meeting; app code (seasons), Sep 27"
+    },
+    {
+      "name": "Post-pilgrimage stage",
+      "detail": "The Sep 25 meeting names a post-pilgrimage curriculum as one of three core products. The After season in the app is a status card with nothing behind it yet.",
+      "source": "Notion: Sep 25 meeting notes; app code (seasons), Sep 27"
+    },
+    {
+      "name": "AI guide bot",
+      "detail": "A custom GPT inside the app that adapts its messages to each person's activity.",
+      "source": "Notion: Sep 25 meeting notes"
+    },
+    {
+      "name": "Personalized paths",
+      "detail": "Seven to ten participant archetypes, built with AI, to tailor the app to each person.",
+      "source": "Notion: Sep 25 meeting notes"
+    },
+    {
+      "name": "Trauma pre-assessment",
+      "detail": "A trauma assessment tool grounded in African-centered psychology. Research and a draft come first.",
+      "source": "Notion: Sep 25 meeting notes; Research brief (Gmail recap, Sep 25)"
+    },
+    {
+      "name": "DNA test and family-history video",
+      "detail": "DNA testing for pilgrims, and an AI video built from each person's family history.",
+      "source": "Q4 Playbook data.js asks (Sep 22); Notion: Sep 25 meeting notes"
+    },
+    {
+      "name": "One central dashboard",
+      "detail": "One dashboard to replace scattered tools. The new facilitator dashboard covers participants and progress only.",
+      "source": "Notion: Sep 25 meeting notes"
+    }
+  ],
+  "openQuestions": [
+    "Where should Instagram traffic land? The spoken call to action names metomovement.com, but the curriculum lives at meto-movement.higgsfield.app. The team has no access to the domain settings, so it cannot point metomovement.com at the app yet.",
+    "12 or 13 modules? The Sep 25 plan counts 12 weekly sessions back from January. The app has 13 modules in 12 chapters, with two modules in Chapter 1. How should the weekly schedule handle that?",
+    "The home page and the CTA video A script call it 'a free, year-long curriculum.' The Sep 25 plan runs 12 weekly sessions from mid-October to January. Which should the site and the ad say?",
+    "Who should be the admin, and which accounts should be facilitators before sessions start mid-October? Facilitators need about two weeks to review first. As of Sep 27, no facilitator is set up.",
+    "Per-module sign-off on the 13 films is still open as of Sep 24. When can Dr. Bailey sign off?",
+    "Nine videos (about 2 h 45 min) exist only inside the Teachable player, including a star how-to. Who can save them before Teachable is retired?",
+    "The home and pilgrimage pages use pilgrim photos. As of Sep 6 no signed photo release existed. Can consent be confirmed before a wider launch?",
+    "The five-steps tracker on the curriculum and account pages ties each step to modules in a fixed order, with Recognition first. Earlier guidance says the steps are never numbered and their order is disputed. Pages also mix the spellings 'Rehumanization' and 'Re-Humanization'. Does Dr. Bailey approve?",
+    "What does the client mean by a news section: movement updates, pilgrimage announcements, or something else?",
+    "The Pilgrimage and Projects pages now say the Door of Return is in Agbanakin, and Projects spells it 'Akbanankin'. The Sep 14 build rule was never to name its location. Confirm the wording.",
+    "Seats: the Pilgrimage page already says 'A cohort of fifty.' Once applications arrive, it will also show how many seats are not yet spoken for, since applications under review count as taken. The Sep 14 build rules said no seat counts. The Q4 Playbook keeps the seat count internal and uses 'fifty people' as the group size only once Dr. Bailey approves that framing. Keep either line?",
+    "The trip fund on My learning shows a preset dollar goal until a pilgrim sets their own. The Sep 14 build rules said no prices on the site. Keep the preset, or start blank?",
+    "The About page says PROMETRA has chapters in 28 countries. Module text says 28 chapters in 2016 and more than 25 today. Which is right?",
+    "The four Metologist profiles on Consult came over from the earlier client build. Are they current?",
+    "Should online giving be switched on? The Donate page shows a provider button only when a donation link is set up.",
+    "Has Nehanda sent her review of the web app? The Sep 25 recap says she would review it offline.",
+    "A Sep 6 plan for a separate course site (12 modules, 63 lessons) was never built. Is it retired now that the live app has the four-part curriculum?",
+    "Stay with the installable web app, or go ahead with App Store and Google Play listings?"
+  ],
+  "sources": [
+    "App code on Higgsfield (read-only copy), updated Sep 26-27 (four-part curriculum, Fa cards, facilitator dashboard, Remembrance Map) and Sep 14-15 (redesign, app install, daily practice and Circle)",
+    "Live site checks at https://meto-movement.higgsfield.app (all 50 sitemap pages and the app manifest), Sep 27",
+    "App database counts (read-only), Sep 27",
+    "Notion: meto higgsfield site (build log), updated Sep 15",
+    "Notion: Meeting notes, Sep 25 (PROMETRA pilgrimage sync)",
+    "Notion: prometra sep25 meeting (team note), updated Sep 27",
+    "Notion: Meeting notes, Sep 16 (METO Movement video planning)",
+    "Q4 Playbook (brands, campaigns, asks, metrics), built Sep 24",
+    "Research brief, Gmail recap of Sep 25 and the Sep 6 course-site plan (secondary)"
+  ]
+}

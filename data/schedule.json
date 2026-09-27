@@ -1,71 +1,550 @@
 {
-  "source": "Venelt Q4 Playbook calendar (built Sep 24 2026). Dr. Omavi reviews the plan at the Mon Sep 28 presentation, so dates can move.",
+  "source": "Venelt Q4 Playbook calendar (built Sep 24 2026), with status notes from the project board (Sep 26-27). Dr. Omavi reviews the plan on Mon Sep 28, so dates can move.",
   "items": [
-    { "date": "2026-09-23", "time": "10:00", "kind": "shoot", "title": "METO 15 shorts, planned session", "stage": "filmed" },
-    { "date": "2026-09-23", "time": "12:20", "kind": "shoot", "title": "CTA video A 'Restore Your Humanity'", "piece": "mto-01" },
-    { "date": "2026-09-23", "time": "12:40", "kind": "shoot", "title": "CTA video B 'Back to the Source'", "piece": "mto-02" },
-    { "date": "2026-09-25", "time": "10:00", "kind": "shoot", "title": "How to Breathe, at the Trans Mountain Rd overlook", "piece": "mto-05" },
-    { "date": "2026-09-25", "time": "12:30", "kind": "shoot", "title": "'Post This, Tag Us' ambassador reel", "piece": "mto-08" },
-    { "date": "2026-09-25", "time": "16:00", "kind": "post", "accounts": ["@dromavi"], "format": "Reel", "title": "Africa map 'How big is Africa, really'", "note": "Restart post 1. MOVEMENT keyword in the pinned comment." },
-
-    { "date": "2026-09-28", "time": "12:15", "kind": "boost", "accounts": ["@dromavi"], "title": "Africa map", "amount": 50, "gated": true },
-    { "date": "2026-09-29", "time": "17:00", "kind": "post", "accounts": ["@dromavi"], "format": "Reel", "title": "The 'African Indian' clip", "note": "Restart post 2." },
-    { "date": "2026-09-30", "time": "10:35", "kind": "shoot", "title": "Africa series trailer voiceover", "piece": "afr-02" },
-    { "date": "2026-09-30", "time": "15:00", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "'The Oldest Kingdom' (movement talk A)", "piece": "mto-03" },
-    { "date": "2026-10-01", "time": "09:00", "kind": "deadline", "title": "Group airfare due" },
-    { "date": "2026-10-01", "time": "15:00", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "'The Capital That Came Home' (movement talk B)", "piece": "mto-03" },
-    { "date": "2026-10-02", "time": "11:35", "kind": "shoot", "title": "'I'm taking fifty people home'", "piece": "afr-05" },
-    { "date": "2026-10-02", "time": "12:20", "kind": "shoot", "title": "Africa E1 'Why I'm going back'", "piece": "afr-01" },
-    { "date": "2026-10-02", "time": "15:30", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "CTA video A 'Restore Your Humanity'", "piece": "mto-01", "organicOnly": true },
-    { "date": "2026-10-02", "time": "16:00", "kind": "post", "accounts": ["@prometrausa"], "format": "Reel", "title": "Movement talk A, with the Source line", "piece": "mto-03", "note": "First planned @prometrausa post." },
-
-    { "date": "2026-10-05", "time": "10:00", "kind": "shoot", "title": "DNA swab on camera", "piece": "mto-09" },
-    { "date": "2026-10-05", "time": "10:20", "kind": "shoot", "title": "Africa E2 'What I believe'", "piece": "afr-01" },
-    { "date": "2026-10-05", "time": "11:20", "kind": "shoot", "title": "Kitchen plant b-roll", "piece": "mto-04" },
-    { "date": "2026-10-05", "time": "11:50", "kind": "shoot", "title": "How to Draw the Star (only if approved Sep 28)", "piece": "mto-06" },
-    { "date": "2026-10-05", "time": "12:20", "kind": "shoot", "title": "Movement Voice ep1", "piece": "mto-07" },
-    { "date": "2026-10-05", "time": "15:00", "kind": "post", "accounts": ["@dromavi"], "format": "Reel", "title": "'The Oldest Kingdom'", "piece": "mto-03" },
-    { "date": "2026-10-06", "time": "15:30", "kind": "post", "accounts": ["@prometrausa"], "format": "Reel", "title": "CTA video A 'Restore Your Humanity'", "piece": "mto-01", "organicOnly": true },
-    { "date": "2026-10-07", "time": "12:30", "kind": "shoot", "title": "Movement Voice ep2", "piece": "mto-07" },
-    { "date": "2026-10-08", "time": "15:00", "kind": "boost", "accounts": ["@dromavi"], "title": "'Who is Dr. Omavi' intro", "amount": 50, "gated": true },
-    { "date": "2026-10-09", "time": "15:00", "kind": "post", "accounts": ["@dromavi", "METO Movement"], "format": "Reel", "title": "'How we heal humanity'", "note": "Collab post." },
-    { "date": "2026-10-09", "time": "16:00", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "DNA swab teaser", "piece": "mto-09" },
-
-    { "date": "2026-10-12", "time": "15:00", "kind": "post", "accounts": ["@dromavi", "METO Movement"], "format": "Reel", "title": "Africa series trailer 'I'm going back'", "piece": "afr-02", "note": "Collab post." },
-    { "date": "2026-10-12", "time": "16:00", "kind": "post", "accounts": ["METO Movement"], "format": "Story", "title": "Movement Voice ep1", "piece": "mto-07", "note": "Feed copy on @prometrausa." },
-    { "date": "2026-10-13", "time": "09:30", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "Plant reel 1", "piece": "mto-04" },
-    { "date": "2026-10-14", "time": "11:40", "kind": "shoot", "title": "Movement Voice ep3", "piece": "mto-07" },
-    { "date": "2026-10-14", "time": "15:00", "kind": "post", "accounts": ["METO Movement", "@dromavi"], "format": "Reel", "title": "CTA video B 'Back to the Source'", "piece": "mto-02", "note": "Collab post." },
-    { "date": "2026-10-14", "time": "15:05", "kind": "boost", "accounts": ["@dromavi"], "title": "Africa series trailer", "amount": 50, "gated": true },
-    { "date": "2026-10-14", "time": "16:00", "kind": "post", "accounts": ["YouTube @dromavi"], "format": "YouTube", "title": "How to Breathe, 5-minute practice (unlisted)", "piece": "mto-05" },
-    { "date": "2026-10-15", "time": "09:30", "kind": "post", "accounts": ["@prometrausa"], "format": "Reel", "title": "Plant reel 1", "piece": "mto-04" },
-    { "date": "2026-10-16", "time": "15:05", "kind": "boost", "accounts": ["METO Movement"], "title": "CTA video B 'Back to the Source'", "amount": 50, "gated": true },
-    { "date": "2026-10-16", "time": "15:30", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "'Post This, Tag Us' ambassador reel, kit goes live", "piece": "mto-08" },
-    { "date": "2026-10-16", "time": "16:00", "kind": "deadline", "title": "METO numbers check #1" },
-
-    { "date": "2026-10-19", "time": "09:05", "kind": "boost", "accounts": ["METO Movement"], "title": "Ambassador reel", "amount": 50, "gated": true, "note": "Only one of this and the 'fifty people' boost runs." },
-    { "date": "2026-10-19", "time": "15:00", "kind": "post", "accounts": ["@dromavi", "METO Movement"], "format": "Reel", "title": "Africa E1 'Why I'm going back'", "piece": "afr-01", "note": "Collab post." },
-    { "date": "2026-10-19", "time": "16:00", "kind": "post", "accounts": ["METO Movement"], "format": "Story", "title": "Movement Voice ep2", "piece": "mto-07", "note": "Feed copy on @prometrausa." },
-    { "date": "2026-10-20", "time": "09:00", "kind": "deadline", "title": "Pilgrim names go to the airline" },
-    { "date": "2026-10-20", "time": "09:30", "kind": "post", "accounts": ["METO Movement"], "format": "Story", "title": "Plant reel 2", "piece": "mto-04" },
-    { "date": "2026-10-20", "time": "15:00", "kind": "post", "accounts": ["@dromavi", "METO Movement"], "format": "Reel", "title": "'Let me explain' prove-it E1", "note": "Collab post." },
-    { "date": "2026-10-21", "time": "12:30", "kind": "shoot", "title": "Movement Voice ep4", "piece": "mto-07" },
-    { "date": "2026-10-21", "time": "15:00", "kind": "post", "accounts": ["METO Movement", "@dromavi", "@prometrausa"], "format": "Reel", "title": "'I'm taking fifty people home'", "piece": "afr-05", "note": "Three-account collab." },
-    { "date": "2026-10-22", "time": "09:30", "kind": "post", "accounts": ["@prometrausa"], "format": "Reel", "title": "Plant reel 2", "piece": "mto-04" },
-    { "date": "2026-10-22", "time": "15:00", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "How to Breathe reel", "piece": "mto-05" },
-    { "date": "2026-10-23", "time": "15:00", "kind": "boost", "accounts": ["METO Movement"], "title": "'Fifty people' piece", "amount": 50, "gated": true, "note": "Only if the ambassador boost did not launch." },
-    { "date": "2026-10-25", "time": "", "kind": "event", "title": "African Gala" },
-
-    { "date": "2026-10-26", "time": "16:30", "kind": "post", "accounts": ["METO Movement"], "format": "Story", "title": "Movement Voice ep3", "piece": "mto-07", "note": "Feed copy on @prometrausa." },
-    { "date": "2026-10-26", "time": "18:00", "kind": "post", "accounts": ["@dromavi", "METO Movement", "@prometrausa"], "format": "Carousel", "title": "Gala photo set", "note": "Three-account collab." },
-    { "date": "2026-10-27", "time": "09:30", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "Plant reel 3", "piece": "mto-04" },
-    { "date": "2026-10-28", "time": "10:00", "kind": "shoot", "title": "Movement Voice ep5", "piece": "mto-07" },
-    { "date": "2026-10-28", "time": "15:00", "kind": "post", "accounts": ["METO Movement"], "format": "Reel", "title": "'Made on the Continent'", "piece": "mto-10" },
-    { "date": "2026-10-29", "time": "09:30", "kind": "post", "accounts": ["@prometrausa"], "format": "Reel", "title": "Plant reel 3", "piece": "mto-04" },
-    { "date": "2026-10-30", "time": "10:00", "kind": "shoot", "title": "Natural-solutions episodes 1 and 2, his kitchen", "piece": "mto-04" },
-    { "date": "2026-10-30", "time": "15:00", "kind": "post", "accounts": ["@dromavi", "METO Movement", "@prometrausa"], "format": "Reel", "title": "The gala film", "note": "Three-account collab, plus YouTube." },
-    { "date": "2026-10-30", "time": "17:00", "kind": "deadline", "title": "First 30-day results report" },
-    { "date": "2026-11-01", "time": "09:00", "kind": "deadline", "title": "Program fee due, applications counted" },
-    { "date": "2026-11-01", "time": "09:00", "kind": "deadline", "title": "Curriculum complete in the app" }
+    {
+      "date": "2026-09-28",
+      "time": "12:15",
+      "kind": "boost",
+      "accounts": [
+        "@dromavi"
+      ],
+      "title": "Africa map",
+      "amount": 50,
+      "gated": true,
+      "note": "The Africa map itself is still waiting on Dr. Omavi's music pick, so this moves with it."
+    },
+    {
+      "date": "2026-09-29",
+      "time": "17:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi"
+      ],
+      "format": "Reel",
+      "title": "The 'African Indian' clip",
+      "note": "Dr. Omavi still has to name which clip."
+    },
+    {
+      "date": "2026-09-30",
+      "time": "10:35",
+      "kind": "shoot",
+      "title": "Africa series trailer voiceover",
+      "piece": "afr-02"
+    },
+    {
+      "date": "2026-09-30",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'The Oldest Kingdom' (movement talk A)",
+      "piece": "mto-03",
+      "note": "Cut is done. It still needs the METO end card."
+    },
+    {
+      "date": "2026-10-01",
+      "time": "09:00",
+      "kind": "deadline",
+      "title": "Group airfare due"
+    },
+    {
+      "date": "2026-10-01",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'The Capital That Came Home' (movement talk B)",
+      "piece": "mto-03"
+    },
+    {
+      "date": "2026-10-02",
+      "time": "11:35",
+      "kind": "shoot",
+      "title": "'I'm taking fifty people home'",
+      "piece": "afr-05"
+    },
+    {
+      "date": "2026-10-02",
+      "time": "12:20",
+      "kind": "shoot",
+      "title": "Africa E1 'Why I'm going back'",
+      "piece": "afr-01"
+    },
+    {
+      "date": "2026-10-02",
+      "time": "15:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "CTA video A 'Restore Your Humanity'",
+      "piece": "mto-01",
+      "organicOnly": true,
+      "note": "Not filmed yet, so this date will likely move."
+    },
+    {
+      "date": "2026-10-02",
+      "time": "16:00",
+      "kind": "post",
+      "accounts": [
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "Movement talk A, with the Source line",
+      "piece": "mto-03",
+      "note": "First planned @prometrausa post."
+    },
+    {
+      "date": "2026-10-05",
+      "time": "10:00",
+      "kind": "shoot",
+      "title": "DNA swab on camera",
+      "piece": "mto-09"
+    },
+    {
+      "date": "2026-10-05",
+      "time": "10:20",
+      "kind": "shoot",
+      "title": "Africa E2 'What I believe'",
+      "piece": "afr-01"
+    },
+    {
+      "date": "2026-10-05",
+      "time": "11:20",
+      "kind": "shoot",
+      "title": "Kitchen plant b-roll",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-05",
+      "time": "11:50",
+      "kind": "shoot",
+      "title": "How to Draw the Star (only if approved Sep 28)",
+      "piece": "mto-06"
+    },
+    {
+      "date": "2026-10-05",
+      "time": "12:20",
+      "kind": "shoot",
+      "title": "Movement Voice ep1",
+      "piece": "mto-07"
+    },
+    {
+      "date": "2026-10-05",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi"
+      ],
+      "format": "Reel",
+      "title": "'The Oldest Kingdom'",
+      "piece": "mto-03"
+    },
+    {
+      "date": "2026-10-06",
+      "time": "15:30",
+      "kind": "post",
+      "accounts": [
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "CTA video A 'Restore Your Humanity'",
+      "piece": "mto-01",
+      "organicOnly": true,
+      "note": "Not filmed yet, so this date will likely move."
+    },
+    {
+      "date": "2026-10-07",
+      "time": "12:30",
+      "kind": "shoot",
+      "title": "Movement Voice ep2",
+      "piece": "mto-07"
+    },
+    {
+      "date": "2026-10-08",
+      "time": "15:00",
+      "kind": "boost",
+      "accounts": [
+        "@dromavi"
+      ],
+      "title": "'Who is Dr. Omavi' intro",
+      "amount": 50,
+      "gated": true
+    },
+    {
+      "date": "2026-10-09",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'How we heal humanity'",
+      "note": "Collab post."
+    },
+    {
+      "date": "2026-10-09",
+      "time": "16:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "DNA swab teaser",
+      "piece": "mto-09"
+    },
+    {
+      "date": "2026-10-12",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "Africa series trailer 'I'm going back'",
+      "piece": "afr-02",
+      "note": "Collab post."
+    },
+    {
+      "date": "2026-10-12",
+      "time": "16:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Story",
+      "title": "Movement Voice ep1",
+      "piece": "mto-07",
+      "note": "Feed copy on @prometrausa."
+    },
+    {
+      "date": "2026-10-13",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "Plant reel 1",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-14",
+      "time": "11:40",
+      "kind": "shoot",
+      "title": "Movement Voice ep3",
+      "piece": "mto-07"
+    },
+    {
+      "date": "2026-10-14",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement",
+        "@dromavi"
+      ],
+      "format": "Reel",
+      "title": "CTA video B 'Back to the Source'",
+      "piece": "mto-02",
+      "note": "Collab post."
+    },
+    {
+      "date": "2026-10-14",
+      "time": "15:05",
+      "kind": "boost",
+      "accounts": [
+        "@dromavi"
+      ],
+      "title": "Africa series trailer",
+      "amount": 50,
+      "gated": true
+    },
+    {
+      "date": "2026-10-14",
+      "time": "16:00",
+      "kind": "post",
+      "accounts": [
+        "YouTube @dromavi"
+      ],
+      "format": "YouTube",
+      "title": "How to Breathe, 5-minute practice (unlisted)",
+      "piece": "mto-05"
+    },
+    {
+      "date": "2026-10-15",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "Plant reel 1",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-16",
+      "time": "15:05",
+      "kind": "boost",
+      "accounts": [
+        "METO Movement"
+      ],
+      "title": "CTA video B 'Back to the Source'",
+      "amount": 50,
+      "gated": true
+    },
+    {
+      "date": "2026-10-16",
+      "time": "15:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'Post This, Tag Us' ambassador reel, kit goes live",
+      "piece": "mto-08"
+    },
+    {
+      "date": "2026-10-16",
+      "time": "16:00",
+      "kind": "deadline",
+      "title": "METO numbers check #1"
+    },
+    {
+      "date": "2026-10-19",
+      "time": "09:05",
+      "kind": "boost",
+      "accounts": [
+        "METO Movement"
+      ],
+      "title": "Ambassador reel",
+      "amount": 50,
+      "gated": true,
+      "note": "Only one of this and the 'fifty people' boost runs."
+    },
+    {
+      "date": "2026-10-19",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "Africa E1 'Why I'm going back'",
+      "piece": "afr-01",
+      "note": "Collab post."
+    },
+    {
+      "date": "2026-10-19",
+      "time": "16:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Story",
+      "title": "Movement Voice ep2",
+      "piece": "mto-07",
+      "note": "Feed copy on @prometrausa."
+    },
+    {
+      "date": "2026-10-20",
+      "time": "09:00",
+      "kind": "deadline",
+      "title": "Pilgrim names go to the airline"
+    },
+    {
+      "date": "2026-10-20",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Story",
+      "title": "Plant reel 2",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-20",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'Let me explain' prove-it E1",
+      "note": "Collab post."
+    },
+    {
+      "date": "2026-10-21",
+      "time": "12:30",
+      "kind": "shoot",
+      "title": "Movement Voice ep4",
+      "piece": "mto-07"
+    },
+    {
+      "date": "2026-10-21",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement",
+        "@dromavi",
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "'I'm taking fifty people home'",
+      "piece": "afr-05",
+      "note": "Three-account collab."
+    },
+    {
+      "date": "2026-10-22",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "Plant reel 2",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-22",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "How to Breathe reel",
+      "piece": "mto-05"
+    },
+    {
+      "date": "2026-10-23",
+      "time": "15:00",
+      "kind": "boost",
+      "accounts": [
+        "METO Movement"
+      ],
+      "title": "'Fifty people' piece",
+      "amount": 50,
+      "gated": true,
+      "note": "Only if the ambassador boost did not launch."
+    },
+    {
+      "date": "2026-10-25",
+      "time": "",
+      "kind": "event",
+      "title": "African Gala"
+    },
+    {
+      "date": "2026-10-26",
+      "time": "16:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Story",
+      "title": "Movement Voice ep3",
+      "piece": "mto-07",
+      "note": "Feed copy on @prometrausa."
+    },
+    {
+      "date": "2026-10-26",
+      "time": "18:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement",
+        "@prometrausa"
+      ],
+      "format": "Carousel",
+      "title": "Gala photo set",
+      "note": "Three-account collab."
+    },
+    {
+      "date": "2026-10-27",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "Plant reel 3",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "10:00",
+      "kind": "shoot",
+      "title": "Movement Voice ep5",
+      "piece": "mto-07"
+    },
+    {
+      "date": "2026-10-28",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "METO Movement"
+      ],
+      "format": "Reel",
+      "title": "'Made on the Continent'",
+      "piece": "mto-10"
+    },
+    {
+      "date": "2026-10-29",
+      "time": "09:30",
+      "kind": "post",
+      "accounts": [
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "Plant reel 3",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "10:00",
+      "kind": "shoot",
+      "title": "Natural-solutions episodes 1 and 2, his kitchen",
+      "piece": "mto-04"
+    },
+    {
+      "date": "2026-10-30",
+      "time": "15:00",
+      "kind": "post",
+      "accounts": [
+        "@dromavi",
+        "METO Movement",
+        "@prometrausa"
+      ],
+      "format": "Reel",
+      "title": "The gala film",
+      "note": "Three-account collab, plus YouTube."
+    },
+    {
+      "date": "2026-10-30",
+      "time": "17:00",
+      "kind": "deadline",
+      "title": "First 30-day results report"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "09:00",
+      "kind": "deadline",
+      "title": "Program fee due, applications counted"
+    },
+    {
+      "date": "2026-11-01",
+      "time": "09:00",
+      "kind": "deadline",
+      "title": "Curriculum complete in the app"
+    }
   ]
 }

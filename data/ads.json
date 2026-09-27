@@ -1,0 +1,707 @@
+{
+  "source": "Omavi Script Review (Sep 10), Google Drive photo and video ad docs (Sep 2), Q4 Playbook boost rules and ledger (Sep 24), Notion. Checked Sep 27.",
+  "liveStatus": "No METO or PROMETRA ad is running, and no source holds any ad spend or results yet. The first movement boost ($50 on the @dromavi Africa map) is set for Mon Sep 28, and only if the post earns 10 MOVEMENT comments in 48 hours.",
+  "liveStatusLong": "No METO or PROMETRA ad is confirmed running as of Sun Sep 27, 2026. No source holds ad spend or results for any PROMETRA account. The newest plan is the Q4 Playbook, built Sep 24. It says no money is spent until Dr. Bailey approves the boost caps at the Mon Sep 28 meeting. It puts $0 on the METO account in September. The first METO boost is the 'Back to the Source' video on Fri Oct 16. It runs only if the post first earns 10 organic MOVEMENT comments in 48 hours. The plan gives @prometrausa $0. The newer Sep 25 PROMETRA meeting said PROMETRA-only posts should get targeted ads and boosts, so that line is open for Sep 28. A Sep 18 Notion note said the first deadline ad (D1) had to be live Sep 24. No source shows D1 was filmed or launched. The Q4 plan also dropped the step that would have paid for the deadline ads, because that spend sat outside the cap. The Way of Remembering plan site (Sep 6) marked paid ads 'not built yet'. One movement boost is set for Mon Sep 28 at 12:15: $50 on the @dromavi Africa map video. It needs two things. The MOVEMENT auto-reply had to pass its Fri Sep 25 test. The post also needs 10 organic MOVEMENT comments at its 48-hour read, due Sun Sep 27 at 16:00. No source records either result yet.",
+  "photoAds": [
+    {
+      "id": "A1",
+      "name": "Fifty Seats",
+      "status": "in design",
+      "format": "Feed 4:5",
+      "flightStart": "2026-09-15",
+      "flightEnd": "2026-10-01",
+      "audience": "W1 + W2, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Designed on AI-made placeholder images. Real photos must replace them before it runs. The headline names the seat count and the trip dates. The Q4 plan (Sep 24) keeps dates off public copy. Using 'fifty' as the group size needs Dr. Bailey's OK on Sep 28. The Q4 plan has no budget for the photo ads. The planned Sep 15 start passed with no launch, and the window ends Oct 1.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Q4 Playbook data.js, Sep 24",
+      "short": "Designed on AI-made placeholder images."
+    },
+    {
+      "id": "A2",
+      "name": "Free to Apply",
+      "status": "in design",
+      "format": "Story 9:16",
+      "flightStart": "2026-09-15",
+      "flightEnd": "2026-11-01",
+      "audience": "W3 + W4",
+      "destination": "metomovement.com/scholarship (Apply now)",
+      "note": "Designed on AI-made placeholder images. Planned to run all six weeks. The copy says priority scholarship decisions go out Sep 15, which has passed, so the copy needs a fix. Audience W3 needs Meta's tracking pixel on the /start page, and that page was not live as of Sep 10. Planned opening clip: the Prerequisites film, 1:23 to 1:51. The planned Sep 15 start passed with no launch.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Drive: Marketing Audit v2 Part 2, Sep 5",
+      "short": "Designed on AI-made placeholder images."
+    },
+    {
+      "id": "A3",
+      "name": "The Door",
+      "status": "in design",
+      "format": "Feed 4:5",
+      "flightStart": "2026-09-15",
+      "flightEnd": "2026-10-01",
+      "audience": "Viewers of the Crossing videos (38 to 42), minus anyone who already applied",
+      "destination": "metomovement.com/start (Learn more)",
+      "note": "Designed on AI-made placeholder images. Points to /start, which was not live as of Sep 10. The copy says 'Fifty seats', which needs Dr. Bailey's OK on Sep 28. It also says a group walks back through the Door of No Return every January. The Sep 5 audit found no source for 'every January' and two conflicting door stories. The Q4 plan says never to locate the Door. The copy needs a rewrite before any run. It also says 'twelve-module', but 12 vs 13 modules is still open. Planned opening clip: the Historical Relevance film, 4:19 to 4:48, stopping before 'the only door of return'. The planned Sep 15 start passed with no launch, and the window ends Oct 1.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Drive: Marketing Audit v2 Part 2, Sep 5; Q4 Playbook data.js, Sep 24",
+      "short": "Designed on AI-made placeholder images."
+    },
+    {
+      "id": "A4",
+      "name": "Begin, Free",
+      "status": "in design",
+      "format": "Story 9:16",
+      "flightStart": "2026-09-15",
+      "flightEnd": "2026-11-01",
+      "audience": "MOVEMENT commenters who never enrolled (W2 minus W4 enrollees)",
+      "destination": "metomovement.com/start (Sign up)",
+      "note": "Designed on AI-made placeholder images. Planned to run all six weeks. Points to /start, which was not live as of Sep 10. The Q4 plan sends METO traffic to metomovement.com/curriculum instead. The headline says '12-module', but 12 vs 13 modules is still open. Planned opening clip: The Call film, 0:00 to 0:54. The planned Sep 15 start passed with no launch.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Drive: Marketing Audit v2 Part 2, Sep 5; Q4 Playbook data.js, Sep 24",
+      "short": "Designed on AI-made placeholder images."
+    },
+    {
+      "id": "A5",
+      "name": "Airfare Locks October 1",
+      "status": "in design",
+      "format": "Feed 4:5",
+      "flightStart": "2026-09-24",
+      "flightEnd": "2026-10-01",
+      "audience": "W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Designed on AI-made placeholder images. This is a deadline ad. The Sep 2 doc allowed dates and seat counts. The newer Q4 plan (Sep 24) keeps deadlines and seats remaining off public copy. Nehanda must confirm that seats remain after Oct 1. The planned Sep 24 start passed with no launch, and the window ends Oct 1.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Q4 Playbook data.js, Sep 24",
+      "short": "Designed on AI-made placeholder images."
+    },
+    {
+      "id": "A5b",
+      "name": "Fee Completes November 1",
+      "status": "in design",
+      "format": "Feed 4:5 (variant of A5)",
+      "flightStart": "2026-10-25",
+      "flightEnd": "2026-11-01",
+      "audience": "Same as A5: W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now), same as A5",
+      "note": "The same unit as A5 with a new headline. The headline is a deadline, which the Q4 plan (Sep 24) keeps off public copy. No source shows it ran.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Q4 Playbook data.js, Sep 24",
+      "short": "The same unit as A5 with a new headline."
+    },
+    {
+      "id": "A6",
+      "name": "January 10",
+      "status": "in design",
+      "format": "Story 9:16",
+      "flightStart": "2026-09-15",
+      "flightEnd": "2026-10-01",
+      "audience": "W1",
+      "destination": "metomovement.com/start (Learn more)",
+      "note": "Designed on AI-made placeholder images. Names Vodun Day, the trip dates and 'Fifty seats'. The Q4 plan lists Vodun Day as sacred material that is never boosted, and it keeps dates off public copy. The Sep 5 audit says A6 must not read as promised attendance. Points to /start, which was not live as of Sep 10. The planned Sep 15 start passed with no launch, and the window ends Oct 1.",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Drive: Marketing Audit v2 Part 2, Sep 5; Q4 Playbook data.js, Sep 24",
+      "short": "Designed on AI-made placeholder images."
+    }
+  ],
+  "videoAds": [
+    {
+      "id": "R-A",
+      "group": "Series retarget",
+      "name": "Before The Map",
+      "status": "needs approval",
+      "audience": "Viewers of 50%+ of any Places short (01 to 10), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head + photo inserts, about 23 s, 9:16. Dr. Bailey must OK the King attribution and the spelling of the civilization's name. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head + photo inserts, about 23 s, 9:16."
+    },
+    {
+      "id": "R-B",
+      "group": "Series retarget",
+      "name": "Something Older Than The Throne",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of any Kingdoms short (11 to 18), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head + photo inserts, about 40 s, 9:16. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head + photo inserts, about 40 s, 9:16."
+    },
+    {
+      "id": "R-C",
+      "group": "Series retarget",
+      "name": "A Different Definition Of Health",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of any We Were Never Primitive short (19 to 26), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 32 s, 9:16. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head, about 32 s, 9:16."
+    },
+    {
+      "id": "R-D",
+      "group": "Series retarget",
+      "name": "Sixteen Is Only The Beginning",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of shorts 27 or 29 (Language of the Ancestors), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 39 s, 9:16. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head, about 39 s, 9:16."
+    },
+    {
+      "id": "R-E",
+      "group": "Series retarget",
+      "name": "The Knowledge Beside The Recipe",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of any Food Remembers short (33 to 37), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 40 s, 9:16. He states on camera that this is history, not a prescription. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head, about 40 s, 9:16."
+    },
+    {
+      "id": "R-F",
+      "group": "Series retarget",
+      "name": "The Other Half",
+      "status": "needs approval",
+      "audience": "Viewers of 50%+ of any The Crossing short (38 to 42), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 25 s, 9:16. Dr. Bailey must OK the reworded close. The Sep 16 METO meeting asked for an uplifting tone, not slavery-centered, and flagged the Crossing scripts 38 to 42 that this ad retargets. That was still open Sep 18. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10; Notion: Omavi Command Hub, Sep 18",
+      "short": "Talking head, about 25 s, 9:16."
+    },
+    {
+      "id": "R-G",
+      "group": "Series retarget",
+      "name": "Prepare Before You Go",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of any Coming Home short (43 to 47), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head + photo inserts, about 35 s, 9:16. The script says 'this January', which the Q4 plan keeps off public copy. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head + photo inserts, about 35 s, 9:16."
+    },
+    {
+      "id": "R-H",
+      "group": "Series retarget",
+      "name": "Both Are Present Tense",
+      "status": "scripted",
+      "audience": "Viewers of 50%+ of any Benin & Togo Now short (48 to 50), 60 days; exclude W4 enrollees",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head + photo inserts, about 34 s, 9:16. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head + photo inserts, about 34 s, 9:16."
+    },
+    {
+      "id": "C1",
+      "group": "Free course",
+      "name": "Three Questions",
+      "status": "scripted",
+      "audience": "W2 engagers on @metomovement / @dromavi + Instagram and Facebook engagers (90 days), standing in for MOVEMENT commenters who never enrolled; exclude W4",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 40 s, 9:16. It uses 'I am because you are', which the Q4 plan (Sep 24) keeps as the fixed wording. The course's Week-1 prompt read 'we are' (Sep 10), and no source shows it changed. The audience is a stand-in, written while the comment auto-reply tool (ManyChat) was down. ManyChat was renewed Sep 10 and moved to a new account Sep 17. The real commenter list replaces the stand-in once it can be exported. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24; Notion: Omavi Command Hub, Sep 18",
+      "short": "Talking head, about 40 s, 9:16."
+    },
+    {
+      "id": "C2",
+      "group": "Free course",
+      "name": "What the Way of Remembering Is",
+      "status": "scripted",
+      "audience": "W2 engagers + Instagram and Facebook engagers (90 days), standing in for MOVEMENT commenters who never enrolled; exclude W4",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head + photo inserts, about 35 s, 9:16. Script ready. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Drive: METO Paid Video Ads scripts (25), Sep 10",
+      "short": "Talking head + photo inserts, about 35 s, 9:16."
+    },
+    {
+      "id": "C3",
+      "group": "Free course",
+      "name": "Who Is Behind This",
+      "status": "needs approval",
+      "audience": "W2 engagers + Instagram and Facebook engagers (90 days), standing in for MOVEMENT commenters who never enrolled; exclude W4",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 40 s, 9:16. Before paid use, confirm the teacher story, the line about PROMETRA and the healers, and 'over twenty-five years'. Also confirm that his physician credential matches his approved bio. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 40 s, 9:16."
+    },
+    {
+      "id": "C4",
+      "group": "Free course",
+      "name": "Is This For You",
+      "status": "needs approval",
+      "audience": "W2 engagers + Instagram and Facebook engagers (90 days), standing in for MOVEMENT commenters who never enrolled; exclude W4",
+      "destination": "metomovement.com/curriculum (Sign up)",
+      "note": "Talking head, about 33 s, 9:16. Confirm the exact current wording of PROMETRA's Call and approval to quote it in paid. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 33 s, 9:16."
+    },
+    {
+      "id": "P1",
+      "group": "Pilgrimage",
+      "name": "Fifty Seats",
+      "status": "scripted",
+      "audience": "W1 + W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head + photo inserts, about 24 s, Reels. Says 'Fifty', 'this January' and the Jan 2 flight date. The Q4 plan keeps dates off public copy, and 'fifty' needs the Sep 28 OK. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head + photo inserts, about 24 s, Reels."
+    },
+    {
+      "id": "P2",
+      "group": "Pilgrimage",
+      "name": "Received, Not Toured",
+      "status": "scripted",
+      "audience": "W1 + W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 35 s, Feed 4:5. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 35 s, Feed 4:5."
+    },
+    {
+      "id": "P3",
+      "group": "Pilgrimage",
+      "name": "The Door",
+      "status": "scripted",
+      "audience": "W1 + W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Learn more)",
+      "note": "Talking head + photo inserts, about 30 s, Reels. The script says 'this January' and the headline names Jan 2027. The Q4 plan keeps dates off public copy. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head + photo inserts, about 30 s, Reels."
+    },
+    {
+      "id": "P4",
+      "group": "Pilgrimage",
+      "name": "Before the Flight",
+      "status": "scripted",
+      "audience": "W1 + W3 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 20 s, Reels. Says 'this January', which the Q4 plan keeps off public copy. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head, about 20 s, Reels."
+    },
+    {
+      "id": "O1",
+      "group": "Objections",
+      "name": "The Cost Was Never the Reason",
+      "status": "scripted",
+      "audience": "W2 engagers + W3 site visitors + pilgrimage applicants (from W4) who have not applied for a scholarship; minus anyone who already applied for a scholarship",
+      "destination": "metomovement.com/scholarship (Apply now)",
+      "note": "Talking head, about 53 s, Reels. No dollar figures. Pairs with the C0675 re-cut. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 53 s, Reels."
+    },
+    {
+      "id": "O2",
+      "group": "Objections",
+      "name": "Let the First Stamp Be This One",
+      "status": "scripted",
+      "audience": "W1 + W3, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head + photo inserts, about 41 s, Reels. Names the Jan 2 flight date, which the Q4 plan keeps off public copy. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head + photo inserts, about 41 s, Reels."
+    },
+    {
+      "id": "O3",
+      "group": "Objections",
+      "name": "A Pilgrimage, Not a Conversion",
+      "status": "needs approval",
+      "audience": "W2 + W4 (people who have not applied for the pilgrimage)",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 40 s, Reels. Nehanda or Dr. Bailey must confirm which ceremonies are optional, whether paid ads may say 'not a conversion', and that every ceremony is explained first. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 40 s, Reels."
+    },
+    {
+      "id": "O4",
+      "group": "Objections",
+      "name": "Who Would You Bring?",
+      "status": "needs approval",
+      "audience": "W1 + W4, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head + photo inserts, about 36 s, Feed 4:5. Confirm the policy on companions and minors first. Can run only if Nehanda confirms seats. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head + photo inserts, about 36 s, Feed 4:5."
+    },
+    {
+      "id": "O5",
+      "group": "Objections",
+      "name": "The Whole Agenda Is Remembering",
+      "status": "needs approval",
+      "audience": "W2 + W3, minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 25 s, Reels. Confirm the 'agenda' framing and the five-steps description against PROMETRA's positioning and Meta's social-issue rules. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 25 s, Reels."
+    },
+    {
+      "id": "O6",
+      "group": "Objections",
+      "name": "Open to All Seekers",
+      "status": "needs approval",
+      "audience": "W1 + W2 + W3 (broad warm mix), minus anyone who already applied",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 35 s, Reels. Built on his own C0682 line 'It's open to all seekers'. Confirm it, then check it against C4. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10",
+      "short": "Talking head, about 35 s, Reels."
+    },
+    {
+      "id": "D1",
+      "group": "Deadlines",
+      "name": "Airfare Secures The Seat",
+      "status": "needs approval",
+      "audience": "W3 (pixel, 30 days) + W4 people who engaged but have not applied; excludes applicants",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head, about 17 s, Reels. It was planned to run Sep 24 to Oct 1 and had to be filmed before Sep 24. A Sep 17 note planned to finish the METO ads at the Sep 18 shoot, but no source shows it was filmed or launched. The Q4 plan (Sep 24) removed the step that would pay for the deadline ads, because that spend sat outside the cap. It also keeps deadlines off public copy.",
+      "source": "Omavi Script Review, Sep 10; Notion: Omavi Command Hub, Sep 17 to 18; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head, about 17 s, Reels."
+    },
+    {
+      "id": "D2",
+      "group": "Deadlines",
+      "name": "The Airline Gets A List",
+      "status": "needs approval",
+      "audience": "W3 (pixel, 30 days) + W4 people who engaged but have not applied; excludes applicants",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Talking head + photo inserts, about 18 s, Stories. Oct 20 airline list. Nehanda must confirm that seats remain after Oct 1 and that new applicants can still make the list. The Q4 plan dropped the deadline ads. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Talking head + photo inserts, about 18 s, Stories."
+    },
+    {
+      "id": "D3",
+      "group": "Deadlines",
+      "name": "One More Date",
+      "status": "needs approval",
+      "audience": "W3 visitors who started an application + W4 people who started but did not submit",
+      "destination": "metomovement.com/pilgrimage (Apply now)",
+      "note": "Voiceover over real photos, about 17 s, Feed 4:5. Nov 1 fee reminder. Needs the same seat confirmation. The Q4 plan dropped the deadline ads. Not filmed as of Sep 10, and no later source shows a shoot.",
+      "source": "Omavi Script Review, Sep 10; Q4 Playbook data.js, Sep 24",
+      "short": "Voiceover over real photos, about 17 s, Feed 4:5."
+    }
+  ],
+  "filmed": [
+    {
+      "clip": "C0670",
+      "title": "It's Your Time To Come Home",
+      "length": "2:16",
+      "verdict": "organic only",
+      "note": "It speaks to the viewer's own ancestry ('your land', 'your culture') from the first line to the call to action, which Meta does not allow in ads. It also has the 18 to 25 age line, the word 'vacation' and wrong trip dates. Never run it alongside O3.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "It speaks to the viewer's own ancestry ('your land', 'your culture') from the first line to the call to action, which Meta does not allow in ads."
+    },
+    {
+      "clip": "C0672",
+      "title": "You Are Not Your Trauma",
+      "length": "2:32",
+      "verdict": "organic only",
+      "note": "Its core message, in a physician's voice, is that therapy and medication can't take this weight away but a purifying bath can. That is a medical claim, so no paid cut works. It also speaks to the viewer's inherited trauma directly, and it has an out-of-date seat count and wrong dates.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "Its core message, in a physician's voice, is that therapy and medication can't take this weight away but a purifying bath can."
+    },
+    {
+      "clip": "C0673",
+      "title": "Skip Spring Break Go Back Home",
+      "length": "2:24",
+      "verdict": "organic only",
+      "note": "The 18 to 25 age line is the hook. It also speaks to the viewer's own ancestry and uses 'vacation'. A paid version would need an all-ages re-shoot.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "The 18 to 25 age line is the hook."
+    },
+    {
+      "clip": "C0675",
+      "title": "How The Scholarship Actually Works",
+      "length": "1:37",
+      "verdict": "re-cut for paid",
+      "note": "Start at 'Here's exactly how the scholarship works.' Cut the age lines, the price lines, the expired Sept 1 line, the scarcity close and 'not guaranteed'. It pairs with O1. No source shows the re-cut is done.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "Start at 'Here's exactly how the scholarship works.' Cut the age lines, the price lines, the expired Sept 1 line, the scarcity close and 'not guaranteed'."
+    },
+    {
+      "clip": "C0676",
+      "title": "Parents, Here's What You Need To Know",
+      "length": "2:41",
+      "verdict": "re-shoot",
+      "note": "The age premise, the price lines, a 'safe' promise and a sponsor ask are tangled together, so no clean cut exists. Re-shoot an all-ages 'for families' version after the O4 companions and minors sign-off.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "The age premise, the price lines, a 'safe' promise and a sponsor ask are tangled together, so no clean cut exists."
+    },
+    {
+      "clip": "C0677",
+      "title": "Bring An Open Heart",
+      "length": "2:29",
+      "verdict": "organic only",
+      "note": "The emotional payoff speaks to the viewer's own ancestry. It also has the age line, 'vacation' and an out-of-date seat line.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "The emotional payoff speaks to the viewer's own ancestry."
+    },
+    {
+      "clip": "C0678",
+      "title": "Be Who You Were Created To Be",
+      "length": "2:36",
+      "verdict": "organic only",
+      "note": "It speaks to the viewer as a member of a group all the way through, which Meta's personal-attributes review rejects. It also has the age line and an out-of-date seat count.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "It speaks to the viewer as a member of a group all the way through, which Meta's personal-attributes review rejects."
+    },
+    {
+      "clip": "C0679",
+      "title": "We Are Running Out Of Time",
+      "length": "2:39",
+      "verdict": "re-cut for paid",
+      "note": "This is the most universal of the 11. Cut the age line, the 'vacation' line and the trauma and therapy passage, then point it to /pilgrimage. It will need Meta's social-issue ad approval. No source shows the re-cut is done.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "This is the most universal of the 11."
+    },
+    {
+      "clip": "C0680",
+      "title": "Tag Three People Who Need This",
+      "length": "1:13",
+      "verdict": "organic only",
+      "note": "The tag ask is the premise. It also has the age line, an outcome promise and an unverified number ('That's how 50 becomes 10,000').",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "The tag ask is the premise."
+    },
+    {
+      "clip": "C0681",
+      "title": "We Are The Originals, Not The Copy",
+      "length": "1:26",
+      "verdict": "organic only",
+      "note": "The whole ad speaks to the viewer's group identity, and 'it's free' runs straight into 'come home', so the trip can read as free. It also has the age line and an out-of-date seat line.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "The whole ad speaks to the viewer's group identity, and 'it's free' runs straight into 'come home', so the trip can read as free."
+    },
+    {
+      "clip": "C0682",
+      "title": "Your Pilgrimage Questions, Answered",
+      "length": "2:02",
+      "verdict": "re-cut for paid",
+      "note": "Re-cut as a logistics FAQ. Cut the cost section (prices, stale seats, Sept 1), the age lines and 'Is it safe? Yes,'. The yellow-fever sentence must never run. No source shows the re-cut is done.",
+      "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
+      "short": "Re-cut as a logistics FAQ."
+    }
+  ],
+  "toFilm": [
+    {
+      "name": "D1 'Airfare Secures The Seat' deadline ad",
+      "why": "It was planned to run Sep 24 to Oct 1 and had to be filmed before Sep 24.",
+      "status": "No source shows it was filmed. The Q4 plan (Sep 24) dropped the deadline ads.",
+      "when": "Was due before Sep 24",
+      "source": "Omavi Script Review, Sep 10; Notion: Omavi Command Hub, Sep 17 to 18; Q4 Playbook data.js, Sep 24"
+    },
+    {
+      "name": "The other 24 scripted METO paid video ads (R-A to R-H, C1 to C4, P1 to P4, O1 to O6, D2, D3)",
+      "why": "All 25 scripts are written. None was filmed as of Sep 10, and no later source shows a shoot. 11 need sign-off first.",
+      "status": "Scripted; no source shows them filmed",
+      "when": "No shoot date on the Q4 calendar",
+      "source": "Drive: METO Paid Video Ads scripts (25), Sep 10; Q4 Playbook data.js, Sep 24"
+    },
+    {
+      "name": "C0676 re-shoot: all-ages 'for families' version",
+      "why": "The Aug 22 cut can't be fixed with edits.",
+      "status": "Needed after the O4 companions and minors sign-off",
+      "when": "Not scheduled",
+      "source": "Omavi Script Review audit, Sep 10"
+    },
+    {
+      "name": "Paid re-cuts of C0675, C0679 and C0682",
+      "why": "These are the three Aug 22 ads whose core survives for paid use.",
+      "status": "Cut plan written Sep 10. No source shows the cuts are done.",
+      "when": "Not scheduled",
+      "source": "Omavi Script Review audit, Sep 10"
+    },
+    {
+      "name": "Real photography for photo ads A1 to A6",
+      "why": "The current images are AI-made placeholders. Real photos must go in before any photo ad runs.",
+      "status": "Placeholder images only",
+      "when": "Before any photo ad runs",
+      "source": "Drive: METO Photo Ads copy + targeting, Sep 2; Notion: meto tof engine log, Sep 2"
+    },
+    {
+      "name": "Opening clips for the photo ads, cut from existing Way of Remembering films",
+      "why": "The Call 0:00 to 0:54 goes with A4. Prerequisites 1:23 to 1:51 goes with A2. Historical Relevance 4:19 to 4:48 goes with A3. A 'Who is Dr. Bailey' ad can use the Introduction 1:06 to 1:47. Adding 1:48 to 2:10 needs the Morehouse line verified first. Every cut must be re-edited, because the Drive films include other people's footage and logos.",
+      "status": "Cut points found; not cut",
+      "when": "Not scheduled",
+      "source": "Drive: Marketing Audit v2 Part 2, Sep 5"
+    },
+    {
+      "name": "Call-to-action video 'Back to the Source'",
+      "why": "It is the first planned METO boost: $50 on Fri Oct 16, only if the post earns 10 organic MOVEMENT comments in 48 hours. The boosted cut has no 'this January', price, seat count or age line.",
+      "status": "Set for the Wed Sep 23 shoot, with Fri Sep 25 as the fallback. The Sep 24 data still lists it as 'needs shoot'. Notion logs King shorts from the Sep 23 and Sep 25 shoots but does not mention this video. The Sep 28 agenda asks to confirm.",
+      "when": "Shoot Sep 23 or 25; edit Mon Oct 12; posts Wed Oct 14",
+      "source": "Q4 Playbook data.js, Sep 24 (campaign meto-curriculum-anchor, calendar); Notion: omavi king shorts log, Sep 25 to 26"
+    },
+    {
+      "name": "Ambassador reel 'Post This, Tag Us'",
+      "why": "It is the second October METO boost candidate ($50, Mon Oct 19, ad audience 18+ only).",
+      "status": "Set for the Fri Sep 25 shoot. The Sep 24 data lists it as 'needs shoot'. No source confirms it was shot.",
+      "when": "Shoot Fri Sep 25; posts Fri Oct 16",
+      "source": "Q4 Playbook data.js, Sep 24"
+    },
+    {
+      "name": "'How to Breathe' practice video",
+      "why": "It is a candidate for the optional second November METO boost ($50, only through its own 48-hour comment test).",
+      "status": "Set for the Fri Sep 25 Trans Mountain overlook shoot. The Sep 24 data lists it as 'needs shoot'. No source confirms it was shot.",
+      "when": "Shoot Fri Sep 25 10:00; edit Mon Oct 12; reel posts Thu Oct 22",
+      "source": "Q4 Playbook data.js, Sep 24 (campaign meto-curriculum-anchor, boost ledger, calendar)"
+    },
+    {
+      "name": "'I'm taking fifty people home'",
+      "why": "It is the alternate October METO boost ($50, Fri Oct 23) and runs only if the ambassador boost did not launch. It needs the Sep 28 'fifty' OK and Nehanda's seat check.",
+      "status": "Needs shoot",
+      "when": "Shoot Fri Oct 2, 11:35 to 12:20; posts Wed Oct 21",
+      "source": "Q4 Playbook data.js, Sep 24 (campaign afr-africa-2027)"
+    },
+    {
+      "name": "Series trailer 'I'm going back' (@dromavi and METO collab)",
+      "why": "It gets the October @dromavi boost ($50, Wed Oct 14), only if the post earns 10 organic MOVEMENT comments in 48 hours.",
+      "status": "Needs edit; three voiceover lines still to record",
+      "when": "Voiceover Wed Sep 30 10:35; edit Tue Oct 6; posts Mon Oct 12",
+      "source": "Q4 Playbook data.js, Sep 24"
+    },
+    {
+      "name": "Later METO boost pieces: 'Getting ready for Africa' episode, the best 'Day N' trip reel and 'The Way Home' trip-film trailer",
+      "why": "They carry the METO boosts on Dec 23, Jan 8 and Feb 10. Each runs only if it clears the 48-hour comment test.",
+      "status": "Needs shoot (Sep 24 data)",
+      "when": "Episode shoot Wed Dec 16; trip reels Jan 4 to 14 in Benin and Togo; trailer edit Jan 18 to Feb 12",
+      "source": "Q4 Playbook data.js, Sep 24 (boost ledger, campaign afr-africa-2027)"
+    },
+    {
+      "name": "15 to 20 motion-graphics promo videos for boosting",
+      "why": "This was asked for at the Wed Sep 16 METO meeting.",
+      "status": "Planned; not started in any source",
+      "when": "Not scheduled",
+      "source": "Notion: Omavi Command Hub log, Sep 18"
+    }
+  ],
+  "audiences": [
+    {
+      "id": "W1",
+      "definition": "Video viewers who watched 25%+ of any METO video in the last 60 days (Photo Ads doc, Sep 2)."
+    },
+    {
+      "id": "W2",
+      "definition": "Engagers who liked, commented, saved or shared on @metomovement or @dromavi in the last 90 days (Photo Ads doc, Sep 2)."
+    },
+    {
+      "id": "W3",
+      "definition": "Start-page visitors, from a Meta tracking pixel on metomovement.com/start, in the last 30 days. The /start page was not live as of Sep 10 (Photo Ads doc, Sep 2; Script Review, Sep 10)."
+    },
+    {
+      "id": "W4",
+      "definition": "The list: course enrollees and pilgrimage applicants, uploaded as a customer list and refreshed weekly (Photo Ads doc, Sep 2)."
+    },
+    {
+      "id": "Applicant exclusion",
+      "definition": "Anyone who already applied for the pilgrimage is left out of photo ads A1, A3 and A5, the pilgrimage ads P1 to P4, O2 to O6, D1 and D2. People who already said yes are not asked again. O1 is the exception: it goes to applicants who have not applied for a scholarship yet. D3 goes only to people who started an application but did not submit it (Photo Ads doc, Sep 2; Script Review, Sep 10)."
+    },
+    {
+      "id": "Series viewers",
+      "definition": "For R-A to R-H: people who watched 50%+ of any short in that series in the last 60 days. W4 enrollees are excluded (Script Review, Sep 10)."
+    },
+    {
+      "id": "Free-course stand-in",
+      "definition": "For C1 to C4: W2 engagers plus Instagram and Facebook engagers from the last 90 days. This stands in for MOVEMENT commenters who never enrolled, until the real commenter list can be uploaded. W4 is excluded (Script Review, Sep 10)."
+    },
+    {
+      "id": "Crossing viewers",
+      "definition": "For A3: viewers of the Crossing videos 38 to 42 (Photo Ads doc, Sep 2)."
+    },
+    {
+      "id": "METO account boosts",
+      "definition": "Goal 'More website visits' to metomovement.com/curriculum. Audience automatic, plus Atlanta, Houston, DC and El Paso (Q4 Playbook boost rules, Sep 24)."
+    },
+    {
+      "id": "Ambassador reel boost",
+      "definition": "El Paso plus the campuses Nehanda names. Ad audience 18+ only (Q4 Playbook, Sep 24)."
+    },
+    {
+      "id": "@dromavi movement boosts",
+      "definition": "Goal 'More profile visits'. El Paso, Houston and Atlanta, ages 25 to 55 (Q4 Playbook boost rules, Sep 24)."
+    },
+    {
+      "id": "Fifty piece boost",
+      "definition": "For 'I'm taking fifty people home': the movement account's warm audience plus a lookalike (Q4 Playbook, Sep 24)."
+    },
+    {
+      "id": "Gala film and 'Getting ready for Africa' boosts",
+      "definition": "Gala film (Nov): El Paso plus African-diaspora interests, never a sleep-patient audience. 'Getting ready for Africa' video (Dec): gala and giving-back engagers plus diaspora interests (Q4 Playbook ledger, Sep 24)."
+    }
+  ],
+  "rules": [
+    "Monthly boost caps: the METO account gets $100 (two $50 boosts). @dromavi gets $100, and METO pieces use none of it. The Q4 plan gives @prometrausa $0, organic only. The newer Sep 25 PROMETRA meeting said PROMETRA-only posts should get targeted ads and boosts, so that line is open (see decisions). All caps wait on Dr. Bailey's yes on Mon Sep 28.",
+    "The comment test: a post needs 10 organic MOVEMENT comments in 48 hours before any money goes in. Elsewhere, comments can be counted by hand until the MOVEMENT auto-reply is confirmed working. On the METO account, no confirmed auto-reply means no boost, and the deadline to confirm it is Fri Oct 2. Nothing is boosted on post day.",
+    "The run: $50 for 7 days, launched on a weekday at the 48-hour read. The day-3 cost is recorded. On @dromavi, a run above $1.50 per follow at day 3 is paused.",
+    "Never boost trauma, PTSD or fear videos, or videos that call out a race. The journey film, family and kids, donations and the DNA reveal also stay organic. So do sacred material (the Star, Vodun Day), political content and live-event promos.",
+    "Public ad copy: no prices, dates, deadlines, seats remaining, scholarship counts or age line. Never address the viewer's ethnicity or ancestry in the second person. Never use life-changing, once in a lifetime, guaranteed, full ride, free trip, or safe as a promise.",
+    "Paid ads go to warm audiences only. Pilgrimage ads leave out anyone who already applied.",
+    "Stop rule for the photo ads: after 7 days, an ad that costs twice the group's average stops, and its budget moves to the best performer. Each ad gets two versions at most.",
+    "No Aug 22 ad runs paid with the 18 to 25 line. The C0682 yellow-fever sentence never runs."
+  ],
+  "measurement": [
+    {
+      "metric": "Cost per start-page signup",
+      "appliesTo": "Photo ads A4 and A6 (reported every Friday)"
+    },
+    {
+      "metric": "Cost per application started",
+      "appliesTo": "Photo ads A1, A3 and A5 (reported every Friday)"
+    },
+    {
+      "metric": "Cost per scholarship application",
+      "appliesTo": "Photo ad A2 (reported every Friday)"
+    },
+    {
+      "metric": "Stop an ad that costs twice the group's average after 7 days, and move its budget to the best performer",
+      "appliesTo": "Every photo ad unit"
+    },
+    {
+      "metric": "Cost per result: for METO, the cost per curriculum sign-up. One number per boosted video, ranked on the first Friday of each month. Reach per dollar is logged but never decides.",
+      "appliesTo": "Every boost on the ledger"
+    },
+    {
+      "metric": "Day-3 cost per result. On @dromavi, a run is paused above $1.50 per follow.",
+      "appliesTo": "Every boost; the pause rule applies to @dromavi only"
+    },
+    {
+      "metric": "Per-video targets: reach 3,000 by 48 hours and 8,000 by day 7. By day 7, also 30 shares, 20 or more MOVEMENT comments and 30 tracked curriculum link clicks (10 by 48 hours).",
+      "appliesTo": "METO account posts, including boosted ones"
+    },
+    {
+      "metric": "Curriculum sign-ups: +500 in October and +1,500 by Dec 31. If the Oct 16 count is under 250, every METO boost stops except the 'Back to the Source' video, and the sign-up path gets fixed first.",
+      "appliesTo": "METO boosts"
+    },
+    {
+      "metric": "Pilgrimage applications: 150 by Nov 1. If there are under 75 by Oct 16, there is no spend beyond the $100 METO cap.",
+      "appliesTo": "Pilgrimage ladder pieces"
+    },
+    {
+      "metric": "Cost per curriculum view. Paid goes off once it buys views at a higher cost than organic.",
+      "appliesTo": "All METO paid (WoR plan, Sep 6)"
+    },
+    {
+      "metric": "@prometrausa follows: +100 in Oct and +300 by Dec 31, with $0 spend in the Q4 plan",
+      "appliesTo": "@prometrausa (organic only unless the Sep 28 decision changes it)"
+    }
+  ],
+  "decisions": [
+    "Mon Sep 28: approve the boost caps and the 48-hour comment test. Then choose who runs the ads. Dr. Bailey can boost from his own ad account, or Mojes can run them with the caps in writing.",
+    "@prometrausa: the Q4 plan (Sep 24) gives it $0. But the Sep 25 PROMETRA meeting said posts only about PROMETRA should get targeted ads and boosts on that account. Eight new PROMETRA short-video scripts (PROMETRA Scripts v1) were also drafted Sep 26. Which rule holds?",
+    "Should the photo ads (A1 to A6, A5b) and the 25 scripted video ads run at all? The Sep 24 Q4 plan funds only $50 boosts inside the caps and has no line for them. If yes, the Sep 2 checklist comes first: the pixel on the start page, the four audiences and the applicant list, real photos, and the budget and ad account in writing.",
+    "Seats: Nehanda needs to confirm whether seats remain after Oct 1 and Oct 20. The answer gates D1 to D3, P1 to P4, O2, O4 and the 'fifty' piece.",
+    "Approve 'I'm taking fifty people home' as the story framing, and decide whether 'this January' may appear on organic METO pieces.",
+    "Sign off the 11 flagged video scripts: R-A, R-F, C3, C4, O3 (faith), O4 (companions and minors), O5 (agenda), O6, and D1 to D3.",
+    "Course link: the Sep 25 PROMETRA meeting moves the free curriculum from Teachable to the new METO web app in early October. Every course ad and METO boost points to metomovement.com/curriculum, so that link must reach the new sign-up. Also settle 12 or 13 modules, since photo ads A3 and A4 say twelve.",
+    "Tone: the Sep 16 METO meeting asked for an uplifting tone, not slavery-centered, which conflicts with the Crossing scripts 38 to 42. Photo ad A3 and video ad R-F target viewers of those videos. Should they run?",
+    "Meta setup: Meta requires an advertiser check for ads on social issues, and heritage content counts. Nehanda owns that step. Also needed: the ad account, the tracking pixel on the landing page, and which METO Instagram handle to use. Audience W2 names @metomovement.",
+    "Give Mojes read access to Meta Business Suite so ad results can be reported. It is due Fri Oct 2.",
+    "Send the campus list (with Nehanda) for the ambassador boost targeting. It is due Wed Oct 14 and blocks the Oct 19 boost."
+  ],
+  "sources": [
+    "Q4 Playbook data.js, built Sep 24 (metrics.boost_rules, metrics.boost_ledger, campaigns meto-curriculum-anchor and afr-africa-2027, client_needs, calendar)",
+    "Omavi Script Review page, Sep 10 (25 METO video ads with audiences; audit of the 11 Aug 22 ads)",
+    "Drive: METO Photo Ads copy + targeting, Sep 2",
+    "Drive: METO Paid Video Ads Teleprompter Scripts (25), Sep 10",
+    "Drive: METO Marketing Audit v2 Part 2, Sep 5 (opening clips for photo ads; door and 'every January' flags)",
+    "Drive: PROMETRA Scripts v1, drafted Sep 26",
+    "Notion: Omavi Command Hub log, Sep 17 to 18 (METO D1 ads must be live Sep 24; plan to finish METO ads at the Sep 18 shoot; 15 to 20 motion-graphics promos; tone rule; 'I am because you are' vs 'we are'; ManyChat new account)",
+    "Notion: Dr. Omavi Q4 Plan page (Sep 22 meeting), edited Sep 23",
+    "Notion: Meeting Sep 25 summary and prometra sep25 meeting note, Sep 26 (PROMETRA ads and boosts; curriculum moves to the METO web app)",
+    "Notion: omavi king shorts log, Sep 25 to 26 (Sep 23 and Sep 25 shoots)",
+    "Notion: meto tof engine log, Sep 2 to Sep 16",
+    "Notion: meto ads aug22 delivered, Aug 22 (clip lengths)",
+    "WoR plan site data (wor-site), Sep 6: paid stage not built"
+  ]
+}
