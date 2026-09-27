@@ -2,6 +2,7 @@
 (() => {
   'use strict';
 
+  if (!document.documentElement.lang) document.documentElement.lang = 'en';
   const D = JSON.parse(document.getElementById('dash-data').textContent);
   const R = D.report;
 
@@ -25,6 +26,7 @@
     return fmt(n);
   };
   const pct = (n, d = 0) => isNum(n) ? n.toFixed(d) + '%' : '–';
+  const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
   const money = n => isNum(n) ? '$' + (Number.isInteger(n) ? n.toLocaleString('en-US') : n.toFixed(2)) : '–';
   const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -48,7 +50,7 @@
   const niceTicks = (max, maxTicks = 5) => {
     if (!(max > 0)) return { ymax: 1, step: 0.25 };
     const mag = Math.pow(10, Math.floor(Math.log10(max / maxTicks)));
-    for (const m of [1, 2, 2.5, 5, 10, 20]) {
+    for (const m of [1, 2, 5, 10, 20]) {
       const step = m * mag;
       if (Math.ceil(max / step) <= maxTicks) return { ymax: Math.ceil(max / step) * step, step };
     }
@@ -100,8 +102,9 @@
   const accDot = id => `<i class="dot ${esc(id)}" aria-hidden="true"></i>`;
 
   // ---------- state ----------
-  const REAL = (D.weeks || []).slice().sort((a, b) => a.start.localeCompare(b.start));
-  const SAMPLE = (D.sampleWeeks || []).slice().sort((a, b) => a.start.localeCompare(b.start));
+  const withEnd = w => ({ ...w, end: w.end || addDays(w.start, 6) });
+  const REAL = (D.weeks || []).filter(w => w && w.start).map(withEnd).sort((a, b) => a.start.localeCompare(b.start));
+  const SAMPLE = (D.sampleWeeks || []).map(withEnd).sort((a, b) => a.start.localeCompare(b.start));
   const hasReal = REAL.length > 0;
   const state = {
     account: ACC_IDS.includes(store.get('account', 'all')) ? store.get('account', 'all') : 'all',
@@ -131,15 +134,24 @@
     for (const x of list) if (isNum(x[key])) { s += x[key]; any = true; }
     return any ? s : null;
   }
-  function accountStat(w, key) {
+  // Per account: the account-level number when it was filled in, otherwise that account's posts
+  // added up. Summing per account keeps one filled-in account from hiding the others.
+  function statFor(w, key, postKey, scope = state.account) {
     if (!w) return null;
     let s = 0, any = false;
     for (const id of ACC_IDS) {
-      if (!inScope(id)) continue;
-      const v = w.accounts?.[id]?.[key];
+      if (scope !== 'all' && scope !== id) continue;
+      const a = w.accounts?.[id]?.[key];
+      const v = isNum(a) ? a : sumKey((w.posts || []).filter(p => p.account === id), postKey);
       if (isNum(v)) { s += v; any = true; }
     }
     return any ? s : null;
+  }
+  // MOVEMENT comments. Across all accounts, Nehanda's Friday count wins; for one account, its posts add up.
+  function keywordFor(w, scope = state.account) {
+    if (!w) return null;
+    if (scope === 'all') return w.funnel?.keywordComments ?? sumKey(w.posts || [], 'keywordComments');
+    return sumKey((w.posts || []).filter(p => p.account === scope), 'keywordComments');
   }
   const curveAvg = pts => pts && pts.length > 1 ? pts.slice(1).reduce((s, v, i) => s + (pts[i] + v) / 2, 0) / (pts.length - 1) : null;
   const watched = p => (isNum(p.avgWatchSec) && p.lengthSec ? (p.avgWatchSec / p.lengthSec) * 100 : curveAvg(p.retention));
@@ -149,18 +161,21 @@
     return den ? num / den : null;
   }
   const M = {
-    views: w => accountStat(w, 'views') ?? sumKey(postsOf(w), 'views'),
-    reach: w => accountStat(w, 'reach') ?? sumKey(postsOf(w), 'reach'),
+    views: w => statFor(w, 'views', 'views'),
+    reach: w => statFor(w, 'reach', 'reach'),
     watched: w => weightedWatched(postsOf(w)),
-    follows: w => accountStat(w, 'newFollowers') ?? sumKey(postsOf(w), 'follows'),
-    keyword: w => sumKey(postsOf(w), 'keywordComments') ?? (state.account === 'all' ? w?.funnel?.keywordComments ?? null : null),
+    follows: w => statFor(w, 'newFollowers', 'follows'),
+    keyword: w => keywordFor(w),
   };
   const history = (fn, n = 6) => { const ws = weeks(); const i = weekIndex(); return ws.slice(Math.max(0, i - n + 1), i + 1).map(fn); };
+  // Percent change. Infinity means "up from zero", which is common for a new account.
   function delta(cur, prev) {
-    if (!isNum(cur) || !isNum(prev) || prev === 0) return null;
+    if (!isNum(cur) || !isNum(prev)) return null;
+    if (prev === 0) return cur === 0 ? 0 : Infinity;
     return ((cur - prev) / prev) * 100;
   }
   function deltaHTML(d, { vs = 'last week', pts = false } = {}) {
+    if (d === Infinity) return `<span class="delta-up">${I.up} Up from 0 vs ${vs}</span>`;
     if (!isNum(d)) return `<span class="delta-flat">No prior week</span>`;
     const dir = Math.abs(d) < 0.5 ? 'flat' : d > 0 ? 'up' : 'down';
     const txt = pts ? `${d > 0 ? '+' : ''}${d.toFixed(1)} pts` : `${d > 0 ? '+' : ''}${d.toFixed(0)}%`;
@@ -217,7 +232,8 @@
     charts.set(id, { kind: 'line', labels, series, x, y, W, H, T, B, yFmt });
     const legend = series.length > 1
       ? `<div class="legend">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join('')}</div>` : '';
-    return `${legend}<div class="chart" data-chart="${id}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">${g}${base}${p}<line class="xhair" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--ink)" stroke-width="1" opacity="0"/><g class="hover-dots"></g><rect class="hit" x="${L}" y="${T}" width="${W - L - Rm}" height="${H - T - B}" fill="transparent"/></svg></div>`;
+    const table = `<table class="sr-only"><caption>${esc(title)}</caption><thead><tr><th scope="col">Week of</th>${series.map(s => `<th scope="col">${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${labels.map((lab, i) => `<tr><th scope="row">${esc(lab)}</th>${series.map(s => `<td>${esc(fmt(s.values[i]))}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    return `${legend}${table}<div class="chart" data-chart="${id}" data-vbw="${W}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">${g}${base}${p}<line class="xhair" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--ink)" stroke-width="1" opacity="0"/><g class="hover-dots"></g><rect class="hit" x="${L}" y="${T}" width="${W - L - Rm}" height="${H - T - B}" fill="transparent"/></svg></div>`;
   }
 
   // One retention curve: 100 people start, how many are left at each tenth of the video.
@@ -238,7 +254,8 @@
     const end = `<circle cx="${x(n)}" cy="${y(curve[n])}" r="4" fill="${color}" stroke="var(--surface)" stroke-width="2"/>`;
     const avgLine = isNum(avg) ? `<line x1="${L}" x2="${W - Rm}" y1="${y(avg)}" y2="${y(avg)}" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="0" opacity=".45"/>` : '';
     charts.set(id, { kind: 'retention', curve, x, y, T, B, H, W, color });
-    return `<div class="chart" data-chart="${id}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Retention curve: ${curve[n]} of 100 viewers reach the end">${g}${area}${avgLine}${line}${end}<line class="xhair" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--ink)" stroke-width="1" opacity="0"/><g class="hover-dots"></g><rect class="hit" x="${L}" y="${T}" width="${W - L - Rm}" height="${H - T - B}" fill="transparent"/></svg></div>`;
+    const at = k => curve[Math.round((n * k) / 4)];
+    return `<div class="chart" data-chart="${id}" data-vbw="${W}"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Retention curve: of 100 viewers, ${at(1)} are still watching a quarter of the way in, ${at(2)} at the middle, and ${curve[n]} at the end">${g}${area}${avgLine}${line}${end}<line class="xhair" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--ink)" stroke-width="1" opacity="0"/><g class="hover-dots"></g><rect class="hit" x="${L}" y="${T}" width="${W - L - Rm}" height="${H - T - B}" fill="transparent"/></svg></div>`;
   }
 
   function wireCharts(root) {
@@ -268,7 +285,7 @@
           const v = c.curve[best];
           dots.innerHTML = `<circle cx="${cx}" cy="${c.y(v)}" r="5" fill="${c.color}" stroke="var(--surface)" stroke-width="2"/>`;
           topY = c.y(v);
-          const where = best === 0 ? 'At the start' : best === c.curve.length - 1 ? 'At the end' : `${best * 10}% of the way in`;
+          const where = best === 0 ? 'At the start' : best === c.curve.length - 1 ? 'At the end' : `${Math.round((best / (c.curve.length - 1)) * 100)}% of the way in`;
           html = `<b>${where}</b><div>${v} of every 100 viewers still watching</div>`;
         }
         if (!tip) { tip = document.createElement('div'); tip.className = 'tip'; el.appendChild(tip); }
@@ -276,7 +293,8 @@
         const box = svg.getBoundingClientRect(), host = el.getBoundingClientRect();
         const sx = box.width / c.W;
         let left = cx * sx + (box.left - host.left);
-        left = Math.max(80, Math.min(host.width - 80, left));
+        const half = tip.offsetWidth / 2;
+        left = Math.max(half, Math.min(host.width - half, left));
         tip.style.left = left + 'px';
         tip.style.top = (topY * (box.height / c.H) + (box.top - host.top)) + 'px';
       };
@@ -286,6 +304,23 @@
       hit.addEventListener('touchmove', show, { passive: true });
       hit.addEventListener('touchend', () => setTimeout(hide, 1600));
     }
+    scaleChartText(root);
+  }
+
+  // Chart text is drawn in viewBox units, so it shrinks with the chart. Scale it back to
+  // about 11px on screen (capped so the labels still fit their margins on a phone).
+  const textScaler = 'ResizeObserver' in window ? new ResizeObserver(entries => {
+    for (const en of entries) {
+      const el = en.target, w = en.contentRect.width;
+      if (w > 0) el.style.setProperty('--k', Math.min(1.9, Math.max(0.8, Number(el.dataset.vbw) / w)).toFixed(3));
+    }
+  }) : null;
+  function scaleChartText(root) {
+    for (const el of $$('[data-vbw]', root)) {
+      const w = el.getBoundingClientRect().width;
+      if (w > 0) el.style.setProperty('--k', Math.min(1.9, Math.max(0.8, Number(el.dataset.vbw) / w)).toFixed(3));
+      textScaler?.observe(el);
+    }
   }
 
   // ---------- shared pieces ----------
@@ -293,17 +328,19 @@
     const letter = (p.title || '?').replace(/^sample\s+/i, '').trim().charAt(0).toUpperCase() || '?';
     return `<span class="thumb ${esc(p.account)} ${cls}" aria-hidden="true">${esc(letter)}</span>`;
   };
-  const videoTitle = p => `<div class="vtitle">${thumb(p)}<div><div class="t">${
+  const videoTitle = (p, { date = true } = {}) => `<div class="vtitle">${thumb(p)}<div><div class="t">${
     p.permalink ? `<a href="${esc(p.permalink)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)
-  }</div><div class="m">${accDot(p.account)}${esc(accShort(p.account))} · ${esc(p.format || 'Reel')} · ${esc(dayLabel(p.posted))}${p.boosted ? ' · <span class="chip warn" style="padding:0 7px">Boosted</span>' : ''}</div></div></div>`;
+  }</div><div class="m">${accDot(p.account)}${esc(accShort(p.account))} · ${esc(p.format || 'Reel')}${date ? ' · ' + esc(dayLabel(p.posted)) : ''}${p.boosted ? ' · <span class="chip warn" style="padding:0 7px">Boosted</span>' : ''}</div></div></div>`;
 
   const sampleFlag = () => usingSample()
     ? `<div class="sample-flag" role="note"><b>Sample numbers</b><span>These are made up to show how this page reads. Real numbers replace them once Instagram Insights are loaded.</span></div>` : '';
   const samplePill = () => (usingSample() ? '<span class="pill-sample">Sample</span>' : '');
 
+  const nextPromPost = () => D.schedule.items.find(it => it.kind === 'post' && it.date > period().end && (it.accounts || []).includes('@prometrausa'));
   function noNumbers(what) {
+    const first = nextPromPost();
     return `<div class="empty"><b>No ${esc(what)} loaded yet</b>
-      <span>Numbers start once Venelt has read access to Instagram Insights for @prometrausa, the METO Movement account and @dromavi. The first @prometrausa post is planned for Fri Oct 2.</span>
+      <span>Numbers start once Venelt has read access to Instagram Insights for @prometrausa, the METO Movement account and @dromavi.${first ? ` The next @prometrausa post is planned for ${esc(dayLabel(first.date))}.` : ''}</span>
       ${!hasReal && SAMPLE.length ? '<button class="chip info" type="button" data-action="sample-on">Show sample numbers</button>' : ''}
     </div>`;
   }
@@ -322,9 +359,14 @@
     const top = posts.filter(p => isNum(p.views)).sort((a, b) => b.views - a.views)[0];
     let headline;
     if (!w) headline = 'Instagram numbers start with the first tracked posts.';
+    else if (!isNum(views)) headline = 'Instagram numbers for this week are not in yet.';
     else {
       const d = delta(views, pviews);
-      headline = `${compact(views)} views across ${esc(scopeLabel())}` + (isNum(d) ? `, ${d >= 0 ? 'up' : 'down'} ${Math.abs(d).toFixed(0)}% from last week.` : '.');
+      const change = d === Infinity ? ', up from none last week.'
+        : !isNum(d) ? '.'
+        : Math.abs(d) < 0.5 ? ', about the same as last week.'
+        : `, ${d > 0 ? 'up' : 'down'} ${Math.abs(d).toFixed(0)}% from last week.`;
+      headline = `${compact(views)} views across ${esc(scopeLabel())}${change}`;
     }
     const stats = [
       { label: 'Accounts reached', fn: M.reach, fmt: compact },
@@ -339,9 +381,9 @@
       return `<div class="stat"><div class="label">${esc(s.label)}</div><div class="value">${w ? s.fmt(cur) : '–'}</div>${w ? sparkline(history(s.fn), { color, w: 96, h: 34, label: s.label + ' over recent weeks' }) : ''}<div class="foot">${w ? deltaHTML(d, { pts: s.pts }) : 'Waiting on Insights'}</div></div>`;
     }).join('');
 
-    const nextItems = D.schedule.items.filter(it => it.date > per.end && (it.kind === 'post' || it.kind === 'boost') && itemInScope(it)).slice(0, 4);
+    const nextItems = D.schedule.items.filter(it => it.date > per.end && !it.onHold && (it.kind === 'post' || it.kind === 'boost') && itemInScope(it)).slice(0, 4);
     const goal = R.targets.goals.find(g => g.account === (state.account === 'all' ? 'prometrausa' : state.account)) || R.targets.goals[0];
-    const firstProm = D.schedule.items.find(it => it.kind === 'post' && (it.accounts || []).includes('@prometrausa'));
+    const firstProm = nextPromPost();
 
     return `
       <div class="cover-blobs" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -370,12 +412,12 @@
           </div>
           <div class="card card-plain">
             <div class="eyebrow">Going out next</div>
-            <div class="mini-list">${nextItems.length ? nextItems.map(it => `<div class="mini-item"><time>${esc(dayLabel(it.date).replace(/ \w+ /, ' '))}</time><span>${it.kind === 'boost' ? '<span class="chip warn" style="padding:0 7px">Boost</span> ' : ''}${esc(it.title)} <span class="sub">${esc((it.accounts || []).join(' + '))}</span></span></div>`).join('') : '<span class="sub">Nothing scheduled for this view.</span>'}</div>
+            <div class="mini-list">${nextItems.length ? nextItems.map(it => `<div class="mini-item"><time>${esc(dayLabel(it.date))}</time><span>${it.kind === 'boost' ? '<span class="chip warn" style="padding:0 7px">Boost</span> ' : ''}${esc(it.title)} <span class="sub">${esc((it.accounts || []).join(' + '))}</span></span></div>`).join('') : '<span class="sub">Nothing scheduled for this view.</span>'}</div>
           </div>
           <div class="card card-plain">
             <div class="eyebrow">Where things stand</div>
             <ul class="plain-list" style="margin-top:10px">
-              ${firstProm ? `<li><b>First @prometrausa post:</b> ${esc(dayLabel(firstProm.date))}, ${esc(firstProm.title)}.</li>` : ''}
+              ${firstProm ? `<li><b>Next @prometrausa post:</b> ${esc(dayLabel(firstProm.date))}, ${esc(firstProm.title)}.</li>` : ''}
               <li><b>Boosts:</b> ${R.boost.approved ? 'caps approved.' : 'waiting on Dr. Omavi to approve the monthly caps.'}</li>
               ${goal ? `<li><b>Goal:</b> ${esc(goal.label)}, ${fmt(goal.target)} by ${esc(shortDate(goal.by))}.</li>` : ''}
             </ul>
@@ -401,16 +443,8 @@
     const ws = weeks(), wi = weekIndex();
     const span = ws.slice(Math.max(0, wi - 5), wi + 1);
     const labels = span.map(x => shortDate(x.start));
-    const saved = state.account;
-    let series;
-    if (saved === 'all') {
-      series = ACC_IDS.map(id => {
-        state.account = id;
-        const s = { label: accName(id), color: `var(--acc-${id})`, values: span.map(M.views) };
-        return s;
-      });
-      state.account = saved;
-    } else series = [{ label: accName(saved), color: `var(--acc-${saved})`, values: span.map(M.views) }];
+    const ids = state.account === 'all' ? ACC_IDS : [state.account];
+    const series = ids.map(id => ({ label: accName(id), color: `var(--acc-${id})`, values: span.map(x => statFor(x, 'views', 'views', id)) }));
 
     return `${slideHead(i, 'Views', head, 'Every video posted this week, ranked by views. Bar color shows the account.', samplePill())}
       ${sampleFlag()}
@@ -481,15 +515,15 @@
       const f = floorFor(p.account, c.floor);
       if (!f) return `<td>${txt}</td>`;
       const ok = v >= f.floor;
-      return `<td title="Day-7 floor: ${fmt(f.floor)}">${txt} <span class="${ok ? 'hit' : 'miss'}" aria-label="${ok ? 'meets' : 'below'} the day-7 floor of ${fmt(f.floor)}">${ok ? '✓' : '↓'}</span></td>`;
+      return `<td title="Day-7 floor: ${fmt(f.floor)} ${esc(f.label)}">${txt} <span class="${ok ? 'hit' : 'miss'}" aria-label="${ok ? 'meets' : 'below'} the day-7 floor of ${fmt(f.floor)}">${ok ? '✓' : '↓'}</span></td>`;
     };
-    const table = posts.length ? `<div class="table-wrap"><table>
-        <thead><tr><th scope="col">Video</th>${COLS.map(c => `<th scope="col"><button type="button" data-sort="${c.key}" ${sortKey === c.key ? `aria-sort="${sortDir < 0 ? 'descending' : 'ascending'}"` : ''}>${esc(c.label)}${sortKey === c.key ? (sortDir < 0 ? ' ↓' : ' ↑') : ''}</button></th>`).join('')}</tr></thead>
-        <tbody>${posts.map(p => `<tr><td>${videoTitle(p)}</td>${COLS.map(c => cell(p, c)).join('')}</tr>`).join('')}</tbody>
+    const table = posts.length ? `<div class="table-wrap" tabindex="0" role="region" aria-label="Scorecard, scrolls sideways"><table class="scorecard">
+        <thead><tr><th scope="col">Video</th>${COLS.map(c => `<th scope="col" ${sortKey === c.key ? `aria-sort="${sortDir < 0 ? 'descending' : 'ascending'}"` : ''}><button type="button" data-sort="${c.key}">${esc(c.label)}${sortKey === c.key ? `<span aria-hidden="true">${sortDir < 0 ? ' ↓' : ' ↑'}</span>` : ''}</button></th>`).join('')}</tr></thead>
+        <tbody>${posts.map(p => `<tr><td>${videoTitle(p, { date: false })}</td>${COLS.map(c => cell(p, c)).join('')}</tr>`).join('')}</tbody>
       </table></div>` : noNumbers('post numbers');
     const floors = ACC_IDS.filter(inScope).map(id => {
       const fs = R.targets.perPost.filter(f => f.account === id);
-      return fs.length ? `<li><b>${esc(accName(id))}:</b> ${fs.map(f => `${esc(f.label.toLowerCase())} ${fmt(f.floor)}`).join(', ')}</li>` : '';
+      return fs.length ? `<li><b>${esc(accName(id))}, by day 7:</b> ${fs.map(f => `${fmt(f.floor)} ${esc(f.label)}`).join(', ')}</li>` : '';
     }).join('');
     return `${slideHead(i, 'Every video', 'The scorecard: every post, every number.', 'Tap a column to sort. A check means the post already meets its day-7 floor from the Q4 plan. An arrow means it is still below it.', samplePill())}
       ${sampleFlag()}${table}
@@ -497,8 +531,18 @@
   }
 
   // ---------- slide: funnel & goals ----------
+  // Progress toward a goal, counted from the week that holds the Sep 25 baseline, up to the
+  // selected week and never past the goal's deadline. A monthly goal counts only the weeks
+  // that end in its month.
+  const BASE_WEEK = '2026-09-21';
   function goalProgress(g) {
-    const ws = usingSample() ? weeks() : weeks().filter(x => x.start >= '2026-09-21');
+    const cur = curWeek();
+    if (!cur) return null;
+    let ws = weeks().filter(x => x.start <= cur.start && x.start <= g.by);
+    if (!usingSample()) {
+      ws = ws.filter(x => x.start >= BASE_WEEK);
+      if (g.period === 'month') ws = ws.filter(x => x.end.slice(0, 7) === g.by.slice(0, 7));
+    }
     let val = 0, any = false;
     for (const x of ws) {
       let v = null;
@@ -511,7 +555,7 @@
         }
       } else if (g.unit === 'sign-ups') v = x.funnel?.signups;
       else if (g.unit === 'applications') v = x.funnel?.applications;
-      else if (g.unit === 'comments') v = x.funnel?.keywordComments ?? sumKey(x.posts || [], 'keywordComments');
+      else if (g.unit === 'comments') v = keywordFor(x, 'all');
       else if (g.unit === 'ambassadors') v = x.funnel?.ambassadors;
       if (isNum(v)) { val += v; any = true; }
     }
@@ -519,7 +563,14 @@
   }
   function renderFunnel(i) {
     const w = curWeek();
-    const f = w?.funnel || {};
+    const raw = w?.funnel || {};
+    // Nehanda's Friday counts first; Instagram numbers fill the steps she does not send.
+    const f = {
+      ...raw,
+      reach: raw.reach ?? statFor(w, 'reach', 'reach', 'all'),
+      keywordComments: keywordFor(w, 'all'),
+      linkClicks: raw.linkClicks ?? sumKey(w?.posts || [], 'linkClicks'),
+    };
     const steps = [
       { k: 'reach', l: 'Accounts reached' },
       { k: 'keywordComments', l: 'MOVEMENT comments' },
@@ -536,9 +587,12 @@
       const rateTxt = isNum(rate) ? `${rate < 1 ? rate.toFixed(2) : rate.toFixed(rate < 10 ? 1 : 0)}%` : '';
       return `<div class="f-step"><div class="v num">${fmt(v)}</div><div class="l">${esc(s.l)}</div>${k ? `<div class="rate">${rateTxt ? `<b>${rateTxt}</b> of the step before` : ''}</div>` : '<div class="rate">Top of the funnel</div>'}</div>`;
     }).join('')}</div>` : noNumbers('funnel counts');
-    const head = haveFunnel
-      ? `${fmt(f.keywordComments)} MOVEMENT comments turned into ${fmt(f.signups)} sign-ups and ${fmt(f.applications)} applications.`
-      : 'From a view to a seat on the trip.';
+    const parts = [
+      isNum(f.keywordComments) && plural(f.keywordComments, 'MOVEMENT comment'),
+      isNum(f.signups) && plural(f.signups, 'curriculum sign-up'),
+      isNum(f.applications) && plural(f.applications, 'application'),
+    ].filter(Boolean);
+    const head = parts.length ? `This week: ${parts.join(', ').replace(/, ([^,]*)$/, ' and $1')}.` : 'From a view to a seat on the trip.';
 
     const endDay = period().end;
     const base = '2026-09-25';
@@ -549,9 +603,10 @@
       const elapsed = Math.max(0, Math.min(total, (parseDay(endDay) - parseDay(base)) / 864e5));
       const expected = tgt * (elapsed / total);
       let chip;
-      if (!isNum(v)) chip = '<span class="chip ghost">Not measured yet</span>';
+      if (usingSample() && isNum(v)) chip = '<span class="pill-sample">Sample</span>';
+      else if (!isNum(v)) chip = '<span class="chip ghost">Not measured yet</span>';
       else if (v >= tgt) chip = `<span class="chip good">${I.check} Goal reached</span>`;
-      else if (usingSample() || v >= expected) chip = `<span class="chip good">${I.check} On pace</span>`;
+      else if (v >= expected) chip = `<span class="chip good">${I.check} On pace</span>`;
       else chip = `<span class="chip warn">${I.alert.replace('viewBox="0 0 20 20"', 'viewBox="0 0 20 20" width="12" height="12"')} Behind pace</span>`;
       const tick = g.checkpoint ? `<i class="meter-tick" style="left:${Math.min(100, (g.checkpoint.target / tgt) * 100)}%" data-label="${esc(shortDate(g.checkpoint.by))}: ${fmt(g.checkpoint.target)}"></i>` : '';
       return `<div class="meter ${g.checkpoint ? 'has-tick' : ''}">
@@ -567,7 +622,7 @@
     return `${slideHead(i, 'Funnel and goals', head, state.account === 'all' ? 'The funnel counts all three accounts together, because MOVEMENT comments on any of them lead to the same course.' : 'The funnel always counts all three accounts together. Goals below are filtered to this account.', samplePill())}
       ${sampleFlag()}${funnel}
       <div class="grid cols-2" style="margin-top:22px;align-items:start">
-        <div class="card card-plain"><h3>Q4 goals</h3><p class="sub" style="margin-bottom:16px">Counted from the Sep 25 baseline. The tick marks each checkpoint.</p><div class="meters">${meters}</div></div>
+        <div class="card card-plain"><h3>Q4 goals ${samplePill()}</h3><p class="sub" style="margin-bottom:16px">${usingSample() ? 'Made-up progress, to show how the meters read. ' : ''}Counted from the week of Sep 21 (the Sep 25 baseline) through the week shown. The tick marks each checkpoint.</p><div class="meters">${meters}</div></div>
         <div class="card"><h3>What it takes to fill the trip</h3><p class="sub" style="margin-bottom:14px">${esc(R.ladder.note)}</p><div class="ladder">${ladder}</div></div>
       </div>`;
   }
@@ -575,8 +630,8 @@
   // ---------- slide: up next ----------
   function itemInScope(it) {
     if (state.account === 'all') return true;
-    if (!it.accounts || !it.accounts.length) return false;
-    return it.accounts.some(a => HANDLE_TO_ID[a] === state.account);
+    const on = [...(it.accounts || []), ...(it.alsoOn || [])];
+    return on.some(a => HANDLE_TO_ID[a] === state.account);
   }
   const STAGE = {
     idea: 1, scripted: 1, 'to film': 1, 'needs approval': 1, 'client decision': 1, 'needs shoot': 1,
@@ -588,10 +643,10 @@
   const stageOf = s => STAGE[String(s || '').toLowerCase()] || 0;
   const stageChip = s => { const n = stageOf(s); return `<span class="stage-chip"><i class="s-${n}"></i>${esc(s || 'unknown')}</span>`; };
   function evCard(it) {
-    return `<div class="ev ${esc(it.kind)}"><div class="k">${KIND_ICON[it.kind] || ''}${esc(KIND_LABEL[it.kind] || it.kind)}${it.time ? `<span class="tm">${esc(time12(it.time))}</span>` : ''}</div>
+    return `<div class="ev ${esc(it.kind)} ${it.onHold ? 'hold' : ''}"><div class="k">${KIND_ICON[it.kind] || ''}${esc(KIND_LABEL[it.kind] || it.kind)}${it.onHold ? ' · on hold' : ''}${it.time ? `<span class="tm">${esc(time12(it.time))}</span>` : ''}</div>
       <div class="ti">${esc(it.title)}${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}</div>
       ${it.accounts?.length ? `<div class="ac">${it.accounts.map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}</div>` : ''}
-      ${it.gated ? '<div class="ac"><span class="sub">Only if it earns 10 MOVEMENT comments in 48h</span></div>' : ''}
+      ${it.gated && !it.onHold ? '<div class="ac"><span class="sub">Only if it earns 10 MOVEMENT comments in 48h</span></div>' : ''}
       ${it.format && it.format !== 'Reel' ? `<div class="ac"><span class="sub">${esc(it.format)}</span></div>` : ''}
       ${it.note ? `<div class="nt">${esc(it.note)}</div>` : ''}
     </div>`;
@@ -603,7 +658,7 @@
     const days = Array.from({ length: 7 }, (_, k) => addDays(from, k));
     const inWeek = items.filter(it => it.date >= days[0] && it.date <= days[6]);
     const nPosts = inWeek.filter(x => x.kind === 'post').length, nBoost = inWeek.filter(x => x.kind === 'boost').length, nShoot = inWeek.filter(x => x.kind === 'shoot').length;
-    const parts = [nPosts && `${nPosts} post${nPosts > 1 ? 's' : ''}`, nBoost && `${nBoost} boost${nBoost > 1 ? 's' : ''}`, nShoot && `${nShoot} filming block${nShoot > 1 ? 's' : ''}`].filter(Boolean);
+    const parts = [nPosts && plural(nPosts, 'post'), nBoost && plural(nBoost, 'boost'), nShoot && plural(nShoot, 'filming block')].filter(Boolean);
     const head = parts.length ? `${parts.join(', ').replace(/, ([^,]*)$/, ' and $1')} in the week of ${esc(rangeLabel(days[0], days[6]))}.` : `Nothing is scheduled for ${esc(scopeLabel())} in the week of ${esc(rangeLabel(days[0], days[6]))}.`;
     const strip = `<div class="weekstrip">${days.map(d => {
       const its = inWeek.filter(x => x.date === d);
@@ -620,8 +675,8 @@
       byWeek.get(ws).push(it);
     }
     const agenda = [...byWeek].map(([ws, its]) => `
-      <div class="ag-week"><div><h4>${esc(rangeLabel(ws, addDays(ws, 6)))}</h4><div class="c">${its.filter(x => x.kind === 'post').length} posts · ${its.filter(x => x.kind === 'boost').length} boosts</div></div>
-        <div class="ag-items">${its.map(it => `<div class="ag-item"><time>${esc(dayLabel(it.date).slice(0, 3))} ${esc(shortDate(it.date))}</time>${KIND_ICON[it.kind] || ''}<div><b style="font-weight:650">${esc(it.title)}</b>${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}${it.note ? `<span class="nt">${esc(it.note)}</span>` : ''}<span class="meta">${(it.accounts || []).map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}${it.gated ? '<span class="chip warn">If it clears the gate</span>' : ''}${it.organicOnly ? '<span class="chip ghost">Never boosted</span>' : ''}</span></div></div>`).join('')}</div>
+      <div class="ag-week"><div><h4>${esc(rangeLabel(ws, addDays(ws, 6)))}</h4><div class="c">${plural(its.filter(x => x.kind === 'post').length, 'post')} · ${plural(its.filter(x => x.kind === 'boost').length, 'boost')}</div></div>
+        <div class="ag-items">${its.map(it => `<div class="ag-item"><time>${esc(dayLabel(it.date).slice(0, 3))} ${esc(shortDate(it.date))}</time>${KIND_ICON[it.kind] || ''}<div><b style="font-weight:650">${esc(it.title)}</b>${it.amount ? ` <span class="num">$${it.amount}</span>` : ''}${it.note ? `<span class="nt">${esc(it.note)}</span>` : ''}<span class="meta">${(it.accounts || []).map(a => `<span>${accDot(HANDLE_TO_ID[a] || '')}${esc(a)}</span>`).join('')}${it.gated ? '<span class="chip warn">Only if it earns 10 MOVEMENT comments</span>' : ''}${it.organicOnly ? '<span class="chip ghost">Never boosted</span>' : ''}</span></div></div>`).join('')}</div>
       </div>`).join('');
 
     const series = (D.pipeline?.series || []).filter(s => state.account === 'all' || !s.account || s.account.includes(accName(state.account)) || (state.account === 'meto' && /METO/i.test(s.account)));
@@ -640,7 +695,9 @@
       </details>`;
     }).join('');
 
-    return `${slideHead(i, 'Up next', head, `From the Q4 plan (built Sep 24). Dr. Omavi reviews it on Mon Sep 28, so dates can move.`)}
+    const review = D.schedule.planReview;
+    const lede = `From the Q4 plan (built Sep 24).${review && per.end < review ? ` Dr. Omavi reviews it on ${esc(dayLabel(review))}, so dates can move.` : ' Dates can move as pieces are filmed and approved.'}`;
+    return `${slideHead(i, 'Up next', head, lede)}
       ${strip}
       <div class="grid cols-2" style="margin-top:22px;align-items:start">
         <div class="card card-plain"><h3>After that, through Nov 1</h3><p class="sub">Posts, boosts and deadlines. Filming days are on the week view.</p><div class="agenda" style="margin-top:6px">${agenda || '<p class="sub">Nothing else scheduled yet.</p>'}</div></div>
@@ -658,7 +715,8 @@
     const months = [...new Set(R.boost.ledger.map(r => r.month))].sort();
     const monthLabel = m => MONTHS[Number(m.slice(5, 7)) - 1] + (m.startsWith('2027') ? ' 2027' : '');
     const realAds = hasReal ? REAL.flatMap(w => (w.ads || []).map(a => ({ ...a, week: w.start }))) : usingSample() ? SAMPLE.flatMap(w => (w.ads || []).map(a => ({ ...a, week: w.start }))) : [];
-    const scopedAds = realAds.filter(a => !a.account || inScope(a.account));
+    // An ad with no account only shows under "All accounts", so it is never counted twice.
+    const scopedAds = realAds.filter(a => (a.account ? inScope(a.account) : state.account === 'all'));
     const weekAds = scopedAds.filter(a => a.week === curWeek()?.start);
     // Sample ads only illustrate the weekly table; the monthly plan compares real spend.
     const spentIn = m => (hasReal ? scopedAds : []).filter(a => (a.from || a.week).slice(0, 7) === m).reduce((s, a) => s + (a.spend || 0), 0);
@@ -666,27 +724,38 @@
     const liveAds = hasReal ? weekAds : [];
     const weekSpend = liveAds.reduce((s, a) => s + (a.spend || 0), 0);
     const weekResults = liveAds.reduce((s, a) => s + (a.results || 0), 0);
+    // Results only add up when they are the same kind (link clicks and follows do not).
+    const resultTypes = [...new Set(liveAds.filter(a => isNum(a.results)).map(a => a.resultType || 'results'))];
+    const mixed = resultTypes.length > 1;
+    const spentToDate = (hasReal ? scopedAds : []).reduce((s, a) => s + (a.spend || 0), 0);
     const curMonth = addDays(per.end, 1).slice(0, 7);
-    const plannedNext = ledger.filter(r => r.month === curMonth && !r.optional).reduce((s, r) => s + r.planned, 0);
+    const liveLedger = ledger.filter(r => !r.optional && !r.onHold);
+    const plannedNext = liveLedger.filter(r => r.month === curMonth).reduce((s, r) => s + r.planned, 0);
 
     const running = (A.photoAds || []).filter(a => a.status === 'running').length + (A.videoAds || []).filter(a => a.status === 'running').length;
-    const head = running || weekSpend
-      ? `${money(weekSpend)} spent this week for ${fmt(weekResults)} results.`
-      : 'No paid ads are running yet. The first boosts launch once the budget is approved.';
+    const head = weekSpend
+      ? `${money(weekSpend)} spent this week${mixed ? '' : ` for ${plural(weekResults, (resultTypes[0] || 'results').replace(/s$/, ''), resultTypes[0] || 'results')}`}.`
+      : spentToDate
+        ? `No boost ran this week. ${money(spentToDate)} spent so far.`
+        : running
+          ? 'Ads are live. Their spend shows here once the Ads Manager export is loaded.'
+          : 'No paid ads are running yet. The first boosts launch once the budget is approved.';
 
     const statCards = [
-      { l: `Planned for ${monthLabel(curMonth)}`, v: money(plannedNext), s: 'from the boost plan' },
-      { l: 'Spent this week', v: liveAds.length ? money(weekSpend) : '$0', s: liveAds.length ? `${liveAds.length} ad${liveAds.length > 1 ? 's' : ''}` : 'nothing live' },
-      { l: 'Results this week', v: liveAds.length ? fmt(weekResults) : '–', s: liveAds[0]?.resultType || 'clicks, sign-ups or follows' },
-      { l: 'Cost per result', v: weekResults ? money(Math.round((weekSpend / weekResults) * 100) / 100) : '–', s: 'lower is better' },
+      { l: `Planned for ${monthLabel(curMonth)}`, v: money(plannedNext), s: ledger.some(r => r.month === curMonth && r.onHold) ? 'from the boost plan; one boost on hold' : 'from the boost plan' },
+      { l: 'Spent this week', v: liveAds.length ? money(weekSpend) : '$0', s: liveAds.length ? plural(liveAds.length, 'ad') : 'nothing live' },
+      { l: 'Results this week', v: liveAds.length ? (mixed ? 'Mixed' : fmt(weekResults)) : '–', s: liveAds.length ? (mixed ? resultTypes.join(', ') : resultTypes[0] || 'results') : 'clicks, sign-ups or follows' },
+      { l: 'Cost per result', v: weekResults && !mixed ? money(Math.round((weekSpend / weekResults) * 100) / 100) : '–', s: mixed ? 'see each ad below' : 'lower is better' },
     ].map(c => `<div class="stat"><div class="label">${esc(c.l)}</div><div class="value">${c.v}</div><div class="foot">${esc(c.s)}</div></div>`).join('');
 
     const monthMeters = months.filter(m => m <= '2026-12').map(m => {
-      const planned = ledger.filter(r => r.month === m && !r.optional).reduce((s, r) => s + r.planned, 0);
+      const planned = liveLedger.filter(r => r.month === m).reduce((s, r) => s + r.planned, 0);
       const opt = ledger.filter(r => r.month === m && r.optional).reduce((s, r) => s + r.planned, 0);
+      const hold = ledger.filter(r => r.month === m && r.onHold && !r.optional).reduce((s, r) => s + r.planned, 0);
       const spent = spentIn(m);
       const cap = planned || 1;
-      return `<div class="meter spend"><div class="meter-head"><b>${esc(monthLabel(m))}</b><span class="num">${money(spent)} spent of ${money(planned)} planned${opt ? ` (+${money(opt)} optional)` : ''}</span></div>
+      const extra = [opt && `+${money(opt)} optional`, hold && `+${money(hold)} on hold`].filter(Boolean).join(', ');
+      return `<div class="meter spend"><div class="meter-head"><b>${esc(monthLabel(m))}</b><span class="num">${money(spent)} spent of ${money(planned)} planned${extra ? ` (${extra})` : ''}</span></div>
         <div class="meter-track" role="img" aria-label="${esc(monthLabel(m))}: ${money(spent)} of ${money(planned)}"><div class="meter-fill" style="width:${Math.min(100, (spent / cap) * 100)}%"></div></div></div>`;
     }).join('');
 
@@ -733,7 +802,7 @@
         </details>
       </div>`;
 
-    const convRows = weekAds.length ? `<div class="table-wrap"><table><thead><tr><th scope="col">Ad</th><th scope="col">Spend</th><th scope="col">Results</th><th scope="col">Per result</th></tr></thead><tbody>${weekAds.map(a => `<tr><td><b>${esc(a.name)}</b><div class="sub">${a.account ? accDot(a.account) + ' ' + esc(accShort(a.account)) + ' · ' : ''}${esc(a.resultType || 'results')} · ${fmt(a.impressions)} impressions</div></td><td>${money(a.spend)}</td><td>${fmt(a.results)}</td><td>${a.results ? money(Math.round((a.spend / a.results) * 100) / 100) : '–'}</td></tr>`).join('')}</tbody></table></div>`
+    const convRows = weekAds.length ? `<div class="table-wrap" tabindex="0" role="region" aria-label="Spend and results per ad"><table><thead><tr><th scope="col">Ad</th><th scope="col">Spend</th><th scope="col">Results</th><th scope="col">Per result</th></tr></thead><tbody>${weekAds.map(a => `<tr><td><b>${esc(a.name)}</b><div class="sub">${a.account ? accDot(a.account) + ' ' + esc(accShort(a.account)) + ' · ' : ''}${esc(a.resultType || 'results')} · ${fmt(a.impressions)} impressions</div></td><td>${money(a.spend)}</td><td>${fmt(a.results)}</td><td>${a.results ? money(Math.round((a.spend / a.results) * 100) / 100) : '–'}</td></tr>`).join('')}</tbody></table></div>`
       : `<div class="empty"><b>No paid results yet</b><span>Spend and conversions show here, per ad, once the first boost runs. Load them with the Ads Manager export.</span></div>`;
 
     return `${slideHead(i, 'Ads', head, 'What is live, what is ready, what still needs filming, and where the money goes.')}
@@ -772,9 +841,12 @@
   function renderApp(i) {
     const P = D.app;
     if (!P) return `${slideHead(i, 'The app', 'The METO app, screen by screen.')}<p class="sub">App map not loaded.</p>`;
-    const screens = P.areas.flatMap(a => a.screens);
-    const live = screens.filter(s => s.status === 'live').length;
-    const head = `The METO app has ${screens.length} screens in ${P.areas.length} parts. ${live === screens.length ? 'All of them are live.' : `${live} are live today.`}`;
+    // Count real screens only: the shell area (header, tabs, footer, install) frames them.
+    const pageAreas = P.areas.filter(a => a.kind !== 'shell');
+    const screens = pageAreas.flatMap(a => a.screens).filter(s => s.status !== 'planned');
+    const live = screens.filter(s => s.status === 'live').length, partial = screens.length - live;
+    const planned = P.areas.flatMap(a => a.screens).filter(s => s.status === 'planned');
+    const head = `The METO app has ${screens.length} screens in ${pageAreas.length} parts: ${live} fully live${partial ? ` and ${partial} partly built` : ''}.${planned.length ? ` ${esc(planned.map(s => s.name).join(', '))} ${planned.length === 1 ? 'is' : 'are'} planned.` : ''}`;
     const facts = (P.app.facts || []).map(f => `<div class="fact"><b>${esc(f.value)}</b><span>${esc(f.label)}</span></div>`).join('');
     const journey = (P.journey || []).map((s, k) => `<div class="j-step"><span class="n">Step ${k + 1}</span><b>${esc(s.label)}</b><p>${esc(s.detail)}</p></div>`).join('');
     const phone = s => {
@@ -784,14 +856,14 @@
         <div class="phone ${s.status === 'planned' ? 'planned' : ''}" role="img" aria-label="${esc(s.name)} screen: ${esc(blocks.join(', '))}">
           <div class="url">${esc(s.route || '/')}</div>
           ${shown.map((b, k) => `<div class="blk ${k === 0 ? 'hero' : ''}"><span>${esc(b)}</span></div>`).join('')}
-          ${blocks.length > shown.length ? `<div class="more-blk">+${blocks.length - shown.length} more sections</div>` : ''}
+          ${blocks.length > shown.length ? `<div class="more-blk">+${plural(blocks.length - shown.length, 'more section', 'more sections')}</div>` : ''}
         </div>
         <div class="phone-cap"><b>${esc(s.name)}</b><p>${esc(s.job)}</p>
           <span class="chip ${s.status === 'live' ? 'good' : s.status === 'partial' ? 'warn' : 'ghost'}">${s.status === 'live' ? I.check + ' Live' : s.status === 'partial' ? 'Partly built' : 'Planned'}</span>
           ${s.note ? `<details class="more"><summary>Details</summary><p class="sub">${esc(s.note)}</p></details>` : ''}</div>
       </div>`;
     };
-    const areas = P.areas.map(a => `<section class="area" aria-label="${esc(a.name)}"><div class="area-h"><h3>${esc(a.name)}</h3><p>${esc(a.blurb)}</p><span class="chip">${a.screens.length} screen${a.screens.length > 1 ? 's' : ''}</span></div><div class="phones">${a.screens.map(phone).join('')}</div></section>`).join('');
+    const areas = P.areas.map(a => `<section class="area" aria-label="${esc(a.name)}"><div class="area-h"><h3>${esc(a.name)}</h3><p>${esc(a.blurb)}</p><span class="chip">${plural(a.screens.length, 'screen')}</span></div><div class="phones" tabindex="0" role="region" aria-label="${esc(a.name)} screens, scrolls sideways">${a.screens.map(phone).join('')}</div></section>`).join('');
     return `${slideHead(i, 'The app', head, `${esc(P.app.oneLiner)} ${P.app.url ? `<a href="${esc(P.app.url)}" target="_blank" rel="noopener">Open the live app</a>.` : ''}`)}
       <div class="app-facts app-facts-grid">${facts}</div>
       ${P.app.status ? `<p class="slide-foot" style="margin-top:12px">${esc(P.app.status)} ${esc(P.app.builtWith || '')}</p>` : ''}
@@ -809,7 +881,7 @@
     const groups = D.asks?.groups || [{ title: '', items: D.asks?.items || [] }];
     const total = groups.reduce((n, g) => n + g.items.length, 0);
     const ICONS = { access: I.key, decision: I.ask, budget: I.money, data: I.chart };
-    const ask = a => `<div class="ask"><span class="ic">${ICONS[a.kind] || I.ask}</span><div><b>${esc(a.title)}</b><p>${esc(a.detail)}</p><div class="meta">${a.owner ? `<span class="chip">${esc(a.owner)}</span>` : ''}${a.due ? `<span class="chip warn">By ${esc(shortDateSafe(a.due))}</span>` : ''}${a.unlocks ? `<span class="chip ghost">Unlocks: ${esc(a.unlocks)}</span>` : ''}</div></div></div>`;
+    const ask = a => `<div class="ask"><span class="ic">${ICONS[a.kind] || I.ask}</span><div><b>${esc(a.title)}</b><p>${esc(a.detail)}</p><div class="meta">${a.owner ? `<span class="chip">${esc(a.owner)}</span>` : ''}${a.due ? `<span class="chip warn">${/^\d{4}-/.test(a.due) ? 'By ' + esc(shortDate(a.due)) : esc(a.due)}</span>` : ''}${a.unlocks ? `<span class="chip ghost">Unlocks: ${esc(a.unlocks)}</span>` : ''}</div></div></div>`;
     return `${slideHead(i, 'What we need', `${total} things we need to keep this moving.`, 'Each one unlocks a number on this report, a post on the calendar, or the first ad dollar.')}
       <div class="ask-groups">${groups.map(g => `<section class="ask-group">${g.title ? `<h3>${esc(g.title)} <span class="chip">${g.items.length}</span></h3>` : ''}<div class="asks">${g.items.map(ask).join('')}</div></section>`).join('')}</div>`;
   }
@@ -863,17 +935,32 @@
   }
 
   // ---------- present mode ----------
+  // Built once and then updated in place, so a focused button keeps focus between slides.
   function renderPresentBar() {
     const bar = $('#present-bar');
-    bar.innerHTML = `<button type="button" data-action="prev" aria-label="Previous slide">${I.left}</button>
-      <span class="present-dots" aria-hidden="true">${SLIDES.map((_, k) => `<i class="${k === state.current ? 'on' : ''}"></i>`).join('')}</span>
-      <span class="count">${state.current + 1} / ${SLIDES.length}</span>
-      <button type="button" data-action="next" aria-label="Next slide">${I.right}</button>
-      <button type="button" data-action="exit" aria-label="Exit presentation">${I.close}</button>`;
+    if (!bar.children.length) {
+      bar.innerHTML = `<button type="button" data-action="prev" aria-label="Previous slide">${I.left}</button>
+        <span class="present-dots" aria-hidden="true">${SLIDES.map(() => '<i></i>').join('')}</span>
+        <span class="count" aria-live="polite"></span>
+        <button type="button" data-action="next" aria-label="Next slide">${I.right}</button>
+        <button type="button" data-action="exit" aria-label="Exit presentation">${I.close}</button>`;
+    }
+    $$('.present-dots i', bar).forEach((d, k) => d.classList.toggle('on', k === state.current));
+    $('.count', bar).textContent = `${state.current + 1} / ${SLIDES.length}`;
+    $('[data-action="prev"]', bar).disabled = state.current === 0;
+    $('[data-action="next"]', bar).disabled = state.current === SLIDES.length - 1;
   }
-  function go(k) {
+  function go(k, { focusSlide = true } = {}) {
     state.current = Math.max(0, Math.min(SLIDES.length - 1, k));
-    $$('.slide').forEach((el, n) => { el.classList.toggle('current', n === state.current); if (n === state.current) el.scrollTop = 0; });
+    $$('.slide').forEach((el, n) => {
+      el.classList.toggle('current', n === state.current);
+      if (n === state.current) {
+        el.scrollTop = 0;
+        el.setAttribute('tabindex', '-1');
+        // Focus the slide itself so arrow keys and PageDown-free scrolling work on tall slides.
+        if (focusSlide && !$('#present-bar').contains(document.activeElement)) el.focus({ preventScroll: true });
+      }
+    });
     renderPresentBar();
   }
   function nearestSlide() {
@@ -891,25 +978,43 @@
       try { document.documentElement.requestFullscreen?.().catch(() => {}); } catch { /* not allowed here */ }
     } else {
       document.documentElement.classList.remove('presenting');
-      $$('.slide').forEach(el => el.classList.remove('current'));
+      $$('.slide').forEach(el => { el.classList.remove('current'); el.removeAttribute('tabindex'); });
       try { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); } catch { /* ignore */ }
       document.getElementById(SLIDES[state.current].id).scrollIntoView({ block: 'start' });
+      $('[data-action="present"]')?.focus({ preventScroll: true });
     }
   }
 
   // ---------- events ----------
+  // Re-rendering replaces the focused control, so remember which one it was and focus it again.
+  function focusKey() {
+    const el = document.activeElement;
+    if (!el || el === document.body) return null;
+    for (const attr of ['data-account', 'data-week', 'data-sort', 'data-action']) {
+      if (el.hasAttribute(attr)) return `[${attr}="${el.getAttribute(attr)}"]`;
+    }
+    return el.id ? `#${el.id}` : null;
+  }
+  function rerender(fn) {
+    const key = focusKey();
+    fn();
+    if (!key) return;
+    let el = $(key);
+    if (el && el.disabled && key.startsWith('[data-week')) el = $(`[data-week="${key.includes('"-1"') ? '1' : '-1'}"]`);
+    el?.focus({ preventScroll: true });
+  }
   document.addEventListener('click', e => {
     const t = e.target.closest('button, a');
     if (!t) return;
-    if (t.dataset.account) { state.account = t.dataset.account; store.set('account', state.account); renderDeck(); return; }
+    if (t.dataset.account) { state.account = t.dataset.account; store.set('account', state.account); rerender(renderDeck); return; }
     if (t.dataset.week) {
       const ws = weeks(); const k = weekIndex() + Number(t.dataset.week);
-      if (ws[k]) { state.weekStart = ws[k].start; renderDeck(); }
+      if (ws[k]) { state.weekStart = ws[k].start; rerender(renderDeck); }
       return;
     }
     if (t.dataset.sort) {
       if (sortKey === t.dataset.sort) sortDir *= -1; else { sortKey = t.dataset.sort; sortDir = -1; }
-      const el = document.getElementById('videos'); el.innerHTML = renderTable(SLIDES.findIndex(s => s.id === 'videos'));
+      rerender(() => { document.getElementById('videos').innerHTML = renderTable(SLIDES.findIndex(s => s.id === 'videos')); });
       return;
     }
     const act = t.dataset.action;
@@ -917,26 +1022,49 @@
     else if (act === 'exit') present(false);
     else if (act === 'next') go(state.current + 1);
     else if (act === 'prev') go(state.current - 1);
-    else if (act === 'sample-on') { state.sample = true; store.set('sample', true); renderDeck(); }
+    else if (act === 'sample-on') { state.sample = true; store.set('sample', true); rerender(renderDeck); $('#sample-toggle')?.focus(); }
   });
   document.addEventListener('change', e => {
-    if (e.target.id === 'sample-toggle') { state.sample = e.target.checked; store.set('sample', state.sample); state.weekStart = null; renderDeck(); }
+    if (e.target.id === 'sample-toggle') { state.sample = e.target.checked; store.set('sample', state.sample); state.weekStart = null; rerender(renderDeck); }
   });
   document.addEventListener('keydown', e => {
     if (!state.presenting) return;
-    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); go(state.current + 1); }
-    else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(state.current - 1); }
+    // Space and Enter keep their normal job on buttons, links, toggles and form fields.
+    const onControl = e.target.closest?.('button, a, summary, input, select, textarea, [role="region"]');
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && !onControl)) {
+      if (e.key === 'ArrowRight' && e.target.closest?.('[role="region"]')) return;
+      e.preventDefault(); go(state.current + 1);
+    }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      if (e.key === 'ArrowLeft' && e.target.closest?.('[role="region"]')) return;
+      e.preventDefault(); go(state.current - 1);
+    }
     else if (e.key === 'Home') go(0);
     else if (e.key === 'End') go(SLIDES.length - 1);
     else if (e.key === 'Escape') present(false);
   });
   document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && state.presenting) present(false); });
-  let touchX = null;
-  document.addEventListener('touchstart', e => { if (state.presenting) touchX = e.touches[0].clientX; }, { passive: true });
+  // Swipe between slides, unless the finger started on something that scrolls sideways
+  // (the scorecard, the phone screens) or on a chart.
+  let touchX = null, touchY = null;
+  const insideSideScroller = el => {
+    for (let n = el; n && n !== document.body; n = n.parentElement) {
+      if (n.matches?.('[data-chart]')) return true;
+      const ox = getComputedStyle(n).overflowX;
+      if ((ox === 'auto' || ox === 'scroll') && n.scrollWidth > n.clientWidth + 2) return true;
+    }
+    return false;
+  };
+  document.addEventListener('touchstart', e => {
+    touchX = touchY = null;
+    if (!state.presenting || insideSideScroller(e.target)) return;
+    touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+  }, { passive: true });
   document.addEventListener('touchend', e => {
     if (!state.presenting || touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX; touchX = null;
-    if (Math.abs(dx) > 60) go(state.current + (dx < 0 ? 1 : -1));
+    const dx = e.changedTouches[0].clientX - touchX, dy = e.changedTouches[0].clientY - touchY;
+    touchX = touchY = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > 1.5 * Math.abs(dy)) go(state.current + (dx < 0 ? 1 : -1));
   }, { passive: true });
 
   // Highlight the slide in view in the section nav.
@@ -949,6 +1077,11 @@
     }, { rootMargin: '-35% 0px -60% 0px' });
     $$('.slide').forEach(el => io.observe(el));
   }
+
+  // Keep anchor jumps clear of the sticky header, whatever height it wraps to.
+  const topbar = $('.topbar');
+  const setHdr = () => document.documentElement.style.setProperty('--hdr', `${Math.round(topbar.getBoundingClientRect().height)}px`);
+  if (topbar) { setHdr(); if ('ResizeObserver' in window) new ResizeObserver(setHdr).observe(topbar); }
 
   $('#built').textContent = `Updated ${shortDate(R.updated)} ${R.updated.slice(0, 4)}`;
   renderDeck();

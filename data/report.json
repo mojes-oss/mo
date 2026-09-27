@@ -3,7 +3,10 @@
   "movement": "METO Movement",
   "presentedTo": "Dr. Omavi Bailey and Nehanda Jones",
   "agency": "Venelt Media",
-  "reportWeek": { "start": "2026-09-21", "end": "2026-09-27" },
+  "reportWeek": {
+    "start": "2026-09-21",
+    "end": "2026-09-27"
+  },
   "updated": "2026-09-27",
   "northStar": {
     "label": "People through the free Way of Remembering course",
@@ -42,74 +45,345 @@
   "targets": {
     "source": "Q4 Playbook metric floors, counted from the Fri Sep 25 Insights screenshot",
     "goals": [
-      { "id": "prom-follows-oct", "account": "prometrausa", "label": "New @prometrausa followers", "target": 100, "by": "2026-10-31", "unit": "follows", "stretch": { "target": 300, "by": "2026-12-31" } },
-      { "id": "meto-signups-oct", "account": "meto", "label": "Curriculum sign-ups", "target": 500, "by": "2026-10-31", "unit": "sign-ups", "checkpoint": { "target": 250, "by": "2026-10-16" }, "stretch": { "target": 1500, "by": "2026-12-31" } },
-      { "id": "meto-apps", "account": "meto", "label": "Pilgrimage applications", "target": 150, "by": "2026-11-01", "unit": "applications", "checkpoint": { "target": 75, "by": "2026-10-16" } },
-      { "id": "meto-followers", "account": "meto", "label": "New METO Movement followers", "target": 150, "by": "2026-10-16", "unit": "follows", "stretch": { "target": 500, "by": "2026-11-13" } },
-      { "id": "meto-ambassadors", "account": "meto", "label": "Campus and community ambassadors", "target": 10, "by": "2026-11-01", "unit": "ambassadors", "stretch": { "target": 25, "by": "2026-12-31" } },
-      { "id": "movement-comments", "account": "all", "label": "MOVEMENT comments, all three accounts", "target": 300, "by": "2026-10-31", "unit": "comments", "period": "month" },
-      { "id": "omavi-followers", "account": "dromavi", "label": "New @dromavi followers", "target": 500, "by": "2026-10-31", "unit": "follows", "checkpoint": { "target": 250, "by": "2026-10-15" }, "stretch": { "target": 1500, "by": "2026-12-31" } }
+      {
+        "id": "prom-follows-oct",
+        "account": "prometrausa",
+        "label": "New @prometrausa followers",
+        "target": 100,
+        "by": "2026-10-31",
+        "unit": "follows",
+        "stretch": {
+          "target": 300,
+          "by": "2026-12-31"
+        }
+      },
+      {
+        "id": "meto-signups-oct",
+        "account": "meto",
+        "label": "Curriculum sign-ups",
+        "target": 500,
+        "by": "2026-10-31",
+        "unit": "sign-ups",
+        "checkpoint": {
+          "target": 250,
+          "by": "2026-10-16"
+        },
+        "stretch": {
+          "target": 1500,
+          "by": "2026-12-31"
+        }
+      },
+      {
+        "id": "meto-apps",
+        "account": "meto",
+        "label": "Pilgrimage applications",
+        "target": 150,
+        "by": "2026-11-01",
+        "unit": "applications",
+        "checkpoint": {
+          "target": 75,
+          "by": "2026-10-16"
+        }
+      },
+      {
+        "id": "meto-followers",
+        "account": "meto",
+        "label": "New METO Movement followers",
+        "target": 150,
+        "by": "2026-10-16",
+        "unit": "follows",
+        "stretch": {
+          "target": 500,
+          "by": "2026-11-13"
+        }
+      },
+      {
+        "id": "meto-ambassadors",
+        "account": "meto",
+        "label": "Campus and community ambassadors",
+        "target": 10,
+        "by": "2026-11-01",
+        "unit": "ambassadors",
+        "stretch": {
+          "target": 25,
+          "by": "2026-12-31"
+        }
+      },
+      {
+        "id": "movement-comments",
+        "account": "all",
+        "label": "MOVEMENT comments, all three accounts",
+        "target": 300,
+        "by": "2026-10-31",
+        "unit": "comments",
+        "period": "month"
+      },
+      {
+        "id": "omavi-followers",
+        "account": "dromavi",
+        "label": "New @dromavi followers",
+        "target": 500,
+        "by": "2026-10-31",
+        "unit": "follows",
+        "checkpoint": {
+          "target": 250,
+          "by": "2026-10-15"
+        },
+        "stretch": {
+          "target": 1500,
+          "by": "2026-12-31"
+        }
+      }
     ],
     "perPost": [
-      { "account": "prometrausa", "metric": "reach", "label": "Reach by day 7", "floor": 1000 },
-      { "account": "prometrausa", "metric": "follows", "label": "Follows by day 7", "floor": 10 },
-      { "account": "prometrausa", "metric": "shares", "label": "Shares by day 7", "floor": 10 },
-      { "account": "prometrausa", "metric": "linkClicks", "label": "Site clicks by day 7", "floor": 5 },
-      { "account": "meto", "metric": "reach", "label": "Reach by day 7", "floor": 8000 },
-      { "account": "meto", "metric": "shares", "label": "Shares by day 7", "floor": 30 },
-      { "account": "meto", "metric": "keywordComments", "label": "MOVEMENT comments by day 7", "floor": 20 },
-      { "account": "meto", "metric": "linkClicks", "label": "Curriculum clicks by day 7", "floor": 30 },
-      { "account": "dromavi", "metric": "reach", "label": "Reach by day 7", "floor": 5000 },
-      { "account": "dromavi", "metric": "follows", "label": "Follows by day 7", "floor": 75 },
-      { "account": "dromavi", "metric": "keywordComments", "label": "MOVEMENT comments by day 7", "floor": 20 }
+      {
+        "account": "prometrausa",
+        "metric": "reach",
+        "label": "reach",
+        "floor": 1000
+      },
+      {
+        "account": "prometrausa",
+        "metric": "follows",
+        "label": "follows",
+        "floor": 10
+      },
+      {
+        "account": "prometrausa",
+        "metric": "shares",
+        "label": "shares",
+        "floor": 10
+      },
+      {
+        "account": "prometrausa",
+        "metric": "linkClicks",
+        "label": "site clicks",
+        "floor": 5
+      },
+      {
+        "account": "meto",
+        "metric": "reach",
+        "label": "reach",
+        "floor": 8000
+      },
+      {
+        "account": "meto",
+        "metric": "shares",
+        "label": "shares",
+        "floor": 30
+      },
+      {
+        "account": "meto",
+        "metric": "keywordComments",
+        "label": "MOVEMENT comments",
+        "floor": 20
+      },
+      {
+        "account": "meto",
+        "metric": "linkClicks",
+        "label": "curriculum clicks",
+        "floor": 30
+      },
+      {
+        "account": "dromavi",
+        "metric": "reach",
+        "label": "reach",
+        "floor": 5000
+      },
+      {
+        "account": "dromavi",
+        "metric": "follows",
+        "label": "follows",
+        "floor": 75
+      },
+      {
+        "account": "dromavi",
+        "metric": "keywordComments",
+        "label": "MOVEMENT comments",
+        "floor": 20
+      }
     ]
   },
   "ladder": {
     "source": "Q4 Playbook planning ratio (internal, never in public copy)",
     "note": "Planning ratios. We replace them with real conversion rates as weekly numbers come in.",
     "steps": [
-      { "label": "Reach", "value": 2500000, "display": "2-3M" },
-      { "label": "MOVEMENT comments", "value": 15000, "display": "~15,000" },
-      { "label": "Curriculum sign-ups", "value": 1500, "display": "~1,500" },
-      { "label": "Applications", "value": 150, "display": "~150" },
-      { "label": "Seats on the trip", "value": 50, "display": "50" }
+      {
+        "label": "Reach",
+        "value": 2500000,
+        "display": "2-3M"
+      },
+      {
+        "label": "MOVEMENT comments",
+        "value": 15000,
+        "display": "~15,000"
+      },
+      {
+        "label": "Curriculum sign-ups",
+        "value": 1500,
+        "display": "~1,500"
+      },
+      {
+        "label": "Applications",
+        "value": 150,
+        "display": "~150"
+      },
+      {
+        "label": "Seats on the trip",
+        "value": 50,
+        "display": "50"
+      }
     ]
   },
   "boost": {
     "source": "Q4 Playbook boost rules and ledger. Awaiting Dr. Omavi's approval of the caps on Mon Sep 28.",
     "approved": false,
     "caps": [
-      { "account": "@prometrausa", "monthly": 0, "note": "Never boosted in Q4." },
-      { "account": "METO Movement", "monthly": 100, "note": "Two $50 boosts a month, to metomovement.com/curriculum." },
-      { "account": "@dromavi", "monthly": 100, "note": "Two $50 boosts a month, for profile visits." }
+      {
+        "account": "@prometrausa",
+        "monthly": 0,
+        "note": "$0 in the Q4 plan. Still open: the Sep 25 meeting asked for targeted ads here, to decide Sep 28."
+      },
+      {
+        "account": "METO Movement",
+        "monthly": 100,
+        "note": "Two $50 boosts a month, to metomovement.com/curriculum."
+      },
+      {
+        "account": "@dromavi",
+        "monthly": 100,
+        "note": "Two $50 boosts a month, for profile visits."
+      }
     ],
     "gate": "A post gets a boost only after it earns 10 organic MOVEMENT comments in its first 48 hours. Nothing is boosted on post day.",
     "run": "$50 for 7 days, launched on a weekday. On @dromavi a run pauses if it costs more than $1.50 per follow at day 3.",
     "ledger": [
-      { "month": "2026-09", "account": "@dromavi", "piece": "Africa map 'How big is Africa, really'", "planned": 50, "gated": true, "launch": "2026-09-28" },
-      { "month": "2026-10", "account": "@dromavi", "piece": "'Who is Dr. Omavi' intro", "planned": 50, "gated": true, "launch": "2026-10-08" },
-      { "month": "2026-10", "account": "@dromavi", "piece": "Africa series trailer 'I'm going back'", "planned": 50, "gated": true, "launch": "2026-10-14" },
-      { "month": "2026-10", "account": "METO Movement", "piece": "CTA video B 'Back to the Source'", "planned": 50, "gated": true, "launch": "2026-10-16" },
-      { "month": "2026-10", "account": "METO Movement", "piece": "'Post This, Tag Us' ambassador reel (or the 'fifty people' piece, never both)", "planned": 50, "gated": true, "launch": "2026-10-19" },
-      { "month": "2026-11", "account": "@dromavi", "piece": "Gala film 'We flew Africa in' (collab with METO and @prometrausa)", "planned": 50, "gated": true },
-      { "month": "2026-11", "account": "@dromavi", "piece": "One leader or interview clip", "planned": 50, "gated": true },
-      { "month": "2026-11", "account": "METO Movement", "piece": "Best-saving Health Through Plants reel", "planned": 50, "gated": true },
-      { "month": "2026-11", "account": "METO Movement", "piece": "Optional: How to Breathe or a Movement Voice episode", "planned": 50, "gated": true, "optional": true },
-      { "month": "2026-12", "account": "@dromavi", "piece": "House-interview clip", "planned": 50, "gated": true },
-      { "month": "2026-12", "account": "METO Movement", "piece": "Africa E6 'Getting ready for Africa'", "planned": 50, "gated": true }
+      {
+        "month": "2026-09",
+        "account": "@dromavi",
+        "piece": "Africa map 'How big is Africa, really'",
+        "planned": 50,
+        "gated": true,
+        "launch": "2026-09-28",
+        "onHold": true,
+        "note": "On hold until the Africa map posts and earns 10 MOVEMENT comments in 48 hours."
+      },
+      {
+        "month": "2026-10",
+        "account": "@dromavi",
+        "piece": "'Who is Dr. Omavi' intro",
+        "planned": 50,
+        "gated": true,
+        "launch": "2026-10-08"
+      },
+      {
+        "month": "2026-10",
+        "account": "@dromavi",
+        "piece": "Africa series trailer 'I'm going back'",
+        "planned": 50,
+        "gated": true,
+        "launch": "2026-10-14"
+      },
+      {
+        "month": "2026-10",
+        "account": "METO Movement",
+        "piece": "CTA video B 'Back to the Source'",
+        "planned": 50,
+        "gated": true,
+        "launch": "2026-10-16"
+      },
+      {
+        "month": "2026-10",
+        "account": "METO Movement",
+        "piece": "'Post This, Tag Us' ambassador reel (or the 'fifty people' piece, never both)",
+        "planned": 50,
+        "gated": true,
+        "launch": "2026-10-19"
+      },
+      {
+        "month": "2026-11",
+        "account": "@dromavi",
+        "piece": "Gala film 'We flew Africa in' (collab with METO and @prometrausa)",
+        "planned": 50,
+        "gated": true
+      },
+      {
+        "month": "2026-11",
+        "account": "@dromavi",
+        "piece": "One leader or interview clip",
+        "planned": 50,
+        "gated": true
+      },
+      {
+        "month": "2026-11",
+        "account": "METO Movement",
+        "piece": "Best-saving Health Through Plants reel",
+        "planned": 50,
+        "gated": true
+      },
+      {
+        "month": "2026-11",
+        "account": "METO Movement",
+        "piece": "Optional: How to Breathe or a Movement Voice episode",
+        "planned": 50,
+        "gated": true,
+        "optional": true
+      },
+      {
+        "month": "2026-12",
+        "account": "@dromavi",
+        "piece": "House-interview clip",
+        "planned": 50,
+        "gated": true
+      },
+      {
+        "month": "2026-12",
+        "account": "METO Movement",
+        "piece": "Africa E6 'Getting ready for Africa'",
+        "planned": 50,
+        "gated": true
+      }
     ]
   },
   "weeklyNumbers": {
     "source": "Q4 Playbook METO notes and the 08 Weekly Numbers sheet",
     "owner": "Nehanda sends the PROMETRA-only counts every Friday; Venelt reads Instagram Insights at 48 hours and 7 days.",
     "fields": [
-      { "id": "reach", "label": "Accounts reached", "from": "Instagram Insights" },
-      { "id": "keywordComments", "label": "MOVEMENT comments", "from": "ManyChat keyword count, or counted by hand" },
-      { "id": "dmsDelivered", "label": "Course links sent by DM", "from": "ManyChat" },
-      { "id": "linkClicks", "label": "Curriculum link clicks", "from": "UTM links in the DM and pinned comment" },
-      { "id": "signups", "label": "Curriculum sign-ups", "from": "Teachable count or the METO app" },
-      { "id": "applications", "label": "Pilgrimage applications", "from": "metomovement.com form, Nehanda's Friday count" },
-      { "id": "seats", "label": "Seats confirmed", "from": "Nehanda's Friday count" }
+      {
+        "id": "reach",
+        "label": "Accounts reached",
+        "from": "Instagram Insights"
+      },
+      {
+        "id": "keywordComments",
+        "label": "MOVEMENT comments",
+        "from": "ManyChat keyword count, or counted by hand"
+      },
+      {
+        "id": "dmsDelivered",
+        "label": "Course links sent by DM",
+        "from": "ManyChat"
+      },
+      {
+        "id": "linkClicks",
+        "label": "Curriculum link clicks",
+        "from": "UTM links in the DM and pinned comment"
+      },
+      {
+        "id": "signups",
+        "label": "Curriculum sign-ups",
+        "from": "Teachable count or the METO app"
+      },
+      {
+        "id": "applications",
+        "label": "Pilgrimage applications",
+        "from": "metomovement.com form, Nehanda's Friday count"
+      },
+      {
+        "id": "seats",
+        "label": "Seats confirmed",
+        "from": "Nehanda's Friday count"
+      }
     ]
   }
 }

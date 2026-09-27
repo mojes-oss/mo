@@ -20,7 +20,7 @@ const WEEKS = ['2026-08-17', '2026-08-24', '2026-08-31', '2026-09-07', '2026-09-
 
 const ACCOUNTS = {
   prometrausa: { base: 900, followers: 180, posts: [['Movement talk', 'Reel', 1, 16, 58], ['Plant reel', 'Reel', 3, 9, 52]] },
-  meto: { base: 1900, followers: 420, posts: [['CTA video', 'Reel', 2, 15, 47], ['Healing short', 'Reel', 4, 15, 49]] },
+  meto: { base: 1900, followers: 420, posts: [['Call-to-action video', 'Reel', 2, 15, 47], ['Healing short', 'Reel', 4, 15, 49]] },
   dromavi: { base: 5200, followers: 3100, posts: [['Africa short', 'Reel', 0, 16, 55], ['Kingship short', 'Reel', 4, 17, 46]] },
 };
 
@@ -92,11 +92,10 @@ const weeks = WEEKS.map((start, wi) => {
     seats: wi >= 4 ? int(0, 2) : 0,
   };
   if (wi >= 4) {
-    const boosted = week.posts.find(p => p.account === 'meto');
-    boosted.boosted = true;
-    const spend = 50;
+    // One made-up ad row so the per-ad table shows its layout. No sample post is marked
+    // as boosted, since no real ad has run yet.
     const results = int(9, 24);
-    week.ads.push({ name: `Sample boost: ${boosted.title}`, unit: null, account: 'meto', spend, impressions: int(6000, 11000), reach: int(4000, 8000), results, resultType: 'Curriculum link clicks', linkClicks: results });
+    week.ads.push({ name: 'Sample ad row', unit: null, account: 'meto', spend: 50, impressions: int(6000, 11000), reach: int(4000, 8000), results, resultType: 'link clicks', linkClicks: results });
   }
   week.notes.push('Sample numbers. They show how this page reads once real Instagram Insights are loaded.');
   return week;

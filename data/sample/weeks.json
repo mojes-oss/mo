@@ -99,7 +99,7 @@
       {
         "id": "sample-2026-08-17-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-08-19T15:00",
         "lengthSec": 47,
@@ -343,7 +343,7 @@
       {
         "id": "sample-2026-08-24-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-08-26T15:00",
         "lengthSec": 47,
@@ -587,7 +587,7 @@
       {
         "id": "sample-2026-08-31-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-09-02T15:00",
         "lengthSec": 47,
@@ -831,7 +831,7 @@
       {
         "id": "sample-2026-09-07-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-09-09T15:00",
         "lengthSec": 47,
@@ -1075,7 +1075,7 @@
       {
         "id": "sample-2026-09-14-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-09-16T15:00",
         "lengthSec": 47,
@@ -1103,7 +1103,7 @@
         "saves": 22,
         "follows": 12,
         "linkClicks": 8,
-        "boosted": true
+        "boosted": false
       },
       {
         "id": "sample-2026-09-14-meto-2",
@@ -1216,14 +1216,14 @@
     },
     "ads": [
       {
-        "name": "Sample boost: Sample cta video",
+        "name": "Sample ad row",
         "unit": null,
         "account": "meto",
         "spend": 50,
         "impressions": 8334,
         "reach": 5124,
         "results": 18,
-        "resultType": "Curriculum link clicks",
+        "resultType": "link clicks",
         "linkClicks": 18
       }
     ],
@@ -1331,7 +1331,7 @@
       {
         "id": "sample-2026-09-21-meto-1",
         "account": "meto",
-        "title": "Sample cta video",
+        "title": "Sample call-to-action video",
         "format": "Reel",
         "posted": "2026-09-23T15:00",
         "lengthSec": 47,
@@ -1359,7 +1359,7 @@
         "saves": 27,
         "follows": 13,
         "linkClicks": 9,
-        "boosted": true
+        "boosted": false
       },
       {
         "id": "sample-2026-09-21-meto-2",
@@ -1472,14 +1472,14 @@
     },
     "ads": [
       {
-        "name": "Sample boost: Sample cta video",
+        "name": "Sample ad row",
         "unit": null,
         "account": "meto",
         "spend": 50,
         "impressions": 9498,
         "reach": 4820,
         "results": 23,
-        "resultType": "Curriculum link clicks",
+        "resultType": "link clicks",
         "linkClicks": 23
       }
     ],

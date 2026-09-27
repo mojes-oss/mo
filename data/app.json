@@ -470,7 +470,7 @@
           "id": "scholarship",
           "name": "Scholarship application",
           "route": "/scholarship",
-          "job": "Takes scholarship applications for young people joining the pilgrimage.",
+          "job": "Takes scholarship applications from pilgrims who need help with the cost.",
           "sections": [
             "Intro: partial or full scholarships",
             "What to include",
@@ -497,16 +497,16 @@
           "id": "donate",
           "name": "Fund a Journey",
           "route": "/donate",
-          "job": "Collects giving enquiries for youth pilgrimages and host communities.",
+          "job": "Collects giving inquiries for pilgrim journeys and host communities.",
           "sections": [
             "Intro: Fund a Journey",
             "Request the giving details",
             "Provider button when configured",
-            "Donation enquiry form"
+            "Donation inquiry form"
           ],
           "status": "partial",
           "source": "App code (Donate page), Sep 27; Notion: meto higgsfield site, Sep 15",
-          "note": "Online giving appears only when a donation link is set up. Without it, the form records an enquiry, not a gift."
+          "note": "Online giving appears only when a donation link is set up. Without it, the form records an inquiry, not a gift."
         },
         {
           "id": "shop",
@@ -589,7 +589,7 @@
           "id": "legal",
           "name": "Privacy and Terms",
           "route": "/privacy, /terms",
-          "job": "States how information is handled and the terms for learning, applications and enquiries.",
+          "job": "States how information is handled and the terms for learning, applications and inquiries.",
           "sections": [
             "Information you provide",
             "Browser storage and access",
@@ -738,7 +738,8 @@
           "source": "Notion: meto higgsfield site, Sep 15",
           "note": "This would need an extra app build plus Apple and Google developer accounts. Not started. For now, people install the web app from the browser."
         }
-      ]
+      ],
+      "kind": "shell"
     }
   ],
   "requested": [

@@ -1,5 +1,5 @@
 {
-  "source": "Venelt Q4 Playbook calendar (built Sep 24 2026), with status notes from the project board (Sep 26-27). Dr. Omavi reviews the plan on Mon Sep 28, so dates can move.",
+  "source": "Venelt Q4 Playbook calendar (built Sep 24 2026), with status notes from our project board (Sep 26-27). The calendar predates the Sep 25 meeting, which moved plant posts toward collabs with @dromavi and @prometrausa. Dr. Omavi reviews the plan on Mon Sep 28, so dates can move.",
   "items": [
     {
       "date": "2026-09-28",
@@ -11,7 +11,8 @@
       "title": "Africa map",
       "amount": 50,
       "gated": true,
-      "note": "The Africa map itself is still waiting on Dr. Omavi's music pick, so this moves with it."
+      "note": "On hold: the Africa map has not posted yet. It is waiting on Dr. Omavi's music pick, and the boost can only follow a post that earns 10 MOVEMENT comments.",
+      "onHold": true
     },
     {
       "date": "2026-09-29",
@@ -95,7 +96,7 @@
         "@prometrausa"
       ],
       "format": "Reel",
-      "title": "Movement talk A, with the Source line",
+      "title": "Movement talk A, ending with where to learn more (prometra.org and metomovement.com)",
       "piece": "mto-03",
       "note": "First planned @prometrausa post."
     },
@@ -222,7 +223,10 @@
       "format": "Story",
       "title": "Movement Voice ep1",
       "piece": "mto-07",
-      "note": "Feed copy on @prometrausa."
+      "note": "Feed copy on @prometrausa.",
+      "alsoOn": [
+        "@prometrausa"
+      ]
     },
     {
       "date": "2026-10-13",
@@ -351,7 +355,10 @@
       "format": "Story",
       "title": "Movement Voice ep2",
       "piece": "mto-07",
-      "note": "Feed copy on @prometrausa."
+      "note": "Feed copy on @prometrausa.",
+      "alsoOn": [
+        "@prometrausa"
+      ]
     },
     {
       "date": "2026-10-20",
@@ -453,7 +460,10 @@
       "format": "Story",
       "title": "Movement Voice ep3",
       "piece": "mto-07",
-      "note": "Feed copy on @prometrausa."
+      "note": "Feed copy on @prometrausa.",
+      "alsoOn": [
+        "@prometrausa"
+      ]
     },
     {
       "date": "2026-10-26",
@@ -546,5 +556,6 @@
       "kind": "deadline",
       "title": "Curriculum complete in the app"
     }
-  ]
+  ],
+  "planReview": "2026-09-28"
 }

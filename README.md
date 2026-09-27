@@ -30,27 +30,27 @@ Everything else is real and comes from the team's own plans: the schedule, pipel
 
 ## Friday routine
 
-1. **Instagram numbers.** In Meta Business Suite, go to Insights > Content. Set the date range to the week, click Export data, and choose CSV. Do this once per account.
+1. **Instagram numbers.** In Meta Business Suite, go to Insights > Content. Set the date range to the week, click Export data, and choose CSV. Do this once per account. Import the file exactly as downloaded: opening and re-saving it in Excel rounds the long post IDs, and the importer stops if it sees that.
    ```sh
    npm run import:insights -- --csv ~/Downloads/prometrausa.csv --account prometrausa
    ```
-   Each post lands in the Monday-to-Sunday week it was published in. Running it again with a newer export updates the numbers.
+   Each post lands in the Monday-to-Sunday week it was published in. Running it again with a newer export updates the numbers. Story frames are skipped unless you add `--stories`. If the file holds a handle the importer does not know yet (the METO Movement handle is not on record), `--account` tells it which account the file is.
 2. **What Insights exports leave out.** Open `data/weeks/<monday>.json` and fill these in by hand for each post:
    - `keywordComments`: MOVEMENT comments
    - `skipRate`
-   - `retention`: 11 numbers from 100 down, read off the reel's retention graph in the Instagram app at 0%, 10%, and so on up to 100% of the video
+   - `retention`: 11 numbers starting at 100, read off the reel's retention graph in the Instagram app at 0%, 10%, and so on up to 100% of the video
    - `avgWatchSec`, if the export did not include it
 
-   Re-imports never overwrite these fields.
+   Re-imports never overwrite `keywordComments`, `skipRate`, `retention` or a shortened `title`. A later export that includes watch time does replace `avgWatchSec`, since the newer number is the better one.
 3. **Ads.** In Ads Manager, open the Ads tab for the week, then Reports > Export table data > CSV.
    ```sh
    npm run import:ads -- --csv ~/Downloads/ads.csv --week 2026-10-12
    ```
-   Name ads with their unit code (for example `A1 Fifty Seats` or `mto-02 Back to the Source`) so each row lands on its card.
-4. **Nehanda's Friday counts.** Put sign-ups, applications and seats in the week's `funnel`. If the week file does not exist yet, `npm run new-week -- --week 2026-10-05` creates it with blanks.
+   Name ads with their unit code (for example `A1 Fifty Seats` or `mto-02 Back to the Source`) so each row lands on its card, and put METO, PROMETRA or Omavi in the campaign name so each ad lands under the right account. An ad with no account shows only under "All accounts". The "Total" row Ads Manager adds is skipped, and a newer export of the same week replaces the older rows.
+4. **Nehanda's Friday counts.** Put sign-ups, applications, seats and ambassadors in the week's `funnel`. `npm run new-week -- --week 2026-10-05` creates the week with every field blank, or adds any missing blank fields to a week an import already created.
 5. **Build and share.**
    ```sh
-   npm run check   # builds and stops on data mistakes
+   npm run check   # builds, and stops on data mistakes such as a number typed as text or a misspelled field
    ```
    Then deploy, or republish the artifact from `dist/artifact.html`.
 
@@ -60,7 +60,7 @@ Leave a number as `null` when it was not measured. Never guess a number: the pag
 
 `npm run fetch:instagram -- --account prometrausa --week 2026-10-05` reads posts and Insights from the Instagram Graph API. It needs `IG_ACCESS_TOKEN` and `IG_USER_ID` from a Meta app with `instagram_manage_insights`.
 
-The API has no retention curve, so step 2 above still applies. This script has not been run against a live token yet. Expect to adjust metric names on the first run, since Meta renames them between API versions. It warns and skips any metric it cannot read.
+The API has no retention curve, so step 2 above still applies. Times come back in UTC and are converted to Mountain Time (set `REPORT_TZ` to change it), so a Sunday-evening post stays in its own week. This script has not been run against a live token yet. Expect to adjust metric names on the first run, since Meta renames them between API versions. It warns and skips any metric it cannot read.
 
 ## Data files
 
@@ -75,7 +75,7 @@ The API has no retention curve, so step 2 above still applies. This script has n
 | `data/weeks/*.json` | Real weekly numbers (one file per Monday) | Instagram Insights, Ads Manager, Nehanda |
 | `data/sample/weeks.json` | Made-up numbers for the preview (`npm run sample` rebuilds them) | Generated |
 
-Keep raw CSV exports out of git. The `.gitignore` already blocks `*.csv` and `imports/`.
+Keep raw exports out of git. The `.gitignore` already blocks `*.csv`, `*.tsv`, `*.txt`, `*.xls`, `*.xlsx` and the `imports/` folder.
 
 ## Build, run, deploy
 

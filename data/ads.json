@@ -1,7 +1,7 @@
 {
   "source": "Omavi Script Review (Sep 10), Google Drive photo and video ad docs (Sep 2), Q4 Playbook boost rules and ledger (Sep 24), Notion. Checked Sep 27.",
-  "liveStatus": "No METO or PROMETRA ad is running, and no source holds any ad spend or results yet. The first movement boost ($50 on the @dromavi Africa map) is set for Mon Sep 28, and only if the post earns 10 MOVEMENT comments in 48 hours.",
-  "liveStatusLong": "No METO or PROMETRA ad is confirmed running as of Sun Sep 27, 2026. No source holds ad spend or results for any PROMETRA account. The newest plan is the Q4 Playbook, built Sep 24. It says no money is spent until Dr. Bailey approves the boost caps at the Mon Sep 28 meeting. It puts $0 on the METO account in September. The first METO boost is the 'Back to the Source' video on Fri Oct 16. It runs only if the post first earns 10 organic MOVEMENT comments in 48 hours. The plan gives @prometrausa $0. The newer Sep 25 PROMETRA meeting said PROMETRA-only posts should get targeted ads and boosts, so that line is open for Sep 28. A Sep 18 Notion note said the first deadline ad (D1) had to be live Sep 24. No source shows D1 was filmed or launched. The Q4 plan also dropped the step that would have paid for the deadline ads, because that spend sat outside the cap. The Way of Remembering plan site (Sep 6) marked paid ads 'not built yet'. One movement boost is set for Mon Sep 28 at 12:15: $50 on the @dromavi Africa map video. It needs two things. The MOVEMENT auto-reply had to pass its Fri Sep 25 test. The post also needs 10 organic MOVEMENT comments at its 48-hour read, due Sun Sep 27 at 16:00. No source records either result yet.",
+  "liveStatus": "No METO or PROMETRA ad is running, and we have no ad spend or results yet. The first movement boost was planned for Mon Sep 28 on the @dromavi Africa map, but that video has not posted yet, so no boost can run until it posts and earns 10 MOVEMENT comments in 48 hours. The first METO account boost is planned for Fri Oct 16.",
+  "liveStatusLong": "No METO or PROMETRA ad is running, and we have no ad spend or results yet. The first movement boost was planned for Mon Sep 28 on the @dromavi Africa map, but that video has not posted yet, so no boost can run until it posts and earns 10 MOVEMENT comments in 48 hours. The first METO account boost is planned for Fri Oct 16.",
   "photoAds": [
     {
       "id": "A1",
@@ -407,7 +407,7 @@
       "verdict": "re-cut for paid",
       "note": "Start at 'Here's exactly how the scholarship works.' Cut the age lines, the price lines, the expired Sept 1 line, the scarcity close and 'not guaranteed'. It pairs with O1. No source shows the re-cut is done.",
       "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
-      "short": "Start at 'Here's exactly how the scholarship works.' Cut the age lines, the price lines, the expired Sept 1 line, the scarcity close and 'not guaranteed'."
+      "short": "Re-cut from \"Here's exactly how the scholarship works,\" without the age, price and deadline lines."
     },
     {
       "clip": "C0676",
@@ -416,7 +416,7 @@
       "verdict": "re-shoot",
       "note": "The age premise, the price lines, a 'safe' promise and a sponsor ask are tangled together, so no clean cut exists. Re-shoot an all-ages 'for families' version after the O4 companions and minors sign-off.",
       "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
-      "short": "The age premise, the price lines, a 'safe' promise and a sponsor ask are tangled together, so no clean cut exists."
+      "short": "The age lines, prices and a safety promise run through it, so it needs an all-ages \"for families\" re-shoot."
     },
     {
       "clip": "C0677",
@@ -443,7 +443,7 @@
       "verdict": "re-cut for paid",
       "note": "This is the most universal of the 11. Cut the age line, the 'vacation' line and the trauma and therapy passage, then point it to /pilgrimage. It will need Meta's social-issue ad approval. No source shows the re-cut is done.",
       "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
-      "short": "This is the most universal of the 11."
+      "short": "The most universal of the 11. Re-cut without the age line, the \"vacation\" line and the trauma passage."
     },
     {
       "clip": "C0680",
@@ -470,22 +470,15 @@
       "verdict": "re-cut for paid",
       "note": "Re-cut as a logistics FAQ. Cut the cost section (prices, stale seats, Sept 1), the age lines and 'Is it safe? Yes,'. The yellow-fever sentence must never run. No source shows the re-cut is done.",
       "source": "Notion: meto ads aug22 delivered, Aug 22; Omavi Script Review audit, Sep 10",
-      "short": "Re-cut as a logistics FAQ."
+      "short": "Re-cut as a logistics FAQ, without the cost section, the age lines and the yellow-fever sentence."
     }
   ],
   "toFilm": [
     {
-      "name": "D1 'Airfare Secures The Seat' deadline ad",
-      "why": "It was planned to run Sep 24 to Oct 1 and had to be filmed before Sep 24.",
-      "status": "No source shows it was filmed. The Q4 plan (Sep 24) dropped the deadline ads.",
-      "when": "Was due before Sep 24",
-      "source": "Omavi Script Review, Sep 10; Notion: Omavi Command Hub, Sep 17 to 18; Q4 Playbook data.js, Sep 24"
-    },
-    {
-      "name": "The other 24 scripted METO paid video ads (R-A to R-H, C1 to C4, P1 to P4, O1 to O6, D2, D3)",
-      "why": "All 25 scripts are written. None was filmed as of Sep 10, and no later source shows a shoot. 11 need sign-off first.",
+      "name": "The 25 scripted METO video ads",
+      "why": "All 25 scripts are written (Sep 10 script review). None is filmed yet, and 11 need a sign-off first.",
       "status": "Scripted; no source shows them filmed",
-      "when": "No shoot date on the Q4 calendar",
+      "when": "No filming date yet",
       "source": "Drive: METO Paid Video Ads scripts (25), Sep 10; Q4 Playbook data.js, Sep 24"
     },
     {
@@ -520,21 +513,21 @@
       "name": "Call-to-action video 'Back to the Source'",
       "why": "It is the first planned METO boost: $50 on Fri Oct 16, only if the post earns 10 organic MOVEMENT comments in 48 hours. The boosted cut has no 'this January', price, seat count or age line.",
       "status": "Set for the Wed Sep 23 shoot, with Fri Sep 25 as the fallback. The Sep 24 data still lists it as 'needs shoot'. Notion logs King shorts from the Sep 23 and Sep 25 shoots but does not mention this video. The Sep 28 agenda asks to confirm.",
-      "when": "Shoot Sep 23 or 25; edit Mon Oct 12; posts Wed Oct 14",
+      "when": "Not filmed yet; next filming day Wed Sep 30",
       "source": "Q4 Playbook data.js, Sep 24 (campaign meto-curriculum-anchor, calendar); Notion: omavi king shorts log, Sep 25 to 26"
     },
     {
       "name": "Ambassador reel 'Post This, Tag Us'",
       "why": "It is the second October METO boost candidate ($50, Mon Oct 19, ad audience 18+ only).",
       "status": "Set for the Fri Sep 25 shoot. The Sep 24 data lists it as 'needs shoot'. No source confirms it was shot.",
-      "when": "Shoot Fri Sep 25; posts Fri Oct 16",
+      "when": "Not filmed yet; posts Fri Oct 16",
       "source": "Q4 Playbook data.js, Sep 24"
     },
     {
       "name": "'How to Breathe' practice video",
       "why": "It is a candidate for the optional second November METO boost ($50, only through its own 48-hour comment test).",
       "status": "Set for the Fri Sep 25 Trans Mountain overlook shoot. The Sep 24 data lists it as 'needs shoot'. No source confirms it was shot.",
-      "when": "Shoot Fri Sep 25 10:00; edit Mon Oct 12; reel posts Thu Oct 22",
+      "when": "Not filmed yet; reel posts Thu Oct 22",
       "source": "Q4 Playbook data.js, Sep 24 (campaign meto-curriculum-anchor, boost ledger, calendar)"
     },
     {
@@ -573,7 +566,7 @@
     },
     {
       "id": "W2",
-      "definition": "Engagers who liked, commented, saved or shared on @metomovement or @dromavi in the last 90 days (Photo Ads doc, Sep 2)."
+      "definition": "Engagers who liked, commented, saved or shared on the METO Movement account (handle to confirm; the Sep 2 doc says @metomovement) or on @dromavi in the last 90 days (Photo Ads doc, Sep 2)."
     },
     {
       "id": "W3",
@@ -621,7 +614,7 @@
     }
   ],
   "rules": [
-    "Monthly boost caps: the METO account gets $100 (two $50 boosts). @dromavi gets $100, and METO pieces use none of it. The Q4 plan gives @prometrausa $0, organic only. The newer Sep 25 PROMETRA meeting said PROMETRA-only posts should get targeted ads and boosts, so that line is open (see decisions). All caps wait on Dr. Bailey's yes on Mon Sep 28.",
+    "Monthly boost caps: the METO account gets $100 (two $50 boosts). @dromavi gets $100, and METO pieces use none of it. The Q4 plan gives @prometrausa $0, organic only. The newer Sep 25 PROMETRA meeting said PROMETRA-only posts should get targeted ads and boosts, so that line is open (see What we need). All caps wait on Dr. Bailey's yes on Mon Sep 28.",
     "The comment test: a post needs 10 organic MOVEMENT comments in 48 hours before any money goes in. Elsewhere, comments can be counted by hand until the MOVEMENT auto-reply is confirmed working. On the METO account, no confirmed auto-reply means no boost, and the deadline to confirm it is Fri Oct 2. Nothing is boosted on post day.",
     "The run: $50 for 7 days, launched on a weekday at the 48-hour read. The day-3 cost is recorded. On @dromavi, a run above $1.50 per follow at day 3 is paused.",
     "Never boost trauma, PTSD or fear videos, or videos that call out a race. The journey film, family and kids, donations and the DNA reveal also stay organic. So do sacred material (the Star, Vodun Day), political content and live-event promos.",

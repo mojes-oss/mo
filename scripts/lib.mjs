@@ -1,6 +1,6 @@
 // Shared helpers for the build and import scripts. No dependencies: Node 18+.
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, basename } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -9,15 +9,23 @@ export const WEEKS = join(DATA, 'weeks');
 
 export const ACCOUNT_IDS = ['prometrausa', 'meto', 'dromavi'];
 
+// Every week file has this shape. null means "not measured"; the page shows "–".
+export const ACCOUNT_FIELDS = ['followers', 'newFollowers', 'views', 'reach', 'profileVisits', 'linkTaps'];
+export const FUNNEL_FIELDS = ['reach', 'keywordComments', 'dmsDelivered', 'linkClicks', 'signups', 'applications', 'seats', 'ambassadors'];
+export const POST_NUMBER_FIELDS = ['lengthSec', 'views', 'reach', 'avgWatchSec', 'skipRate', 'likes', 'comments', 'keywordComments', 'shares', 'saves', 'follows', 'linkClicks', 'profileVisits'];
+
+// A friendly one-line failure for people running the scripts, instead of a stack trace.
+export class UserError extends Error {}
+
 export function readJSON(path, fallback) {
   if (!existsSync(path)) {
     if (fallback !== undefined) return fallback;
-    throw new Error(`Missing file: ${path}`);
+    throw new UserError(`Missing file: ${path}`);
   }
   try {
     return JSON.parse(readFileSync(path, 'utf8'));
   } catch (err) {
-    throw new Error(`Could not parse ${path}: ${err.message}`);
+    throw new UserError(`Could not read ${basename(path)}: ${err.message}. Check for a missing comma or quote near that spot.`);
   }
 }
 
@@ -58,24 +66,40 @@ export function parseCSV(text) {
 }
 
 export function readCSVFile(path) {
+  if (!existsSync(path)) throw new UserError(`Could not find ${path}. Check the file name and folder.`);
   const buf = readFileSync(path);
   // UTF-16 LE export (Excel "Unicode text") starts with FF FE.
   const text = buf[0] === 0xff && buf[1] === 0xfe ? buf.toString('utf16le') : buf.toString('utf8');
   return parseCSV(text);
 }
 
-// Find a column by any of several header spellings, ignoring case, spaces and punctuation.
 const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+// The first header, of several spellings, that exists in the file (even if some cells are blank).
+// Choosing the column once per file stops a blank "Views" cell from silently using "Impressions".
+export function findColumn(rows, ...names) {
+  const headers = rows.length ? Object.keys(rows[0]) : [];
+  for (const name of names) {
+    const hit = headers.find(h => norm(h) === norm(name));
+    if (hit !== undefined) return hit;
+  }
+  for (const name of names) {
+    const hit = headers.find(h => norm(h).startsWith(norm(name)));
+    if (hit !== undefined) return hit;
+  }
+  return undefined;
+}
+
+// Find a non-blank cell by any of several header spellings, ignoring case, spaces and punctuation.
+// Use it for text fields where falling through to the next spelling is fine.
 export function pick(row, ...names) {
   const keys = Object.keys(row);
   for (const name of names) {
-    const want = norm(name);
-    const hit = keys.find(k => norm(k) === want);
+    const hit = keys.find(k => norm(k) === norm(name));
     if (hit !== undefined && row[hit] !== '') return row[hit];
   }
   for (const name of names) {
-    const want = norm(name);
-    const hit = keys.find(k => norm(k).startsWith(want));
+    const hit = keys.find(k => norm(k).startsWith(norm(name)));
     if (hit !== undefined && row[hit] !== '') return row[hit];
   }
   return undefined;
@@ -90,21 +114,39 @@ export function num(v) {
   return Number.isFinite(n) ? n : null;
 }
 
-// Parse the date formats Meta uses: "09/25/2026 16:00", "2026-09-25T16:00:00-0600", "2026-09-25".
+const MONTH = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12 };
+const pad = n => String(n).padStart(2, '0');
+function to24(h, ampm) {
+  h = Number(h);
+  if (!ampm) return h;
+  const pm = /p/i.test(ampm);
+  if (h === 12) return pm ? 12 : 0;
+  return pm ? h + 12 : h;
+}
+function validDate(y, m, d) {
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
+
+// Parse the date formats Meta and Excel use, returning local "YYYY-MM-DDTHH:MM", or null:
+// "10/02/2026 16:00", "10/02/2026 4:00 PM", "10/02/2026 4:00:00 PM",
+// "2026-10-02T16:00:00-0600", "2026-10-02", "Oct 2, 2026 4:00 pm".
 export function parseDate(v) {
   if (!v) return null;
   const s = String(v).trim();
-  let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?/);
-  if (m) {
-    const [, mo, d, y, h = '0', mi = '0'] = m;
-    return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}T${h.padStart(2, '0')}:${mi}`;
-  }
-  m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);
-  if (m) {
-    const [, y, mo, d, h = '00', mi = '00'] = m;
-    return `${y}-${mo}-${d}T${h}:${mi}`;
-  }
-  return null;
+  let y, mo, d, h = 0, mi = 0, ap;
+  let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:[ ,T]+(\d{1,2}):(\d{2})(?::\d{2})?\s*([AaPp]\.?[Mm]\.?)?)?/);
+  if (m) [, mo, d, y, h = 0, mi = 0, ap] = m;
+  else if ((m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/))) [, y, mo, d, h = 0, mi = 0] = m;
+  else if ((m = s.match(/^([A-Za-z]{3,9})\.? (\d{1,2}),? (\d{4})(?:,?\s+(?:at\s+)?(\d{1,2}):(\d{2})(?::\d{2})?\s*([AaPp]\.?[Mm]\.?)?)?/))) {
+    const month = MONTH[m[1].toLowerCase().slice(0, m[1].toLowerCase().startsWith('sept') ? 4 : 3)];
+    if (!month) return null;
+    mo = month; [, , d, y, h = 0, mi = 0, ap] = m;
+  } else return null;
+  y = Number(y); mo = Number(mo); d = Number(d);
+  const hh = to24(h, ap), mm = Number(mi);
+  if (!validDate(y, mo, d) || hh > 23 || mm > 59) return null;
+  return `${y}-${pad(mo)}-${pad(d)}T${pad(hh)}:${pad(mm)}`;
 }
 
 // The Monday (YYYY-MM-DD) of the week that contains an ISO date string.
@@ -122,16 +164,38 @@ export function addDays(iso, n) {
   return date.toISOString().slice(0, 10);
 }
 
+// Today's date where the script runs (not UTC), so Sunday evening stays in this week.
+export function localToday(now = new Date()) {
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
+// --week accepts 2026-10-05 or 10/05/2026 and returns that week's Monday.
+export function parseWeekArg(v, fallback = localToday()) {
+  if (v === undefined || v === true) return weekStart(fallback);
+  const iso = parseDate(String(v));
+  if (!iso) throw new UserError(`Could not read --week "${v}". Use --week YYYY-MM-DD, for example --week 2026-10-05.`);
+  return weekStart(iso);
+}
+
 export function emptyWeek(start) {
-  return {
-    start,
-    end: addDays(start, 6),
-    accounts: {},
-    posts: [],
-    funnel: {},
-    ads: [],
-    notes: [],
-  };
+  return fillWeekTemplate({ start });
+}
+
+// Add any missing keys (as null) without touching numbers already filled in.
+export function fillWeekTemplate(week) {
+  week.end = week.end || addDays(week.start, 6);
+  week.accounts = week.accounts || {};
+  for (const id of ACCOUNT_IDS) {
+    week.accounts[id] = week.accounts[id] || {};
+    for (const f of ACCOUNT_FIELDS) if (!(f in week.accounts[id])) week.accounts[id][f] = null;
+  }
+  week.funnel = week.funnel || {};
+  for (const f of FUNNEL_FIELDS) if (!(f in week.funnel)) week.funnel[f] = null;
+  week.posts = week.posts || [];
+  week.ads = week.ads || [];
+  week.notes = week.notes || [];
+  const ordered = { start: week.start, end: week.end };
+  return Object.assign(ordered, week);
 }
 
 export function weekPath(start) {
@@ -139,20 +203,26 @@ export function weekPath(start) {
 }
 
 export function loadWeek(start) {
-  return readJSON(weekPath(start), emptyWeek(start));
+  const path = weekPath(start);
+  return fillWeekTemplate(existsSync(path) ? readJSON(path) : { start });
+}
+
+// Week files with their file names, so checks can catch a copied file that kept the old "start".
+export function listWeekFiles(dir = WEEKS) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter(f => f.endsWith('.json'))
+    .sort()
+    .map(file => ({ file, week: readJSON(join(dir, file)) }));
 }
 
 export function listWeeks(dir = WEEKS) {
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
-    .sort()
-    .map(f => readJSON(join(dir, f)));
+  return listWeekFiles(dir).map(x => x.week);
 }
 
-// Fields a person fills in by hand. An import never overwrites them with blanks.
+// Fields a person fills in by hand. An import never overwrites them once they are set.
+// avgWatchSec is not here on purpose: a newer export's watch time should replace an older one.
 const MANUAL = ['title', 'keywordComments', 'retention', 'skipRate', 'linkClicks', 'boosted', 'note', 'series'];
-
 const isSet = v => v !== null && v !== undefined && v !== '';
 
 // Upsert posts by id. Imported numbers replace old numbers; a hand-filled field
@@ -179,11 +249,17 @@ export function unitIdFromName(name = '') {
   return m ? m[1].replace(/^(mto|afr|omv|evt)/i, s => s.toLowerCase()) : null;
 }
 
-export function upsertAds(existing, incoming) {
-  const key = a => `${a.name}|${a.from || ''}|${a.to || ''}`;
-  const byKey = new Map(existing.map(a => [key(a), a]));
-  for (const a of incoming) byKey.set(key(a), { ...byKey.get(key(a)), ...a });
-  return [...byKey.values()];
+// A newer export of the same week replaces the older rows for each ad it contains.
+// Rows from other ads (for example a second ad account's export) are kept, and a
+// day-by-day export keeps one row per day.
+export function upsertAds(existing, incoming, start) {
+  const end = start ? addDays(start, 6) : null;
+  const inWeek = a => !start || !a.from || (a.from >= start && (a.to || a.from) <= end);
+  const names = new Set(incoming.map(a => a.name));
+  const kept = existing.filter(a => !(names.has(a.name) && inWeek(a)));
+  const byKey = new Map();
+  for (const a of incoming) byKey.set(`${a.name}|${a.from || ''}|${a.to || ''}`, a);
+  return [...kept, ...byKey.values()];
 }
 
 export function args(argv = process.argv.slice(2)) {
@@ -203,4 +279,17 @@ export function args(argv = process.argv.slice(2)) {
 // True when the module is the script node was asked to run (not an import from a test).
 export function isMain(metaUrl) {
   return !!process.argv[1] && metaUrl === pathToFileURL(process.argv[1]).href;
+}
+
+// Run a script's main(), printing a UserError as one clear line instead of a stack trace.
+export async function run(main) {
+  try {
+    await main();
+  } catch (err) {
+    if (err instanceof UserError) {
+      console.error(err.message);
+      process.exit(1);
+    }
+    throw err;
+  }
 }

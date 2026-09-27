@@ -1,26 +1,18 @@
-// Start a week file with the Friday numbers left blank, ready to fill in.
+// Start a week file with every number blank (null), ready to fill in.
+// If the week already exists (for example after an import), it adds any missing
+// fields as blanks and leaves the numbers already there alone.
 //
-//   node scripts/new-week.mjs --week 2026-10-05
+//   npm run new-week -- --week 2026-10-05
 import { existsSync } from 'node:fs';
-import { args, weekStart, weekPath, emptyWeek, writeJSON, isMain } from './lib.mjs';
+import { args, parseWeekArg, weekPath, loadWeek, writeJSON, isMain, run } from './lib.mjs';
 
-function main() {
-  const a = args();
-  const start = weekStart(a.week || new Date().toISOString());
-  const path = weekPath(start);
-  if (existsSync(path)) {
-    console.log(`data/weeks/${start}.json already exists. Edit it directly.`);
-    return;
-  }
-  const week = emptyWeek(start);
-  week.accounts = {
-    prometrausa: { followers: null, newFollowers: null, views: null, reach: null, profileVisits: null, linkTaps: null },
-    meto: { followers: null, newFollowers: null, views: null, reach: null, profileVisits: null, linkTaps: null },
-    dromavi: { followers: null, newFollowers: null, views: null, reach: null, profileVisits: null, linkTaps: null },
-  };
-  week.funnel = { reach: null, keywordComments: null, dmsDelivered: null, linkClicks: null, signups: null, applications: null, seats: null };
-  writeJSON(path, week);
-  console.log(`Created data/weeks/${start}.json. Fill in the numbers (leave null for anything not measured), then npm run build.`);
+async function main() {
+  const start = parseWeekArg(args().week);
+  const existed = existsSync(weekPath(start));
+  writeJSON(weekPath(start), loadWeek(start));
+  console.log(existed
+    ? `data/weeks/${start}.json already existed. Added any missing fields as blanks; nothing else changed.`
+    : `Created data/weeks/${start}.json. Fill in the numbers (leave null for anything not measured), then npm run check.`);
 }
 
-if (isMain(import.meta.url)) main();
+if (isMain(import.meta.url)) run(main);

@@ -6,7 +6,7 @@
       "name": "Omavi 15 Shorts v2",
       "account": "@dromavi, with 01 as a PROMETRA collab",
       "summary": "Fifteen 45-50 second shorts: five on Kingship, five on Healing, five on Africa. Listed in posting order. 01 to 06 are filmed.",
-      "cta": "Comment MOVEMENT on 01, 02, 03, 05, 11 and 13. 06, 10, 12 and 15 close on Follow. 07 and 09 close on Save. 04, 08 and 14 have no spoken call to action. Adding one to 08 and 14 is still open (Decision 2).",
+      "cta": "Comment MOVEMENT on 01, 02, 03, 05, 11 and 13. 06, 10, 12 and 15 close on Follow. 07 and 09 close on Save. 04, 08 and 14 have no spoken call to action. Adding one to 08 and 14 is still open.",
       "source": "Google Drive: Omavi 15 Shorts v2 (Sep 23) and '06 First Pharmacy B freestyle v1' file (Sep 26); Notion: omavi king shorts (Sep 26-27) and agency edit log (Sep 25); Omavi Project Board (Sep 26-27)",
       "items": [
         {
@@ -15,7 +15,7 @@
           "pillar": "KING",
           "order": 1,
           "status": "needs approval",
-          "note": "Shot Sep 23. v3 cut done. Next step: send to Dr. Omavi and Nehanda for a yes to post. The MOVEMENT reply should be live before it posts."
+          "note": "Shot Sep 23. Final cut done. Next step: send to Dr. Omavi and Nehanda for a yes to post. The MOVEMENT reply should be live before it posts."
         },
         {
           "code": "02",
@@ -23,7 +23,7 @@
           "pillar": "KING",
           "order": 10,
           "status": "in edit",
-          "note": "Shot Sep 23. v1 cut exported and praised by Nehanda and Dr. Omavi Sep 25. A new edit was in progress Sep 25. No post approval recorded."
+          "note": "Shot Sep 23. First cut exported and praised by Nehanda and Dr. Omavi Sep 25. A new edit was in progress Sep 25. No post approval recorded."
         },
         {
           "code": "03",
@@ -31,7 +31,7 @@
           "pillar": "KING",
           "order": 14,
           "status": "in edit",
-          "note": "Shot Sep 23. v1 cut exported and praised Sep 25. A new edit was in progress Sep 25. No post approval recorded."
+          "note": "Shot Sep 23. First cut exported and praised Sep 25. A new edit was in progress Sep 25. No post approval recorded."
         },
         {
           "code": "04",
@@ -39,7 +39,7 @@
           "pillar": "KING",
           "order": 5,
           "status": "in edit",
-          "note": "Shot Sep 25. v2 cut built from his freestyle, delivered Sep 26 for finishing. About 88 seconds, longer than the 45-50 second target. Open: is 'Respect the evidence. Respect the elder. Protect the patient.' a formal tagline (Decision 6)?"
+          "note": "Shot Sep 25. Second cut built from his freestyle, delivered Sep 26 for finishing. About 88 seconds, longer than the 45-50 second target. Open: is 'Respect the evidence. Respect the elder. Protect the patient.' a formal tagline?"
         },
         {
           "code": "05",
@@ -47,7 +47,7 @@
           "pillar": "KING",
           "order": 8,
           "status": "in edit",
-          "note": "Shot Sep 25. v1 cut delivered Sep 26 for finishing. Open: the on-screen spelling of Agbanakin (Decision 7)."
+          "note": "Shot Sep 25. First cut delivered Sep 26 for finishing. Open: the on-screen spelling of Agbanakin."
         },
         {
           "code": "06",
@@ -63,7 +63,7 @@
           "pillar": "HEALING",
           "order": 3,
           "status": "scripted",
-          "note": "Not filmed. v2 says plants 'may' affect blood pressure, sugar and clotting."
+          "note": "Not filmed. The current script says plants 'may' affect blood pressure, sugar and clotting."
         },
         {
           "code": "08",
@@ -71,7 +71,7 @@
           "pillar": "HEALING",
           "order": 7,
           "status": "scripted",
-          "note": "Not filmed. Open: keep or restore the closing line (Decision 2)."
+          "note": "Not filmed. Open: keep or restore the closing line."
         },
         {
           "code": "09",
@@ -79,7 +79,7 @@
           "pillar": "HEALING",
           "order": 11,
           "status": "scripted",
-          "note": "Not filmed. Open: keep hibiscus as the example or switch to black tea (Decision 4)."
+          "note": "Not filmed. Open: keep hibiscus as the example or switch to black tea."
         },
         {
           "code": "10",
@@ -87,7 +87,7 @@
           "pillar": "HEALING",
           "order": 15,
           "status": "scripted",
-          "note": "Not filmed. Open: approve the recording cut or the longer runtime (Decision 1)."
+          "note": "Not filmed. Open: approve the shorter recording cut, or keep the longer one."
         },
         {
           "code": "11",
@@ -95,7 +95,7 @@
           "pillar": "AFRICA",
           "order": 4,
           "status": "scripted",
-          "note": "Not filmed. Unchanged from v1."
+          "note": "Not filmed. Unchanged from the first draft."
         },
         {
           "code": "12",
@@ -103,7 +103,7 @@
           "pillar": "AFRICA",
           "order": 9,
           "status": "scripted",
-          "note": "Not filmed. Unchanged from v1; source note added."
+          "note": "Not filmed. Unchanged from the first draft; source note added."
         },
         {
           "code": "13",
@@ -111,7 +111,7 @@
           "pillar": "AFRICA",
           "order": 2,
           "status": "scripted",
-          "note": "Not filmed, but posts second. Open: OK to drop one v1 line from the opening (Decision 3)."
+          "note": "Not filmed, but posts second. Open: OK to drop one line from the first draft of the opening."
         },
         {
           "code": "14",
@@ -119,7 +119,7 @@
           "pillar": "AFRICA",
           "order": 12,
           "status": "scripted",
-          "note": "Not filmed. Open: recording cut and closing CTA (Decisions 1 and 2)."
+          "note": "Not filmed. Open: approve the recording cut, and whether it gets a closing call to action."
         },
         {
           "code": "15",
@@ -127,7 +127,7 @@
           "pillar": "AFRICA",
           "order": 6,
           "status": "scripted",
-          "note": "Not filmed. Unchanged from v1."
+          "note": "Not filmed. Unchanged from the first draft."
         }
       ]
     },
@@ -144,7 +144,7 @@
           "title": "The Oldest Kingdom / The Capital That Came Home: three-account post",
           "order": 1,
           "status": "in edit",
-          "note": "Posts Wed Sep 30 on METO. Finished v3 cuts exist. A still needs the METO end card and curriculum line; Dr. Omavi still picks the B cut. No paid boost."
+          "note": "Posts Wed Sep 30 on METO. Finished final cuts exist. A still needs the METO end card and curriculum line; Dr. Omavi still picks the B cut. No paid boost."
         },
         {
           "code": "mto-01",
@@ -165,7 +165,7 @@
           "title": "Healing the African Way: five plant videos into the curriculum",
           "order": 4,
           "status": "in edit",
-          "note": "Five finished plant reels (22 Onion, 25 Cassava, 28 Turnip, 30 Garden Egg, 31 Netetu) still end on 'comment METO'. They need the new curriculum end card; board target Mon Oct 12. The Sep 25 meeting moved plant posts to collabs on @dromavi and @prometrausa. Plant reels 22-35 have never posted. 13 natural-solutions episodes are scripted, about 97 minutes, none shot. Episodes 1-4 shoot Fri Oct 30 and Fri Nov 6, then post on YouTube Nov 12 and Nov 19."
+          "note": "Five finished plant reels (22 Onion, 25 Cassava, 28 Turnip, 30 Garden Egg, 31 Netetu) still end on 'comment METO'. They need the new curriculum end card; target on our project board: Mon Oct 12. The Sep 25 meeting moved plant posts to collabs on @dromavi and @prometrausa. Plant reels 22-35 have never posted. 13 natural-solutions episodes are scripted, about 97 minutes, none shot. Episodes 1-4 shoot Fri Oct 30 and Fri Nov 6, then post on YouTube Nov 12 and Nov 19."
         },
         {
           "code": "mto-02",
@@ -550,7 +550,7 @@
           "title": "Africa map: 'How big is Africa, really'",
           "order": 1,
           "status": "in edit",
-          "note": "Was set for Fri Sep 25, 4:00 PM. The board still shows it waiting on Dr. Omavi's music pick; the final cut and his yes are open. Not posted."
+          "note": "Was set for Fri Sep 25, 4:00 PM. Our project board still shows it waiting on Dr. Omavi's music pick; the final cut and his yes are open. Not posted."
         },
         {
           "code": "Post 2",
@@ -574,7 +574,7 @@
           "title": "Pilgrim logistics video: visas, supplies and the medical form",
           "order": 0,
           "status": "scripted",
-          "note": "About 2:20 script and a one-page participant checklist written Sep 26. Waiting on Nehanda's medical form link and visa steps. Then Dr. Omavi or Nehanda records it, and Nehanda gives a yes. Board target Tue Sep 29."
+          "note": "About 2:20 script and a one-page participant checklist written Sep 26. Waiting on Nehanda's medical form link and visa steps. Then Dr. Omavi or Nehanda records it, and Nehanda gives a yes. Target on our project board: Tue Sep 29."
         },
         {
           "code": "SEN-1",

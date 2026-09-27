@@ -4,5 +4,9 @@ dist/
 # Raw exports from Meta can hold other accounts' data; keep them out of git.
 imports/
 *.csv
+*.tsv
+*.txt
+*.xls
+*.xlsx
 !tests/fixtures/*.csv
 .env

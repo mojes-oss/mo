@@ -7,7 +7,7 @@
         {
           "kind": "budget",
           "title": "Approve the monthly boost caps",
-          "detail": "$100 a month on the METO Movement account and $100 on @dromavi. For movement pieces that is $500 planned from Sep 28 to Dec 31, inside the $850 plan across all of Dr. Omavi's accounts. Every boost still has to earn 10 MOVEMENT comments in 48 hours first.",
+          "detail": "$100 a month on the METO Movement account and $100 on @dromavi. For movement pieces that is $500 planned from Sep 28 to Dec 31, plus one optional $50 boost in November. Every boost still has to earn 10 MOVEMENT comments in 48 hours first.",
           "owner": "Dr. Omavi",
           "due": "2026-09-28",
           "unlocks": "The first boosts"
@@ -15,7 +15,7 @@
         {
           "kind": "decision",
           "title": "Decide who presses Boost",
-          "detail": "Dr. Omavi can boost from his own ad account when the Friday note says a post cleared the test. Or Venelt runs Ads Manager with a card and the caps in writing.",
+          "detail": "Dr. Omavi can boost from his own ad account when our Friday report says a post earned its 10 MOVEMENT comments. Or Venelt runs Ads Manager with a card and the caps in writing.",
           "owner": "Dr. Omavi",
           "due": "2026-09-28",
           "unlocks": "Spend and results"
@@ -47,7 +47,7 @@
         {
           "kind": "budget",
           "title": "Should the photo ads and scripted video ads run at all?",
-          "detail": "Seven photo ads and 25 video ad scripts exist, but the Q4 plan only funds $50 boosts inside the caps. If they run, they need real photos, a tracking pixel, audiences and a separate budget.",
+          "detail": "Seven photo ads and 25 written video ad scripts exist, but the Q4 plan only funds $50 boosts inside the caps. If they run, they need real photos, a tracking pixel, audiences and a separate budget.",
           "owner": "Dr. Omavi",
           "unlocks": "The ad library"
         }
@@ -59,7 +59,7 @@
         {
           "kind": "access",
           "title": "Read access to Instagram Insights for all three accounts",
-          "detail": "Meta Business Suite access for @prometrausa, the METO Movement account and @dromavi. Until then the views, watch time and follower numbers on this report stay empty.",
+          "detail": "Meta Business Suite access for @prometrausa, the METO Movement account and @dromavi. Until then, the views, watch time and follower slides show only clearly labeled sample numbers.",
           "owner": "Nehanda and Dr. Omavi",
           "due": "2026-10-02",
           "unlocks": "Views, retention, followers"
