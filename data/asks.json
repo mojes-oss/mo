@@ -1,0 +1,66 @@
+{
+  "source": "Open items from the Q4 Playbook, the Sep 25 weekly meeting, and the research sweep of Notion, Drive and Gmail (Sep 27 2026).",
+  "items": [
+    {
+      "kind": "access",
+      "title": "Read access to Instagram Insights for all three accounts",
+      "detail": "Meta Business Suite access for @prometrausa, the METO Movement account and @dromavi. Without it the views, watch time and follower numbers on this report stay empty.",
+      "owner": "Dr. Omavi and Nehanda",
+      "due": "2026-09-28",
+      "unlocks": "Views, retention, followers"
+    },
+    {
+      "kind": "budget",
+      "title": "Approve the monthly boost caps",
+      "detail": "$100 a month on the METO Movement account, $100 on @dromavi, and $0 on @prometrausa. That is $850 planned from Sep 28 to Dec 31, and every boost still has to earn 10 MOVEMENT comments first.",
+      "owner": "Dr. Omavi",
+      "due": "2026-09-28",
+      "unlocks": "The first boosts"
+    },
+    {
+      "kind": "decision",
+      "title": "Decide who presses Boost",
+      "detail": "Either Dr. Omavi boosts from his own ad account when the Friday note says a post cleared the gate, or Venelt runs Ads Manager with a card and the caps in writing.",
+      "owner": "Dr. Omavi",
+      "due": "2026-09-28",
+      "unlocks": "Spend and results"
+    },
+    {
+      "kind": "data",
+      "title": "The METO Movement account's handle",
+      "detail": "The handle is not written down anywhere yet. We need it to track the account and to set up the ad audiences.",
+      "owner": "Nehanda",
+      "unlocks": "The METO account's numbers"
+    },
+    {
+      "kind": "data",
+      "title": "Friday counts: sign-ups, applications and seats",
+      "detail": "Curriculum sign-ups from Teachable or the METO app, pilgrimage applications from the metomovement.com form, and confirmed seats. One message every Friday is enough.",
+      "owner": "Nehanda",
+      "due": "Every Friday",
+      "unlocks": "The funnel and Q4 goals"
+    },
+    {
+      "kind": "access",
+      "title": "Confirm the ManyChat MOVEMENT flow is live",
+      "detail": "Sources disagree on whether ManyChat is on a paid plan. The MOVEMENT keyword only sends the course link by DM when the flow is live, and it is what we count for the boost gate.",
+      "owner": "Nehanda",
+      "unlocks": "MOVEMENT comments, links sent"
+    },
+    {
+      "kind": "decision",
+      "title": "Yes or no on two pieces waiting on you",
+      "detail": "How to Draw the Star (filming Oct 5 only if you say yes on Sep 28) and the DNA piece, 'Where I'm From'.",
+      "owner": "Dr. Omavi",
+      "due": "2026-09-28",
+      "unlocks": "Oct 5 filming"
+    },
+    {
+      "kind": "decision",
+      "title": "12 modules or 13?",
+      "detail": "The site and the course plan say 12. The app shows 13 module films. Ads and captions will use whichever number you confirm.",
+      "owner": "Nehanda",
+      "unlocks": "Ad and caption copy"
+    }
+  ]
+}

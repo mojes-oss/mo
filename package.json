@@ -1,0 +1,21 @@
+{
+  "name": "prometra-weekly",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Weekly Instagram, content and ads report for PROMETRA USA and the METO Movement, with a screen-by-screen map of the METO app.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --strict",
+    "test": "node --test tests/import.test.mjs",
+    "sample": "node scripts/make-sample.mjs",
+    "new-week": "node scripts/new-week.mjs",
+    "import:insights": "node scripts/import-insights.mjs",
+    "import:ads": "node scripts/import-ads.mjs",
+    "fetch:instagram": "node scripts/fetch-instagram.mjs",
+    "serve": "npm run build && npx --yes serve dist"
+  }
+}

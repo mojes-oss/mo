@@ -1,0 +1,151 @@
+{
+  "source": "Q4 Playbook (Sep 24) and Google Drive scripts",
+  "series": [
+    {
+      "id": "meto-curriculum-anchor",
+      "name": "METO: the curriculum is the anchor",
+      "summary": "Every movement post ends at the free course. Posts go out on the METO Movement account, @prometrausa and @dromavi.",
+      "account": "METO Movement, @prometrausa, @dromavi",
+      "cta": "Comment MOVEMENT",
+      "source": "Q4 Playbook campaigns (Sep 24)",
+      "items": [
+        {
+          "code": "mto-01",
+          "title": "Restore Your Humanity (CTA video A)",
+          "status": "to film",
+          "order": 1,
+          "note": "First post Oct 2"
+        },
+        {
+          "code": "mto-02",
+          "title": "Back to the Source (CTA video B)",
+          "status": "to film",
+          "order": 2,
+          "note": "First post Oct 14"
+        },
+        {
+          "code": "mto-03",
+          "title": "The Oldest Kingdom and The Capital That Came Home",
+          "status": "in edit",
+          "order": 3,
+          "note": "First post Sep 30"
+        },
+        {
+          "code": "mto-04",
+          "title": "Healing the African Way: five plant videos",
+          "status": "ready",
+          "order": 4,
+          "note": "First post Oct 13"
+        },
+        {
+          "code": "mto-05",
+          "title": "How to Breathe",
+          "status": "to film",
+          "order": 5,
+          "note": "First post Oct 14"
+        },
+        {
+          "code": "mto-06",
+          "title": "How to Draw the Star",
+          "status": "needs approval",
+          "order": 6,
+          "note": "First post Nov 10"
+        },
+        {
+          "code": "mto-07",
+          "title": "Movement Voice, weekly",
+          "status": "to film",
+          "order": 7,
+          "note": "First post Oct 12"
+        },
+        {
+          "code": "mto-08",
+          "title": "Post This, Tag Us: campus ambassador kit",
+          "status": "to film",
+          "order": 8,
+          "note": "First post Oct 16"
+        },
+        {
+          "code": "mto-09",
+          "title": "Where I'm From: the DNA piece",
+          "status": "needs approval",
+          "order": 9,
+          "note": "First post Dec 7"
+        },
+        {
+          "code": "mto-10",
+          "title": "Made on the Continent",
+          "status": "to film",
+          "order": 10,
+          "note": "First post Oct 28"
+        }
+      ]
+    },
+    {
+      "id": "afr-africa-2027",
+      "name": "Dr. Omavi goes to Africa",
+      "summary": "Set the stage before January, film the trip, and bring it back fast.",
+      "account": "METO Movement, @prometrausa, @dromavi",
+      "cta": "Comment MOVEMENT",
+      "source": "Q4 Playbook campaigns (Sep 24)",
+      "items": [
+        {
+          "code": "afr-01",
+          "title": "'Dr. Omavi goes to Africa', 6 episodes",
+          "status": "to film",
+          "order": 1,
+          "note": "First post Oct 19"
+        },
+        {
+          "code": "afr-02",
+          "title": "Series trailer 'I'm going back'",
+          "status": "in edit",
+          "order": 2,
+          "note": "First post Oct 12"
+        },
+        {
+          "code": "afr-03",
+          "title": "The story interview",
+          "status": "needs approval",
+          "order": 3,
+          "note": "First post Nov 9"
+        },
+        {
+          "code": "afr-04",
+          "title": "The people I come from, and the DNA reveal",
+          "status": "needs approval",
+          "order": 4,
+          "note": "First post Nov 30"
+        },
+        {
+          "code": "afr-05",
+          "title": "'I'm taking fifty people home'",
+          "status": "to film",
+          "order": 5,
+          "note": "First post Oct 21"
+        },
+        {
+          "code": "afr-06",
+          "title": "December: getting ready",
+          "status": "to film",
+          "order": 6,
+          "note": "First post Dec 28"
+        },
+        {
+          "code": "afr-07",
+          "title": "Daily 'Day N' reels from the trip",
+          "status": "to film",
+          "order": 7,
+          "note": "First post Jan 5 2027"
+        },
+        {
+          "code": "afr-08",
+          "title": "The trip film 'The Way Home'",
+          "status": "to film",
+          "order": 8,
+          "note": "First post Feb 8 2027"
+        }
+      ]
+    }
+  ]
+}

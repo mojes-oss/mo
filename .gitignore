@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+# Raw exports from Meta can hold other accounts' data; keep them out of git.
+imports/
+*.csv
+!tests/fixtures/*.csv
+.env
